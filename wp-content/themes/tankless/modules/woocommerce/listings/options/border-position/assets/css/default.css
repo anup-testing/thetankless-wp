@@ -1,0 +1,8 @@
+
+/*--------------------------------------------------------------*/
+    /* #region - Product Listing - Border Options */
+/*--------------------------------------------------------------*/
+
+    .woocommerce ul.products.product-border-type-default.product-border-position-default li.product .product-details { padding: 0 15px 25px; }
+
+ /* #endregion - Product Listing - Border Options */

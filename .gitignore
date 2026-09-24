@@ -1,0 +1,19 @@
+# Ignore everything in the root (wp-admin, wp-includes, wp-*.php, index.php, etc.)
+/*
+
+# ...except these
+!/.gitignore
+!/wp-content/
+
+# Inside wp-content, still ignore these
+/wp-content/wpvividbackups/
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/wflogs/
+/wp-content/ai1wm-backups/
+
+# Archives & logs anywhere
+*.zip
+*.log
+*.sql

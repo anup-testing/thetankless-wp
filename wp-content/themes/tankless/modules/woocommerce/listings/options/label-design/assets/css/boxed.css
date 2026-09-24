@@ -1,0 +1,50 @@
+    
+/*--------------------------------------------------------------*/
+    /* #region - Product Listing Labels */
+/*--------------------------------------------------------------*/    
+    
+    .woocommerce ul.products.product-label-boxed li.product .product-labels { left: 0; top: 20px; }
+
+    .woocommerce ul.products.product-label-boxed li.product .product-labels>span {
+        display: inline-flex;
+        height: max-content;
+        line-height: normal;
+        min-width: 50px;
+        text-align: left;
+        vertical-align: middle;
+        min-height: auto;
+        padding: 10px 15px 10px;
+        border-radius: 0 var(--wdtRadius_Part) var(--wdtRadius_Part) 0;
+        float: left;
+        max-width: 100px;
+        overflow: hidden;
+    }
+    .woocommerce ul.products.product-label-boxed li.product .product-labels >span > span{
+        width: min-content;
+        text-wrap: nowrap;
+        animation: move 3s infinite linear;
+    }
+    @keyframes move{
+        100%{
+            transform: translateX(-100%);
+        }
+    }
+
+    .woocommerce ul.products.product-label-boxed li.product .product-labels span span { padding: 0 10px; }
+
+    .woocommerce ul.products.product-label-boxed li.product .product-labels>span.out-of-stock {
+        /* display: table; */
+        font-size: var(--wdtFontSize_Ext);
+        overflow: hidden;
+        color: var(--wdtHeadAltColor);
+    }
+    .woocommerce ul.products.product-label-boxed[class*="wdt-custom-template-type-2"] li.product .product-labels > span.onsale { max-width: 75px; }
+    .woocommerce ul.products.product-label-boxed[class*="wdt-custom-template-type-2"] li.product .product-labels > span.out-of-stock { max-width: 10px; }
+
+    .woocommerce ul.products.product-label-boxed li.product .product-labels > span.out-of-stock > span { height: 100%; }
+
+    /* .woocommerce ul.products.product-label-boxed li.product .product-labels .onsale, .woocommerce ul.products.product-label-boxed li.product .product-labels .out-of-stock { border-radius: 0; } */
+
+    .woocommerce ul.products.product-label-boxed li.product .product-labels > span:not(:last-child) { margin-bottom: 15px; }
+    
+/* #endregion - Product Listing Labels */    

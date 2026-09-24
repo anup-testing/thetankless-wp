@@ -1,0 +1,67 @@
+.suggested-product-list { display: grid;
+    margin: 0; min-height: 130px; max-width: 340px; min-width: 340px; position: fixed; bottom: 30px; left: 30px;
+    width: auto; z-index: 9; -webkit-transition: all 0.3s linear; transition: all 0.3s linear; padding: 0; z-index: 99; }
+
+.suggested-product-list .suggested-product-data { -webkit-box-shadow: 0 0; box-shadow: 0 0;
+    display: flex; justify-content: flex-start; height: 100%; margin: 0; padding: clamp(0.625rem, 0.4808rem + 0.641vw, 1.25rem); 
+    -webkit-transition: transform 375ms cubic-bezier(0.7, 0, 0.3, 1), opacity .3s linear; transition: transform 375ms cubic-bezier(0.7, 0, 0.3, 1), opacity .3s linear; grid-area: 1/-1;
+    align-items: center; background-color: var(--wdtTertiaryColor); transform: translateY(200px); -webkit-transform: translateY(200px); opacity: 0; }
+
+.suggested-product-list .suggested-product-data.active { transform: translateY(0); -webkit-transform: translateY(0); opacity: 1; }
+
+.suggested-product-list .suggested-product-data > * a { display: block; }
+.suggested-product-list .suggested-product-data > * a img { display: block; width: 90px; background-color: var(--wdtQuaternaryColor);  }
+
+.suggested-product-list .suggested-product-data .suggested-product-image { flex: 1; }
+.suggested-product-list .suggested-product-data .suggested-product-content { padding-left: clamp(0.625rem, 0.4808rem + 0.641vw, 1.25rem); flex: 3;
+    display: flex; align-items: flex-start; flex-direction: column; justify-content: flex-start; }
+
+
+.suggested-product-list .suggested-product-data .suggested-product-content span { font-size: calc(var(--wdtFontSize_Ext) - 1px); font-weight: 400; margin-bottom: 4px; }
+.suggested-product-list .suggested-product-data .suggested-product-content a { 
+    font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_H6); line-height: normal; font-family: var(--wdtFontTypo_Alt); text-transform: capitalize; }
+.suggested-product-list .suggested-product-data .suggested-product-content .suggested-product-time { 
+    font-size: calc(var(--wdtFontSize_Ext) - 1px); font-weight: 400; margin: 0; margin-top: 10px; line-height: normal; position: relative;
+    font-family: var(--wdtFontTypo_Alt); color: var(--wdtHeadAltColor); }
+
+
+/* Close Button Style */
+
+.suggested-product-list .suggested-product-data a.wdt_close i { font-size: 0; }
+
+.suggested-product-list .suggested-product-data a.wdt_close { 
+    height: 30px; position: absolute; right: 5px; top: 5px; text-align: center; width: 30px; font-size: 1em; 
+    display: flex; align-items: center; justify-content: center; border-radius: var(--wdtRadius_Full); -webkit-border-radius: var(--wdtRadius_Full); }
+
+.suggested-product-list .suggested-product-data a.wdt_close {
+    isolation: isolate;
+    background-color: var(--wdtPrimaryColor);
+    background-image: linear-gradient(45deg, var(--wdtSecondaryColor), var(--wdtPrimaryColor), var(--wdtPrimaryColor), var(--wdtSecondaryColor));
+    background-size: 300% auto; 
+    color: var(--wdtAccentTxtColor); }
+.suggested-product-list .suggested-product-data a.wdt_close:hover { background-position: 100%; }
+.suggested-product-list .suggested-product-data a.wdt_close:before, 
+.suggested-product-list .suggested-product-data a.wdt_close:after{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: black;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transition: var(--wdt-Ad-Transition);
+    -webkit-transition: var(--wdt-Ad-Transition);
+}
+.suggested-product-list .suggested-product-data a.wdt_close:after { transform: rotate(-45deg); }
+.suggested-product-list .suggested-product-data a.wdt_close:hover:before, 
+.suggested-product-list .suggested-product-data a.wdt_close:hover:after{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .suggested-product-list { max-width: 280px; min-width: 280px; position: fixed; bottom: 14px; left: 14px; }
+    .suggested-product-list .suggested-product-data { padding: 10px; }
+    .suggested-product-list .suggested-product-data .suggested-product-content a { font-size: 1rem; }
+}

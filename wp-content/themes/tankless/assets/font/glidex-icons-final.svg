@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2024 by original authors @ fontello.com</metadata>
+<defs>
+<font id="glidex-icons-final" horiz-adv-x="1000" >
+<font-face font-family="glidex-icons-final" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="rating-star" unicode="&#xe800;" d="M500 840l-122-368h-368l306-246-122-366 306 244 306-246-122 368 306 246h-368l-122 368z" horiz-adv-x="1000" />
+
+<glyph glyph-name="arrow-left" unicode="&#xe801;" d="M946-140h-410l-490 490 490 490h410l-488-490 488-490z" horiz-adv-x="1000" />
+
+<glyph glyph-name="arrow-right" unicode="&#xe802;" d="M54-140h410l490 490-490 490h-410l488-490-488-490z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

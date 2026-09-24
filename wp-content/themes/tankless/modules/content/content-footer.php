@@ -1,0 +1,1 @@
+<?php echo apply_filters( 'glidex_footer_get_template_part', glidex_get_template_part( 'footer', 'templates/footer', '', array() ) ); ?>

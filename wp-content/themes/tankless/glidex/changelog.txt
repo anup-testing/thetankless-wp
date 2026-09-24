@@ -1,0 +1,23 @@
+*** Glidex WordPress Theme Changelog ***
+
+Version 1.0.3
+
+    * Fixed : Notice error
+    * Added: Global Product Template For Single Product Page
+    * Fixed Minor Bugs
+    * Compatible with Latest Elementor Version
+    * Compatible with Latest Wordpress Version
+
+Version 1.0.2
+
+    * Fixed Demo import
+
+Version 1.0.1
+
+    * RTL Demo added
+    * Compatible with Latest Elementor Version
+    * Fixed Menu warning
+
+Version 1.0.0
+
+    * First release!
