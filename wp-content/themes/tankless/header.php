@@ -63,6 +63,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <?php do_action( 'glidex_hook_content_before' ); ?>
 
             <!-- ** Header Wrapper ** -->
+            <?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) : ?>
             <div id="header-wrapper" class="<?php echo esc_attr( glidex_get_header_wrapper_classes() ); ?>">
 
                 <!-- **Header** -->
@@ -79,6 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- ** Breadcrumb End ** -->
 
             </div><!-- ** Header Wrapper - End ** -->
+            <?php endif; ?>
 
             <!-- **Main** -->
             <div id="main">

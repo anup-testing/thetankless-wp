@@ -89,67 +89,57 @@ if( !class_exists( 'Glidex_Loader' ) ) {
         function ocdi_import_files(){
             return array(
                 array(
-                    'import_file_name'           => 'Default Demo',
+                    'import_file_name'           => 'Tankless Demo',
                     'import_file_url'            => GLIDEX_ROOT_URI.'/ocdi/theme-content.xml',
                     'import_customizer_file_url' => GLIDEX_ROOT_URI.'/ocdi/theme-customizer.dat',
                     'import_preview_image_url'   => GLIDEX_ROOT_URI.'/screenshot.png',
-                    'import_notice'              => __( 'After you import this demo, you will have to setup the slider separately.', 'glidex' ),
-                    'preview_url'                => 'https://glidex.wpengine.com/',
+                    'import_notice'              => __( 'This imports the actual thetankless.ca content (pages, Elementor templates, headers/footers, menus, media).', 'glidex' ),
+                    'preview_url'                => 'https://thetankless.ca/',
                 ),
-                array(
-                    'import_file_name'           => 'RTL Demo',
-                    'import_file_url'            => GLIDEX_ROOT_URI . '/ocdi/rtl-theme-content.xml',
-                    'import_customizer_file_url' => GLIDEX_ROOT_URI . '/ocdi/theme-customizer.dat',
-                    'import_preview_image_url'   => GLIDEX_ROOT_URI . '/rtl-screenshot.png',
-                    'import_notice'              => __('After you import this demo, you will have to setup the slider separately.', 'glidex'),
-                    'preview_url'                => 'https://glidex.wpengine.com/rtl-demo/',
-                )
             );
         }
 
         function modify_xml_file()
         {
             $themeRootDirUri = get_template_directory_uri() . '/ocdi/uploads/';
-            $themeRootDirUri1 = get_template_directory_uri();
             $themeRootDir = get_template_directory();
-            $themeName = basename($themeRootDir);
 
-            $xmlFiles = [
-                $themeRootDir . '/ocdi/theme-content.xml',
-                $themeRootDir . '/ocdi/rtl-theme-content.xml'
+            // Source domains that may appear in the bundled export, oldest/most-specific first
+            // so upload-path rules run before the bare-domain fallback rules below.
+            $sourceDomains = [
+                'http://localhost/the-tankless',
+                'http://localhost/thetankless',
+                'https://thetankless.ca',
             ];
 
-            foreach ($xmlFiles as $xmlFilePath) {
-                if (file_exists($xmlFilePath)) {
-                    $dom = new DOMDocument();
-                    $dom->load($xmlFilePath);
-                    $xmlContent = $dom->saveXML();
-                    $replacements = [
-                        '<wp:attachment_url><![CDATA[https://glidex.wpengine.com/wp-content/uploads/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
-                        '<wp:attachment_url><![CDATA[https://glidex.wpengine.com/rtl-demo/wp-content/uploads/sites/5/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
-                        '<wp:meta_value><![CDATA[https://glidex.wpengine.com' => '<wp:meta_value><![CDATA[' . home_url(),
-                        'src="https://glidex.wpengine.com/wp-content/uploads/' => 'src="' . $themeRootDirUri,
-                        'src="https://glidex.wpengine.com/rtl-demo/wp-content/uploads/' => 'src="' . $themeRootDirUri,
-                        '<guid isPermaLink="false">https://glidex.wpengine.com/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
-                        '<guid isPermaLink="false">https://glidex.wpengine.com/rtl-demo/wp-content/uploads/uploads/sites/5/' => '<guid isPermaLink="false">' . $themeRootDirUri,
-                        '<link>https://glidex.wpengine.com/rtl-demo' => '<link>' .  home_url(),
-                        '<link>https://glidex.wpengine.com' => '<link>' .  home_url(),
-                        'href="https://glidex.wpengine.com' => 'href="' . home_url(),
-                        'https:\/\/glidex.wpengine.com' => home_url(),
-                        '\/wp-content\/uploads' => '\/wp-content\/themes\/' . $themeName . '\/ocdi\/assets',
-                        '\/rtl-demo' => '',
-                        'rtl-demo/' => '',
-                        'sites/5/' => '',
-                        '/rtl-demo' => '',
-                        'https://glidex.wpengine.com' => home_url(),
-                    ];
-                    foreach ($replacements as $oldUrl => $newUrl) {
-                        $xmlContent = str_replace($oldUrl, $newUrl, $xmlContent);
-                    }
-                    $dom->loadXML($xmlContent);
-                    $dom->save($xmlFilePath);
-                } else {
+            $xmlFilePath = $themeRootDir . '/ocdi/theme-content.xml';
+
+            if (file_exists($xmlFilePath)) {
+                $dom = new DOMDocument();
+                $dom->load($xmlFilePath);
+                $xmlContent = $dom->saveXML();
+
+                $replacements = [];
+                foreach ($sourceDomains as $domain) {
+                    // Media references: point at the demo images bundled with the theme.
+                    $replacements['<wp:attachment_url><![CDATA[' . $domain . '/wp-content/uploads/'] = '<wp:attachment_url><![CDATA[' . $themeRootDirUri;
+                    $replacements['src="' . $domain . '/wp-content/uploads/'] = 'src="' . $themeRootDirUri;
+                    $replacements['<guid isPermaLink="false">' . $domain . '/wp-content/uploads/'] = '<guid isPermaLink="false">' . $themeRootDirUri;
+                    $replacements['<wp:meta_value><![CDATA[' . $domain . '/wp-content/uploads/'] = '<wp:meta_value><![CDATA[' . $themeRootDirUri;
                 }
+                foreach ($sourceDomains as $domain) {
+                    // Everything else (internal links, guids, meta values): point at the new site.
+                    $replacements['<link>' . $domain] = '<link>' . home_url();
+                    $replacements['href="' . $domain] = 'href="' . home_url();
+                    $replacements['<wp:meta_value><![CDATA[' . $domain] = '<wp:meta_value><![CDATA[' . home_url();
+                    $replacements[$domain] = home_url();
+                }
+
+                foreach ($replacements as $oldUrl => $newUrl) {
+                    $xmlContent = str_replace($oldUrl, $newUrl, $xmlContent);
+                }
+                $dom->loadXML($xmlContent);
+                $dom->save($xmlFilePath);
             }
         }
 
@@ -620,4 +610,8 @@ if( !class_exists( 'Glidex_Loader' ) ) {
     }
 
     Glidex_Loader::instance();
+
+    if ( file_exists( GLIDEX_ROOT_DIR . '/inc/tankless-elementor.php' ) ) {
+        require_once GLIDEX_ROOT_DIR . '/inc/tankless-elementor.php';
+    }
 }
