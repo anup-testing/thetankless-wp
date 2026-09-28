@@ -484,27 +484,27 @@
 	/* Layout Responsive */
 
 	@media (max-width: 1540px) {
-		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container { 
-			padding: 0 30px; width: 100%; max-width: 1460px; /* Laptop - Container*/ }
+		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container {
+			width: 100%; max-width: 1460px; /* Laptop - Container*/ }
 		body .container .elementor-section.elementor-section-boxed > .elementor-container { padding: 0; }
 	}
 	
 	@media (min-width: 1281px) {
 		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed.wdt-no-full-section > .elementor-container,
-		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container { 
-			padding: 0 30px; }
+		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container {
+			}
 		body .container .elementor-section.elementor-section-boxed > .elementor-container { padding: 0; }
 	}
 	@media (min-width: 1025px) and (max-width: 1280px) {
 		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed.wdt-no-full-section > .elementor-container,
-		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container { 
-			padding: 0 30px; }
+		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container {
+			}
 		body .container .elementor-section.elementor-section-boxed > .elementor-container { padding: 0; }
 	}
 	@media (max-width: 1024px) {
 		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed.wdt-no-full-section > .elementor-container,
-		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container { 
-			padding: 0 20px; }
+		body .container, body .wdt-elementor-container-fluid .elementor-section.elementor-section-boxed:not(.wdt-no-full-section) > .elementor-container {
+			}
 		body .container .elementor-section.elementor-section-boxed > .elementor-container { padding: 0; }
 	}
 

@@ -1,0 +1,70 @@
+/*
+ * Scroll-reveal + stat-counter styling.
+ * Pairs with assets/js/animations.js, which toggles the `is-visible` class
+ * via IntersectionObserver (no GSAP/ScrollTrigger dependency).
+ */
+
+.tankless-reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.tankless-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tankless-reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+.tankless-counter {
+	font-size: 3rem;
+	font-weight: 800;
+	color: var(--wp--preset--color--primary);
+	line-height: 1;
+}
+
+/* Native contact form (no Contact Form 7) */
+.tankless-contact-form label {
+	color: var(--wp--preset--color--body-text);
+	font-weight: 600;
+}
+
+.tankless-contact-form input,
+.tankless-contact-form textarea {
+	width: 100%;
+	margin-top: 0.35rem;
+	padding: 0.75rem 1rem;
+	background: var(--wp--preset--color--body-bg);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 6px;
+	color: var(--wp--preset--color--heading);
+	font-family: inherit;
+	font-size: 1rem;
+}
+
+.tankless-contact-form input:focus,
+.tankless-contact-form textarea:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--primary);
+}
+
+.tankless-contact-form button {
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--accent-black);
+	border: none;
+	border-radius: 6px;
+	padding: 0.9rem 1.75rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.tankless-contact-form button:hover {
+	background: var(--wp--preset--color--secondary);
+}

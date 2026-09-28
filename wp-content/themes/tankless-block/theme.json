@@ -1,0 +1,131 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "800px",
+			"wideSize": "1700px"
+		},
+		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultPalette": false,
+			"palette": [
+				{ "slug": "primary", "name": "Primary (cyan)", "color": "#29aae2" },
+				{ "slug": "secondary", "name": "Secondary (blue)", "color": "#007aff" },
+				{ "slug": "body-bg", "name": "Body Background", "color": "#1b1b1b" },
+				{ "slug": "tertiary", "name": "Tertiary Surface", "color": "#252525" },
+				{ "slug": "quaternary", "name": "Quaternary Surface", "color": "#333333" },
+				{ "slug": "body-text", "name": "Body Text", "color": "#c1c1c1" },
+				{ "slug": "heading", "name": "Heading / White", "color": "#ffffff" },
+				{ "slug": "border", "name": "Border", "color": "#424242" },
+				{ "slug": "accent-black", "name": "Accent Black", "color": "#000000" }
+			],
+			"gradients": [
+				{
+					"slug": "primary-to-secondary",
+					"name": "Primary to Secondary",
+					"gradient": "linear-gradient(135deg, #29aae2, #007aff)"
+				}
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Inter\", sans-serif",
+					"slug": "inter",
+					"name": "Inter",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "300 800",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [ "file:./assets/fonts/Inter-Variable.woff2" ]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "Small", "size": "0.9rem" },
+				{ "slug": "medium", "name": "Medium", "size": "1.125rem" },
+				{ "slug": "large", "name": "Large", "size": "1.5rem" },
+				{ "slug": "x-large", "name": "X-Large", "size": "2.25rem" },
+				{ "slug": "xx-large", "name": "XX-Large", "size": "3.25rem" }
+			]
+		},
+		"spacing": {
+			"customSpacingSize": false,
+			"units": [ "px", "%", "em", "rem", "vw" ],
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{ "slug": "20", "size": "0.5rem", "name": "1" },
+				{ "slug": "30", "size": "1rem", "name": "2" },
+				{ "slug": "40", "size": "1.5rem", "name": "3" },
+				{ "slug": "50", "size": "2.5rem", "name": "4" },
+				{ "slug": "60", "size": "4.5rem", "name": "5" },
+				{ "slug": "70", "size": "7rem", "name": "6" }
+			]
+		},
+		"blocks": {
+			"core/button": {
+				"border": { "radius": true }
+			}
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--body-bg)",
+			"text": "var(--wp--preset--color--body-text)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"link": {
+				"color": { "text": "var(--wp--preset--color--heading)" },
+				":hover": {
+					"color": { "text": "var(--wp--preset--color--primary)" }
+				}
+			},
+			"heading": {
+				"color": { "text": "var(--wp--preset--color--heading)" },
+				"typography": { "fontWeight": "700" }
+			},
+			"button": {
+				"color": {
+					"text": "var(--wp--preset--color--accent-black)",
+					"background": "var(--wp--preset--color--primary)"
+				},
+				"border": { "radius": "6px" },
+				"spacing": {
+					"padding": { "top": "0.9rem", "bottom": "0.9rem", "left": "1.75rem", "right": "1.75rem" }
+				},
+				":hover": {
+					"color": { "background": "var(--wp--preset--color--secondary)" }
+				}
+			}
+		},
+		"spacing": {
+			"blockGap": "1.5rem"
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "Header", "area": "header" },
+		{ "name": "footer", "title": "Footer", "area": "footer" }
+	],
+	"customTemplates": [
+		{ "name": "front-page", "title": "Front Page" },
+		{ "name": "page-about", "title": "About", "postTypes": [ "page" ] },
+		{ "name": "page-blog", "title": "Blog", "postTypes": [ "page" ] },
+		{ "name": "page-contact", "title": "Contact", "postTypes": [ "page" ] }
+	]
+}

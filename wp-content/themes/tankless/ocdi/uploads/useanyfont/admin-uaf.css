@@ -1,0 +1,12 @@
+				@font-face {
+					font-family: 'hiragino-kaku-gothic';
+					src: url('/wp-content/uploads/useanyfont/7192Hiragino-Kaku-Gothic.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/7192Hiragino-Kaku-Gothic.woff') format('woff');
+						  font-display: auto;
+				}
+
+				.hiragino-kaku-gothic{font-family: 'hiragino-kaku-gothic' !important;}
+
+				.et_gf_hiragino-kaku-gothic{background:none !important;font-family:hiragino-kaku-gothic;text-indent:0 !important;font-size:25px;}
+
+		

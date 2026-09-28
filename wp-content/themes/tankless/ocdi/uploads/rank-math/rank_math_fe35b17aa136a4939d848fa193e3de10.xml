@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//thetankless.ca/main-sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://thetankless.ca/blog/</loc>
+		<lastmod>2025-10-08T11:22:17+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://thetankless.ca/10-ways-to-extend-the-lifespan-of-your-tankless-water-heater/</loc>
+		<lastmod>2026-08-04T13:45:03+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://thetankless.ca/hot-water-not-hot-enough-switch-to-the-tankless-solution/</loc>
+		<lastmod>2026-08-04T13:45:00+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://thetankless.ca/how-do-tankless-water-heaters-work/</loc>
+		<lastmod>2026-08-04T13:44:52+00:00</lastmod>
+	</url>
+</urlset>

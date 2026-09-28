@@ -1,0 +1,9 @@
+Date;Level;Message
+"2026-03-09 10:32:53";NOTICE;"Plugin activated: nitropack/main.php"
+"2026-03-09 10:33:17";NOTICE;"Verifying connection to NitroPack API"
+"2026-03-09 10:33:21";NOTICE;"NitroPack connected"
+"2026-03-09 10:35:58";NOTICE;"Plugin deactivated: wp-optimize/wp-optimize.php"
+"2026-03-09 10:41:07";NOTICE;"Test mode is disabled"
+"2026-03-09 10:41:10";NOTICE;"Light purge of all caches"
+"2026-03-09 10:58:20";NOTICE;"Manual purge of post -1 via WordPress."
+"2026-03-09 11:00:55";NOTICE;"Manual purge of post -1 via WordPress."

@@ -1,0 +1,16 @@
+				@font-face {
+					font-family: 'hiragino-kaku-gothic';
+					src: url('/wp-content/uploads/useanyfont/7192Hiragino-Kaku-Gothic.woff2') format('woff2'),
+						url('/wp-content/uploads/useanyfont/7192Hiragino-Kaku-Gothic.woff') format('woff');
+					  font-display: auto;
+				}
+
+				.hiragino-kaku-gothic{font-family: 'hiragino-kaku-gothic' !important;}
+
+						h1, h2, h3, h4, h5, h6, .entry-title, body.single-post .entry-title, body.page .entry-title, body.category .entry-title, .widget-title, .site-title, .site-description, body, p, blockquote, li, a, strong, b, em, .menu-main-menu-container li a, .menu-main-menu-container li span, #menu-main-menu li a, #menu-main-menu li span, .menu-my-menu-container li a, .menu-my-menu-container li span, #menu-my-menu li a, #menu-my-menu li span, .menu-wdt-hamburger-menu-container li a, .menu-wdt-hamburger-menu-container li span, #menu-wdt-hamburger-menu li a, #menu-wdt-hamburger-menu li span, .menu-wp-landing-menu-container li a, .menu-wp-landing-menu-container li span, #menu-wp-landing-menu li a, #menu-wp-landing-menu li span{
+					font-family: 'hiragino-kaku-gothic' !important;
+				}
+						span.wdt-content-counter-suffix, .wdt-content-title{
+					font-family: 'hiragino-kaku-gothic' !important;
+				}
+		
