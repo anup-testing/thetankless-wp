@@ -26,8 +26,14 @@ function tankless_register_elementor_locations( $location_manager ) {
 		return;
 	}
 
-	$location_manager->register_location( 'header' );
-	$location_manager->register_location( 'footer' );
+	// edit_in_content: false - don't let Editor V2 offer an in-place "enter
+	// this template" transition into the header/footer from inside another
+	// document's editor. That transition is what gets the editor stuck
+	// showing the header/footer's document (and its empty Structure tree)
+	// instead of the page actually being edited. Front-end/preview
+	// rendering via elementor_theme_do_location() is unaffected either way.
+	$location_manager->register_location( 'header', [ 'edit_in_content' => false ] );
+	$location_manager->register_location( 'footer', [ 'edit_in_content' => false ] );
 }
 
 if ( class_exists( '\ElementorPro\Modules\ThemeBuilder\Module' ) ) {

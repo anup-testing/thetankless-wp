@@ -14,7 +14,7 @@
     z-index: -1;
 }
 
-#header-wrapper { float: left; margin: 0 0 150px; padding: 0; position: relative; width: 100%; }
+#header-wrapper { float: left; margin: 0; padding: 0; position: relative; width: 100%; }
 #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
 
 #header { float: left; margin: 0; padding: 0; position: relative; width: 100%; z-index: 10; }
@@ -759,23 +759,23 @@ Responsive
 
 /* Header Margin Start */
 
-    @media only screen and (min-width:1281px) and (max-width:1540px) { 
-        #header-wrapper { margin: 0 0 120px; }
+    @media only screen and (min-width:1281px) and (max-width:1540px) {
+        #header-wrapper { margin: 0; }
         #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
      }
-    @media only screen and (min-width:1025px) and (max-width:1280px) { 
-        #header-wrapper { margin: 0 0 100px; }
+    @media only screen and (min-width:1025px) and (max-width:1280px) {
+        #header-wrapper { margin: 0; }
         #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
     }
-    @media only screen and (min-width:768px) and (max-width:1024px) { 
-        #header-wrapper { margin: 0 0 80px; }
+    @media only screen and (min-width:768px) and (max-width:1024px) {
+        #header-wrapper { margin: 0; }
         #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
     }
-    @media only screen and (min-width:480px) and (max-width:767px) { 
-        #header-wrapper { margin: 0 0 70px; } 
+    @media only screen and (min-width:480px) and (max-width:767px) {
+        #header-wrapper { margin: 0; }
         #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
     }
-    @media only screen and (max-width: 479px) { 
-        #header-wrapper { margin: 0 0 60px; } 
+    @media only screen and (max-width: 479px) {
+        #header-wrapper { margin: 0; }
         #header-wrapper:has(#header + .main-title-section-wrapper) { margin-bottom: 0; }
     }
