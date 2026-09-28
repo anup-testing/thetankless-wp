@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Others' ) ) {
+if( !class_exists( 'Tankless_Woo_Others' ) ) {
 
-    class Glidex_Woo_Others {
+    class Tankless_Woo_Others {
 
         private static $_instance = null;
 
@@ -54,7 +54,7 @@ if( !class_exists( 'Glidex_Woo_Others' ) ) {
 
                 );
 
-                $this->settings = apply_filters( 'glidex_woo_others_settings', $this->settings );
+                $this->settings = apply_filters( 'tankless_woo_others_settings', $this->settings );
 
                 return $this->settings;
 
@@ -84,7 +84,7 @@ if( !class_exists( 'Glidex_Woo_Others' ) ) {
 					if( is_array( $custom_modules ) && !empty( $custom_modules ) ) {
 						foreach( $custom_modules as $custom_module ) {
 
-							if( $file_path = glidex_woo_locate_file( $custom_module ) ) {
+							if( $file_path = tankless_woo_locate_file( $custom_module ) ) {
 								include_once $file_path;
 							}
 
@@ -97,10 +97,10 @@ if( !class_exists( 'Glidex_Woo_Others' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_others') ) {
-	function glidex_woo_others() {
-		return Glidex_Woo_Others::instance();
+if( !function_exists('tankless_woo_others') ) {
+	function tankless_woo_others() {
+		return Tankless_Woo_Others::instance();
 	}
 }
 
-glidex_woo_others();
+tankless_woo_others();

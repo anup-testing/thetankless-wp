@@ -1,7 +1,7 @@
 <?php
 
-if( !function_exists('glidex_single_post_params_default') ) {
-    function glidex_single_post_params_default() {
+if( !function_exists('tankless_single_post_params_default') ) {
+    function tankless_single_post_params_default() {
         $params = array(
             'enable_title'   		 => 0,
             'enable_image_lightbox'  => 0,
@@ -16,11 +16,11 @@ if( !function_exists('glidex_single_post_params_default') ) {
     }
 }
 
-if( !function_exists('glidex_single_post_misc_default') ) {
-    function glidex_single_post_misc_default() {
+if( !function_exists('tankless_single_post_misc_default') ) {
+    function tankless_single_post_misc_default() {
         $params = array(
             'enable_related_article'=> 0,
-            'rposts_title'   		=> esc_html__('Related Posts', 'glidex'),
+            'rposts_title'   		=> esc_html__('Related Posts', 'tankless'),
             'rposts_column'         => 'one-third-column',
             'rposts_count'          => 3,
             'rposts_excerpt'        => 0,
@@ -33,86 +33,86 @@ if( !function_exists('glidex_single_post_misc_default') ) {
     }
 }
 
-if( !function_exists('glidex_single_post_params') ) {
-    function glidex_single_post_params() {
-        $params = glidex_single_post_params_default();
-        return apply_filters( 'glidex_single_post_params', $params );
+if( !function_exists('tankless_single_post_params') ) {
+    function tankless_single_post_params() {
+        $params = tankless_single_post_params_default();
+        return apply_filters( 'tankless_single_post_params', $params );
     }
 }
 
-add_action( 'glidex_after_main_css', 'post_style' );
+add_action( 'tankless_after_main_css', 'post_style' );
 function post_style() {
     if( is_singular('post') || is_attachment() ) {
-        wp_enqueue_style( 'glidex-post', get_theme_file_uri('/modules/post/assets/css/post.css'), false, GLIDEX_THEME_VERSION, 'all');
+        wp_enqueue_style( 'tankless-post', get_theme_file_uri('/modules/post/assets/css/post.css'), false, TANKLESS_THEME_VERSION, 'all');
 
-        $post_style = glidex_get_single_post_style( get_the_ID() );
+        $post_style = tankless_get_single_post_style( get_the_ID() );
         if ( file_exists( get_theme_file_path('/modules/post/templates/'.$post_style.'/assets/css/post-'.$post_style.'.css') ) ) {
-            wp_enqueue_style( 'glidex-post-'.$post_style, get_theme_file_uri('/modules/post/templates/'.$post_style.'/assets/css/post-'.$post_style.'.css'), false, GLIDEX_THEME_VERSION, 'all');
+            wp_enqueue_style( 'tankless-post-'.$post_style, get_theme_file_uri('/modules/post/templates/'.$post_style.'/assets/css/post-'.$post_style.'.css'), false, TANKLESS_THEME_VERSION, 'all');
         }
     }
 }
 
-if( !function_exists('glidex_get_single_post_style') ) {
-	function glidex_get_single_post_style( $post_id ) {
-		return apply_filters( 'glidex_single_post_style', 'minimal', $post_id );
+if( !function_exists('tankless_get_single_post_style') ) {
+	function tankless_get_single_post_style( $post_id ) {
+		return apply_filters( 'tankless_single_post_style', 'minimal', $post_id );
 	}
 }
 
-if( !function_exists('glidex_breadcrumb_template_part') ) {
-    function glidex_breadcrumb_template_part($args, $post_id) {
-        $post_style = glidex_get_single_post_style( get_the_ID() );
+if( !function_exists('tankless_breadcrumb_template_part') ) {
+    function tankless_breadcrumb_template_part($args, $post_id) {
+        $post_style = tankless_get_single_post_style( get_the_ID() );
         if(is_single($post_id) && $post_style == 'simple') {
            return;
         } else{
-            echo glidex_html_output($args);
+            echo tankless_html_output($args);
         }
     }
-    add_filter( 'glidex_breadcrumb_get_template_part', 'glidex_breadcrumb_template_part', 10, 2 );
+    add_filter( 'tankless_breadcrumb_get_template_part', 'tankless_breadcrumb_template_part', 10, 2 );
 }
 
-if( ! function_exists( 'glidex_breadcrumb_header_wrapper_classes' )  ) {
-	function glidex_breadcrumb_header_wrapper_classes($classes) {
+if( ! function_exists( 'tankless_breadcrumb_header_wrapper_classes' )  ) {
+	function tankless_breadcrumb_header_wrapper_classes($classes) {
         $post_id = get_the_ID();
-        $post_style = glidex_get_single_post_style( $post_id );
+        $post_style = tankless_get_single_post_style( $post_id );
         if(is_single($post_id) && $post_style == 'simple') {
             array_push($classes, 'wdt-no-breadcrumb');
         }
         return $classes;
 	}
-	add_filter( 'glidex_header_wrapper_classes', 'glidex_breadcrumb_header_wrapper_classes', 10, 1 );
+	add_filter( 'tankless_header_wrapper_classes', 'tankless_breadcrumb_header_wrapper_classes', 10, 1 );
 }
 
-add_action( 'glidex_after_main_css', 'glidex_single_post_enqueue_css' );
-if( !function_exists( 'glidex_single_post_enqueue_css' ) ) {
-    function glidex_single_post_enqueue_css() {
+add_action( 'tankless_after_main_css', 'tankless_single_post_enqueue_css' );
+if( !function_exists( 'tankless_single_post_enqueue_css' ) ) {
+    function tankless_single_post_enqueue_css() {
 
-        wp_enqueue_style( 'glidex-magnific-popup', get_theme_file_uri('/modules/post/assets/css/magnific-popup.css'), false, GLIDEX_THEME_VERSION, 'all');
+        wp_enqueue_style( 'tankless-magnific-popup', get_theme_file_uri('/modules/post/assets/css/magnific-popup.css'), false, TANKLESS_THEME_VERSION, 'all');
     }
 }
 
-add_action( 'glidex_before_enqueue_js', 'glidex_single_post_enqueue_js' );
-if( !function_exists( 'glidex_single_post_enqueue_js' ) ) {
-    function glidex_single_post_enqueue_js() {
+add_action( 'tankless_before_enqueue_js', 'tankless_single_post_enqueue_js' );
+if( !function_exists( 'tankless_single_post_enqueue_js' ) ) {
+    function tankless_single_post_enqueue_js() {
 
         wp_enqueue_script('jquery-magnific-popup', get_theme_file_uri('/modules/post/assets/js/jquery.magnific-popup.js'), array(), false, true);
     }
 }
 
-add_filter('post_class', 'glidex_single_set_post_class', 10, 3);
-if( !function_exists('glidex_single_set_post_class') ) {
-    function glidex_single_set_post_class( $classes, $class, $post_id ) {
+add_filter('post_class', 'tankless_single_set_post_class', 10, 3);
+if( !function_exists('tankless_single_set_post_class') ) {
+    function tankless_single_set_post_class( $classes, $class, $post_id ) {
 
         if( is_singular('post') || is_attachment() ) {
         	$classes[] = 'blog-single-entry';
-        	$classes[] = 'post-'.glidex_get_single_post_style( $post_id );
+        	$classes[] = 'post-'.tankless_get_single_post_style( $post_id );
         }
 
         return $classes;
     }
 }
 
-add_filter( 'comment_form_default_fields', 'glidex_custom_placeholder_comment_section', 10 );
-function glidex_custom_placeholder_comment_section( $fields ) {
+add_filter( 'comment_form_default_fields', 'tankless_custom_placeholder_comment_section', 10 );
+function tankless_custom_placeholder_comment_section( $fields ) {
 
     $req = get_option( 'require_name_email' );
     $required_attribute = 'required="required"';
@@ -126,7 +126,7 @@ function glidex_custom_placeholder_comment_section( $fields ) {
             ( $req ? $required_attribute : '' )
         ),
         sprintf(
-            esc_html__( '', 'glidex' ),
+            esc_html__( '', 'tankless' ),
             ( $req ? $required_indicator : '' )
         )
     );
@@ -138,7 +138,7 @@ function glidex_custom_placeholder_comment_section( $fields ) {
             ( $req ? $required_attribute : '' )
         ),
         sprintf(
-            esc_html__( '', 'glidex' ),
+            esc_html__( '', 'tankless' ),
             ( $req ? $required_indicator : '' )
         )
     );
@@ -149,7 +149,7 @@ function glidex_custom_placeholder_comment_section( $fields ) {
             esc_attr( isset($commenter['comment_author_url']) && !empty($commenter['comment_author_url']) ? $commenter['comment_author_url'] : '' )
         ),
         sprintf(
-            esc_html__( '', 'glidex' )
+            esc_html__( '', 'tankless' )
         )
     );
 
@@ -157,20 +157,20 @@ function glidex_custom_placeholder_comment_section( $fields ) {
 
 }
 
-add_filter( 'comment_form_defaults', 'glidex_custom_placeholder_textarea_section', 10 );
-function glidex_custom_placeholder_textarea_section( $fields ) {
+add_filter( 'comment_form_defaults', 'tankless_custom_placeholder_textarea_section', 10 );
+function tankless_custom_placeholder_textarea_section( $fields ) {
 
     $req = get_option( 'require_name_email' );
     $required_attribute = 'required="required"';
     $required_indicator = '<span class="required" aria-hidden="true">*</span>';
 
-    $replace_comment = esc_html__('Enter your comment', 'glidex');
+    $replace_comment = esc_html__('Enter your comment', 'tankless');
 
     $fields['comment_field'] = sprintf(
         '<p class="comment-form-comment">%s %s</p>',
         '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" ' . $required_attribute . ' placeholder="Comment *"></textarea>',
         sprintf(
-            esc_html__( '', 'glidex' ),
+            esc_html__( '', 'tankless' ),
             $required_indicator
         )
     );

@@ -229,7 +229,7 @@
     .wdt-product-related-products.wdt-woo-carousel .wdt-related-product-image-arrow-pagination > a[class*="wdt-related-product-image-gallery-arrow"]::before,
     div[class*="product"] .swiper-container div[class*="arrow-pagination"] > a[class*="arrow"]:before { 
         display: block; 
-        font-family: 'Glidex Icons'; 
+        font-family: 'Tankless Icons'; 
         font-size: 30px; line-height: inherit; 
     }
     div[class*="product"] .swiper-container div[class*="arrow-pagination"] > a[class$="arrow-prev"]:before { content: "\f104"; }

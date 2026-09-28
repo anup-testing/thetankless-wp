@@ -12,9 +12,9 @@
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 
-if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
+if( ! function_exists( 'tankless_shop_woo_loop_product_thumbnail' ) ) {
 
-	function glidex_shop_woo_loop_product_thumbnail() {
+	function tankless_shop_woo_loop_product_thumbnail() {
 
 		global $product;
 
@@ -56,7 +56,7 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 					echo '<div class="featured-tag">
 									<div>
 										<i class="wdticon-thumb-tack"></i>
-										<span>'.esc_html__('Featured', 'glidex').'</span>
+										<span>'.esc_html__('Featured', 'tankless').'</span>
 									</div>
 								</div>';
 				}
@@ -68,7 +68,7 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 			echo '<a class="image" href="'.esc_url($product->get_permalink()).'" title="'.esc_attr($product->get_name()).'">';
 
 				if($product_hover_style != 'product-hover-egrpovrcnt') {
-					echo '<div class="product-thumb-overlay" '.glidex_html_output($product_overlay_bgcolor).'></div>';
+					echo '<div class="product-thumb-overlay" '.tankless_html_output($product_overlay_bgcolor).'></div>';
 				}
 
 				// Product Labels
@@ -77,15 +77,15 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 					echo '<div class="product-labels">';
 
 						if( $product->is_on_sale() && $product->is_in_stock() ) {
-							echo '<span class="onsale"><span>'.esc_html__('Sale', 'glidex').'</span><span>'.esc_html__('Sale', 'glidex').'</span><span>'.esc_html__('Sale', 'glidex').'</span></span>';
+							echo '<span class="onsale"><span>'.esc_html__('Sale', 'tankless').'</span><span>'.esc_html__('Sale', 'tankless').'</span><span>'.esc_html__('Sale', 'tankless').'</span></span>';
 						} else if( !$product->is_in_stock() ) {
-							echo '<span class="out-of-stock"><span>'.esc_html__('Sold Out','glidex').'</span><span>'.esc_html__('Sold Out','glidex').'</span><span>'.esc_html__('Sold Out','glidex').'</span></span>';
+							echo '<span class="out-of-stock"><span>'.esc_html__('Sold Out','tankless').'</span><span>'.esc_html__('Sold Out','tankless').'</span><span>'.esc_html__('Sold Out','tankless').'</span></span>';
 						}
 
 						$settings = get_post_meta( $product_id, '_custom_settings', true );
 
 						if(isset($settings['product-new-label']) && $settings['product-new-label'] == 'true') {
-							echo '<span class="new"><span>'.esc_html__('New Launch', 'glidex').'</span><span>'.esc_html__('New Launch', 'glidex').'</span><span>'.esc_html__('New Launch', 'glidex').'</span></span>';
+							echo '<span class="new"><span>'.esc_html__('New Launch', 'tankless').'</span><span>'.esc_html__('New Launch', 'tankless').'</span><span>'.esc_html__('New Launch', 'tankless').'</span></span>';
 						}
 
 					echo '</div>';
@@ -94,12 +94,12 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 
 				// Product Offer Percentage
 				if($product_show_offer_percentage) {
-					echo glidex_shop_woo_loop_product_offer_percentage($product);
+					echo tankless_shop_woo_loop_product_offer_percentage($product);
 				}
 
 
 				// Action to run before product thumb image
-				do_action( 'glidex_woo_before_product_thumb_image', $product_id );
+				do_action( 'tankless_woo_before_product_thumb_image', $product_id );
 
 
 				$product_thumbnail_id = get_post_thumbnail_id($product_id);
@@ -120,14 +120,14 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 				if($display_bg_image) {
 					echo '<div class="primary-image" style="background-image:url('.esc_url($primary_image_src).')"></div>';
 				} else {
-					echo '<div class="primary-image"><img src="'.esc_url($primary_image_src).'" alt="'.esc_attr__('Shop Primary Image', 'glidex').'" title="'.esc_attr__('Shop Primary Image', 'glidex').'" /></div>';
+					echo '<div class="primary-image"><img src="'.esc_url($primary_image_src).'" alt="'.esc_attr__('Shop Primary Image', 'tankless').'" title="'.esc_attr__('Shop Primary Image', 'tankless').'" /></div>';
 				}
 
 				if($secondary_image_src != '') {
 					if($display_bg_image) {
 						echo '<div class="secondary-image" style="background-image:url('.esc_url($secondary_image_src).')"></div>';
 					} else {
-						echo '<div class="secondary-image"><img src="'.esc_url($secondary_image_src).'" alt="'.esc_attr__('Shop Secondary Image', 'glidex').'" title="'.esc_attr__('Shop Secondary Image', 'glidex').'" /></div>';
+						echo '<div class="secondary-image"><img src="'.esc_url($secondary_image_src).'" alt="'.esc_attr__('Shop Secondary Image', 'tankless').'" title="'.esc_attr__('Shop Secondary Image', 'tankless').'" /></div>';
 					}
 				}
 
@@ -138,11 +138,11 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 
 			if($product_thumb_content) {
 
-				glidex_shop_woo_loop_product_thumb_content_setup($product_thumb_content);
+				tankless_shop_woo_loop_product_thumb_content_setup($product_thumb_content);
 
-				echo '<div class="product-thumb-content" '.glidex_html_output($product_thumb_content_overlay_bgcolor).'>';
-					do_action('glidex_woo_loop_product_thumb_content', 'thumb');
-					remove_all_actions('glidex_woo_loop_product_thumb_content');
+				echo '<div class="product-thumb-content" '.tankless_html_output($product_thumb_content_overlay_bgcolor).'>';
+					do_action('tankless_woo_loop_product_thumb_content', 'thumb');
+					remove_all_actions('tankless_woo_loop_product_thumb_content');
 				echo '</div>';
 
 			}
@@ -151,7 +151,7 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_thumbnail' ) ) {
 
 	}
 
-	add_action( 'woocommerce_before_shop_loop_item_title', 'glidex_shop_woo_loop_product_thumbnail', 10 );
+	add_action( 'woocommerce_before_shop_loop_item_title', 'tankless_shop_woo_loop_product_thumbnail', 10 );
 
 }
 

@@ -59,7 +59,7 @@
     .woocommerce form.register .woocommerce-form-row label { margin-bottom: 0; padding-left: 28px; position: relative; }
 
     .woocommerce form.login .woocommerce-form-row label:before,
-    .woocommerce form.register .woocommerce-form-row label:before { content: "\e809"; display: block; font-family: "Glidex Icons"; position: absolute; left: 1px; top: 1px; }
+    .woocommerce form.register .woocommerce-form-row label:before { content: "\e809"; display: block; font-family: "Tankless Icons"; position: absolute; left: 1px; top: 1px; }
 
     .woocommerce form.login .woocommerce-form-row label[for*="password"]:before { content: "\e822"; }
 

@@ -382,13 +382,13 @@ Header Menu Navigation
     backface-visibility: hidden; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
 
 .mobile-menu ul li.go-back a:before {
-    content: "\f104"; font-family: "Glidex Icons"; font-size: 24px; height: 50px; line-height: 50px; left: 15px; text-align: center; }
+    content: "\f104"; font-family: "Tankless Icons"; font-size: 24px; height: 50px; line-height: 50px; left: 15px; text-align: center; }
 
 .mobile-menu ul li.see-all a { padding: 0 15px !important; }
 
 .mobile-menu li[class*="has-children"] > a:before,
 .mobile-menu li[class*="has_children"] > a:before {
-    content: "\f105"; font-family: "Glidex Icons"; font-size: 24px; height: 42px; line-height: 42px; right: 12px; text-align: center; }
+    content: "\f105"; font-family: "Tankless Icons"; font-size: 24px; height: 42px; line-height: 42px; right: 12px; text-align: center; }
 
 .mobile-menu ul li.go-back a:after,
 .mobile-menu li[class*="has-children"] > a:after,

@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Enable' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Enable' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Enable extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Enable extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -36,8 +36,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Enable' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-content-enable';
-            $this->option_name          = esc_html__('Enable Content Section', 'glidex');
-            $this->option_desc          = esc_html__('YES! to enable content section.', 'glidex');
+            $this->option_name          = esc_html__('Enable Content Section', 'tankless');
+            $this->option_desc          = esc_html__('YES! to enable content section.', 'tankless');
             $this->option_type          = array ( 'html', 'key-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -49,7 +49,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Enable' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 5, 1 );
+            add_filter( 'tankless_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 5, 1 );
         }
 
         /**
@@ -86,10 +86,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Enable' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_enable') ) {
-	function glidex_woo_listing_option_content_enable() {
-		return Glidex_Woo_Listing_Option_Content_Enable::instance();
+if( !function_exists('tankless_woo_listing_option_content_enable') ) {
+	function tankless_woo_listing_option_content_enable() {
+		return Tankless_Woo_Listing_Option_Content_Enable::instance();
 	}
 }
 
-glidex_woo_listing_option_content_enable();
+tankless_woo_listing_option_content_enable();

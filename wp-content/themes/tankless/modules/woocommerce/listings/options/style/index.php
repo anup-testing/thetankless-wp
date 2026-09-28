@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Style' ) ) {
-    class Glidex_Woo_Listing_Option_Style extends Glidex_Woo_Listing_Option_Core {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Style' ) ) {
+    class Tankless_Woo_Listing_Option_Style extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Style' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-style';
-            $this->option_name          = esc_html__('Product Style', 'glidex');
+            $this->option_name          = esc_html__('Product Style', 'tankless');
             $this->option_type          = array ( 'class', 'value-css', 'js' );
             $this->option_default_value = 'product-style-default';
             $this->option_value_prefix  = 'product-style-';
@@ -50,7 +50,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Style' ) ) {
             function render_backend() {
 
                 /* Custom Product Templates - Options */
-                    add_filter( 'glidex_woo_custom_product_template_default_options', array( $this, 'woo_custom_product_template_default_options'), 10, 1 );
+                    add_filter( 'tankless_woo_custom_product_template_default_options', array( $this, 'woo_custom_product_template_default_options'), 10, 1 );
 
             }
 
@@ -86,14 +86,14 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Style' ) ) {
                 $settings['type']                        =  'select';
                 $settings['title']                       =  $this->option_name;
                 $settings['options']                     =  array (
-                    'product-style-default'              => esc_html__('Default', 'glidex'),
-                    'product-style-cornered'             => esc_html__('Cornered', 'glidex'),
-                    'product-style-title-eg-highlighter' => esc_html__('Title & Element Group Highlighter', 'glidex'),
-                    'product-style-content-highlighter'  => esc_html__('Content Highlighter', 'glidex'),
-                    'product-style-egrp-overlap-pc'      => esc_html__('Element Group Overlap Product Content', 'glidex'),
-                    'product-style-egrp-reveal-pc'       => esc_html__('Element Group Reveal Product Content', 'glidex'),
-                    'product-style-igrp-over-pc'         => esc_html__('Icon Group over Product Content', 'glidex'),
-                    'product-style-egrp-over-pc'         => esc_html__('Element Group over Product Content', 'glidex')
+                    'product-style-default'              => esc_html__('Default', 'tankless'),
+                    'product-style-cornered'             => esc_html__('Cornered', 'tankless'),
+                    'product-style-title-eg-highlighter' => esc_html__('Title & Element Group Highlighter', 'tankless'),
+                    'product-style-content-highlighter'  => esc_html__('Content Highlighter', 'tankless'),
+                    'product-style-egrp-overlap-pc'      => esc_html__('Element Group Overlap Product Content', 'tankless'),
+                    'product-style-egrp-reveal-pc'       => esc_html__('Element Group Reveal Product Content', 'tankless'),
+                    'product-style-igrp-over-pc'         => esc_html__('Icon Group over Product Content', 'tankless'),
+                    'product-style-egrp-over-pc'         => esc_html__('Element Group over Product Content', 'tankless')
                 );
                 $settings['default']                     =  $this->option_default_value;
 
@@ -131,10 +131,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Style' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_style') ) {
-	function glidex_woo_listing_option_style() {
-		return Glidex_Woo_Listing_Option_Style::instance();
+if( !function_exists('tankless_woo_listing_option_style') ) {
+	function tankless_woo_listing_option_style() {
+		return Tankless_Woo_Listing_Option_Style::instance();
 	}
 }
 
-glidex_woo_listing_option_style();
+tankless_woo_listing_option_style();

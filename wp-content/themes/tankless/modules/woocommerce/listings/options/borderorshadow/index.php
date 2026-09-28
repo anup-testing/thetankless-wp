@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Border_Shadow' ) ) {
 
-    class Glidex_Woo_Listing_Option_Border_Shadow extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Border_Shadow extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-borderorshadow';
-            $this->option_name          = esc_html__('Border or Shadow', 'glidex');
+            $this->option_name          = esc_html__('Border or Shadow', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-borderorshadow-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 35, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 35, 1 );
         }
 
         /**
@@ -75,12 +75,12 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                              => esc_html__('None', 'glidex'),
-                'product-borderorshadow-border' => esc_html__('Border', 'glidex'),
-                'product-borderorshadow-shadow' => esc_html__('Shadow', 'glidex'),
+                ''                              => esc_html__('None', 'tankless'),
+                'product-borderorshadow-border' => esc_html__('Border', 'tankless'),
+                'product-borderorshadow-shadow' => esc_html__('Shadow', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
-            $settings['desc']    =  esc_html__('Choose either Border or Shadow for your product listing.', 'glidex');
+            $settings['desc']    =  esc_html__('Choose either Border or Shadow for your product listing.', 'tankless');
 
             return $settings;
         }
@@ -88,10 +88,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_borderorshadow') ) {
-	function glidex_woo_listing_option_borderorshadow() {
-		return Glidex_Woo_Listing_Option_Border_Shadow::instance();
+if( !function_exists('tankless_woo_listing_option_borderorshadow') ) {
+	function tankless_woo_listing_option_borderorshadow() {
+		return Tankless_Woo_Listing_Option_Border_Shadow::instance();
 	}
 }
 
-glidex_woo_listing_option_borderorshadow();
+tankless_woo_listing_option_borderorshadow();

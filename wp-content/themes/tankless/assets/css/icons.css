@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Glidex Icons';
+  font-family: 'Tankless Icons';
   src: url('../font/wdt-icons.eot?76449145');
   src: url('../font/wdt-icons.eot?76449145#iefix') format('embedded-opentype'),
     url('../font/wdt-icons.woff2?76449145') format('woff2'),
@@ -15,7 +15,7 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'Glidex Icons';
+    font-family: 'Tankless Icons';
     src: url('../font/wdt-icons.svg?76449145#wdt-icons') format('svg');
   }
 }
@@ -23,7 +23,7 @@
 
 [class^="wdticon-"]:before,
 [class*=" wdticon-"]:before {
-  font-family: "Glidex Icons";
+  font-family: "Tankless Icons";
   font-style: normal;
   font-weight: normal;
   speak: never;

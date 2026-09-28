@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Shadow_Position' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Shadow_Position' ) ) {
 
-    class Glidex_Woo_Listing_Option_Shadow_Position extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Shadow_Position extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Shadow_Position' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-shadow-position';
-            $this->option_name          = esc_html__('Shadow Position', 'glidex');
+            $this->option_name          = esc_html__('Shadow Position', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = 'product-shadow-position-default';
             $this->option_value_prefix  = 'product-shadow-position-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Shadow_Position' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 55, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 55, 1 );
         }
 
         /**
@@ -75,11 +75,11 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Shadow_Position' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-shadow-position-default'      => esc_html__('Default', 'glidex'),
-                'product-shadow-position-top-left'     => esc_html__('Top Left', 'glidex'),
-                'product-shadow-position-top-right'    => esc_html__('Top Right', 'glidex'),
-                'product-shadow-position-bottom-left'  => esc_html__('Bottom Left', 'glidex'),
-                'product-shadow-position-bottom-right' => esc_html__('Bottom Right', 'glidex')
+                'product-shadow-position-default'      => esc_html__('Default', 'tankless'),
+                'product-shadow-position-top-left'     => esc_html__('Top Left', 'tankless'),
+                'product-shadow-position-top-right'    => esc_html__('Top Right', 'tankless'),
+                'product-shadow-position-bottom-left'  => esc_html__('Bottom Left', 'tankless'),
+                'product-shadow-position-bottom-right' => esc_html__('Bottom Right', 'tankless')
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -89,10 +89,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Shadow_Position' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_shadow_position') ) {
-	function glidex_woo_listing_option_shadow_position() {
-		return Glidex_Woo_Listing_Option_Shadow_Position::instance();
+if( !function_exists('tankless_woo_listing_option_shadow_position') ) {
+	function tankless_woo_listing_option_shadow_position() {
+		return Tankless_Woo_Listing_Option_Shadow_Position::instance();
 	}
 }
 
-glidex_woo_listing_option_shadow_position();
+tankless_woo_listing_option_shadow_position();

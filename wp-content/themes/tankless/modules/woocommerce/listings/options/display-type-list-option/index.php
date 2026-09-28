@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Display_Type_List_Option' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Display_Type_List_Option' ) ) {
 
-    class Glidex_Woo_Listing_Option_Display_Type_List_Option extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Display_Type_List_Option extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Display_Type_List_Option' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-display-type-list-option';
-            $this->option_name          = esc_html__('List Option', 'glidex');
+            $this->option_name          = esc_html__('List Option', 'tankless');
             $this->option_type          = array ( 'html', 'key-css' );
             $this->option_default_value = 'left-thumb';
             $this->option_value_prefix  = 'product-display-type-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Display_Type_List_Option' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 10, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 10, 1 );
         }
 
         /**
@@ -75,8 +75,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Display_Type_List_Option' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'left-thumb'  => esc_html__('Left Thumb', 'glidex'),
-                'right-thumb' => esc_html__('Right Thumb', 'glidex'),
+                'left-thumb'  => esc_html__('Left Thumb', 'tankless'),
+                'right-thumb' => esc_html__('Right Thumb', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -87,10 +87,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Display_Type_List_Option' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_display_type_list_option') ) {
-	function glidex_woo_listing_option_display_type_list_option() {
-		return Glidex_Woo_Listing_Option_Display_Type_List_Option::instance();
+if( !function_exists('tankless_woo_listing_option_display_type_list_option') ) {
+	function tankless_woo_listing_option_display_type_list_option() {
+		return Tankless_Woo_Listing_Option_Display_Type_List_Option::instance();
 	}
 }
 
-glidex_woo_listing_option_display_type_list_option();
+tankless_woo_listing_option_display_type_list_option();

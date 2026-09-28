@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover' ) ) {
 
-    class Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -36,8 +36,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover' ) 
         function __construct() {
 
             $this->option_slug          = 'product-thumb-secondary-image-onhover';
-            $this->option_name          = esc_html__('Show Secondary Image On Hover', 'glidex');
-            $this->option_desc          = esc_html__('YES! to show secondary image on product hover. First image in the gallery will be used as secondary image.', 'glidex');
+            $this->option_name          = esc_html__('Show Secondary Image On Hover', 'tankless');
+            $this->option_desc          = esc_html__('YES! to show secondary image on product hover. First image in the gallery will be used as secondary image.', 'tankless');
             $this->option_type          = array ( 'html', 'key-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -49,7 +49,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover' ) 
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 5, 1 );
+            add_filter( 'tankless_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 5, 1 );
         }
 
         /**
@@ -86,10 +86,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover' ) 
 
 }
 
-if( !function_exists('glidex_woo_listing_option_thumb_secondary_image_onhover') ) {
-	function glidex_woo_listing_option_thumb_secondary_image_onhover() {
-		return Glidex_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover::instance();
+if( !function_exists('tankless_woo_listing_option_thumb_secondary_image_onhover') ) {
+	function tankless_woo_listing_option_thumb_secondary_image_onhover() {
+		return Tankless_Woo_Listing_Option_Thumb_Secondary_Image_on_Hover::instance();
 	}
 }
 
-glidex_woo_listing_option_thumb_secondary_image_onhover();
+tankless_woo_listing_option_thumb_secondary_image_onhover();

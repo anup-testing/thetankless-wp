@@ -12,9 +12,9 @@
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 
 
-if( ! function_exists( 'glidex_shop_woo_loop_product_content' ) ) {
+if( ! function_exists( 'tankless_shop_woo_loop_product_content' ) ) {
 
-	function glidex_shop_woo_loop_product_content() {
+	function tankless_shop_woo_loop_product_content() {
 
 		$product_content_enable = wc_get_loop_prop( 'product-content-enable' );
 
@@ -28,17 +28,17 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_content' ) ) {
 				$product_show_offer_percentage = wc_get_loop_prop( 'product-show-offer-percentage' );
 				$product_show_offer_percentage = (isset($product_show_offer_percentage) && $product_show_offer_percentage == 'content') ? true : false;
 
-				glidex_shop_woo_loop_product_content_content_setup($product_content_content);
+				tankless_shop_woo_loop_product_content_content_setup($product_content_content);
 
 				echo '<div class="product-details">';
 					// Product Offer Percentage
 					if($product_show_offer_percentage) {
 						global $product;
-						echo glidex_shop_woo_loop_product_offer_percentage($product);
+						echo tankless_shop_woo_loop_product_offer_percentage($product);
 					}
 					// Others
-					do_action('glidex_woo_loop_product_content_content', 'content');
-					remove_all_actions('glidex_woo_loop_product_content_content');
+					do_action('tankless_woo_loop_product_content_content', 'content');
+					remove_all_actions('tankless_woo_loop_product_content_content');
 					
 				echo '</div>';
 
@@ -48,7 +48,7 @@ if( ! function_exists( 'glidex_shop_woo_loop_product_content' ) ) {
 
 	}
 
-	add_action( 'woocommerce_shop_loop_item_title', 'glidex_shop_woo_loop_product_content', 10 );
+	add_action( 'woocommerce_shop_loop_item_title', 'tankless_shop_woo_loop_product_content', 10 );
 
 }
 

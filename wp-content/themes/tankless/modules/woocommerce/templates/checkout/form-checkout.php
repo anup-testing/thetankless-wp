@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	// If checkout registration is disabled and not logged in, the user cannot checkout.
 	if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-		echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', esc_html__( 'You must be logged in to checkout.', 'glidex' ) ) );
+		echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', esc_html__( 'You must be logged in to checkout.', 'tankless' ) ) );
 		return;
 	}
 
@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="woocommerce-checkout-order-review-wrap">
 
-		<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'glidex' ); ?></h3>
+		<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'tankless' ); ?></h3>
 
 		<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 

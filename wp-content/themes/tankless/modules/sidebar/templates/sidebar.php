@@ -1,6 +1,6 @@
 <?php
-$sidebar_class   = glidex_get_secondary_classes();
-$active_sidebars = glidex_get_active_sidebars();
+$sidebar_class   = tankless_get_secondary_classes();
+$active_sidebars = tankless_get_active_sidebars();
 
 if( $sidebar_class == 'content-full-width' || $sidebar_class == '' ) {
     return;
@@ -11,9 +11,9 @@ if( empty( $active_sidebars ) ) {
 }?>
 <!-- Secondary -->
 <section id="secondary" class="<?php echo esc_attr( $sidebar_class ); ?>"><div class="wdt-sidebar-wrapper"><?php
-    do_action( 'glidex_before_single_sidebar_wrap' );
+    do_action( 'tankless_before_single_sidebar_wrap' );
 
     get_sidebar();
 
-    do_action( 'glidex_after_single_sidebar_wrap' );?>
+    do_action( 'tankless_after_single_sidebar_wrap' );?>
 </div></section><!-- Secondary End -->

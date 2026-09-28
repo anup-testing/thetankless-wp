@@ -1,26 +1,26 @@
 <?php
-add_action( 'glidex_after_main_css', 'header_style' );
+add_action( 'tankless_after_main_css', 'header_style' );
 function header_style() {
-    wp_enqueue_style( 'glidex-header', get_theme_file_uri('/modules/header/assets/css/header.css'), false, GLIDEX_THEME_VERSION, 'all');
+    wp_enqueue_style( 'tankless-header', get_theme_file_uri('/modules/header/assets/css/header.css'), false, TANKLESS_THEME_VERSION, 'all');
 }
 
-if( ! function_exists( 'glidex_get_header_wrapper_classes' )  ) {
-	function glidex_get_header_wrapper_classes() {
-        return implode(' ', apply_filters( 'glidex_header_wrapper_classes', array ( 'header-top-absolute' ) ));
+if( ! function_exists( 'tankless_get_header_wrapper_classes' )  ) {
+	function tankless_get_header_wrapper_classes() {
+        return implode(' ', apply_filters( 'tankless_header_wrapper_classes', array ( 'header-top-absolute' ) ));
 	}
 }
 
-if( ! function_exists( 'glidex_header_template' )  ) {
-	function glidex_header_template() {
-		glidex_template_part( 'header', 'templates/header' );
+if( ! function_exists( 'tankless_header_template' )  ) {
+	function tankless_header_template() {
+		tankless_template_part( 'header', 'templates/header' );
 	}
 
-	add_action( 'glidex_header', 'glidex_header_template' );
+	add_action( 'tankless_header', 'tankless_header_template' );
 }
 
-if( ! function_exists('glidex_get_header_logo') ) {
-	function glidex_get_header_logo() {
-		$logo = '<img class="normal_logo" alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.esc_url(GLIDEX_ROOT_URI.'/assets/images/logo.svg').'"/>';
+if( ! function_exists('tankless_get_header_logo') ) {
+	function tankless_get_header_logo() {
+		$logo = '<img class="normal_logo" alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.esc_url(TANKLESS_ROOT_URI.'/assets/images/logo.svg').'"/>';
 
 		$customizer_logo = get_custom_logo();
 		if ( ! empty( $customizer_logo ) ) {
@@ -45,9 +45,9 @@ if( ! function_exists('glidex_get_header_logo') ) {
 	}
 }
 
-if( !class_exists( 'Glidex_Default_Header_Walker_Nav_Menu' ) ) {
+if( !class_exists( 'Tankless_Default_Header_Walker_Nav_Menu' ) ) {
 
-	class Glidex_Default_Header_Walker_Nav_Menu extends Walker_Nav_Menu {
+	class Tankless_Default_Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		public function start_lvl( &$output, $depth = 0, $args = null ) {
 			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
@@ -71,12 +71,12 @@ if( !class_exists( 'Glidex_Default_Header_Walker_Nav_Menu' ) ) {
 	}
 }
 
-if( !function_exists('glidex_nav_menu_class') ) {
-	function glidex_nav_menu_class( $classes, $item, $args, $depth ) {
+if( !function_exists('tankless_nav_menu_class') ) {
+	function tankless_nav_menu_class( $classes, $item, $args, $depth ) {
 
 		$classes[] = 'menu-item-depth-' . $depth;
 		return $classes;
 	}
 
-	add_filter( 'nav_menu_css_class', 'glidex_nav_menu_class', 10, 4 );
+	add_filter( 'nav_menu_css_class', 'tankless_nav_menu_class', 10, 4 );
 }

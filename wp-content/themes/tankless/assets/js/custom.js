@@ -315,12 +315,12 @@ jQuery( 'body' ).delegate( '.text_input', 'keypress', function(e) {
         } else {
                 jQuery.ajax({
                     type:"POST",
-                    url: glidex_urls.ajaxurl,
+                    url: tankless_urls.ajaxurl,
                     data: {
-                        action:'glidex_search_data_fetch',
+                        action:'tankless_search_data_fetch',
                         search_val:search_val,
                         ajax_call: true,
-                        function_call: 'glidex_search_data_fetch',
+                        function_call: 'tankless_search_data_fetch',
                         security: ajax_object.ajax_nonce
                     },
                     success:function(data){

@@ -50,9 +50,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         wp_body_open();
 
         // Hook to add additional content after body tag open.
-        do_action( 'glidex_hook_top' ); ?>
+        do_action( 'tankless_hook_top' ); ?>
 
-    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'glidex' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'tankless' ); ?></a>
 
     <!-- **Wrapper** -->
     <div class="wrapper">
@@ -60,23 +60,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- ** Inner Wrapper ** -->
         <div class="inner-wrapper">
 
-            <?php do_action( 'glidex_hook_content_before' ); ?>
+            <?php do_action( 'tankless_hook_content_before' ); ?>
 
             <!-- ** Header Wrapper ** -->
             <?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) : ?>
-            <div id="header-wrapper" class="<?php echo esc_attr( glidex_get_header_wrapper_classes() ); ?>">
+            <div id="header-wrapper" class="<?php echo esc_attr( tankless_get_header_wrapper_classes() ); ?>">
 
                 <!-- **Header** -->
-                    <?php do_action( 'glidex_header' ); ?>
+                    <?php do_action( 'tankless_header' ); ?>
                 <!-- **Header - End ** -->
 
                 <!-- ** Slider ** -->
-                    <?php do_action( 'glidex_slider' ); ?>
+                    <?php do_action( 'tankless_slider' ); ?>
 
                 <!-- ** Slider End ** -->
 
                 <!-- ** Breadcrumb ** -->
-                    <?php do_action( 'glidex_breadcrumb' ); ?>
+                    <?php do_action( 'tankless_breadcrumb' ); ?>
                 <!-- ** Breadcrumb End ** -->
 
             </div><!-- ** Header Wrapper - End ** -->
@@ -85,7 +85,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- **Main** -->
             <div id="main">
 
-                <?php do_action( 'glidex_hook_container_before' ); ?>
+                <?php do_action( 'tankless_hook_container_before' ); ?>
 
                 <?php
                 if(is_page_template('elementor_header_footer')) {
@@ -96,4 +96,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 ?>
                 <!-- ** Container ** -->
                 <div class="<?php echo esc_attr($class); ?>">
-                    <?php do_action( 'glidex_hook_sections_before' ); ?>
+                    <?php do_action( 'tankless_hook_sections_before' ); ?>

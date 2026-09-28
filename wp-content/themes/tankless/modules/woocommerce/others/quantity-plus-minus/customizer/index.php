@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Shop_Customizer_Others_Quantity_Plus_Minus' ) ) {
+if( !class_exists( 'Tankless_Shop_Customizer_Others_Quantity_Plus_Minus' ) ) {
 
-    class Glidex_Shop_Customizer_Others_Quantity_Plus_Minus {
+    class Tankless_Shop_Customizer_Others_Quantity_Plus_Minus {
 
         private static $_instance = null;
 
@@ -27,14 +27,14 @@ if( !class_exists( 'Glidex_Shop_Customizer_Others_Quantity_Plus_Minus' ) ) {
 
         function __construct() {
 
-            add_filter( 'glidex_woo_others_settings', array( $this, 'others_settings' ), 10, 1 );
+            add_filter( 'tankless_woo_others_settings', array( $this, 'others_settings' ), 10, 1 );
             add_action( 'customize_register', array( $this, 'register' ), 15);
 
         }
 
         function others_settings( $settings ) {
 
-            $enable_quantity_plusminus             = glidex_customizer_settings('wdt-woo-others-enable-quantity-plusminus' );
+            $enable_quantity_plusminus             = tankless_customizer_settings('wdt-woo-others-enable-quantity-plusminus' );
             $settings['enable_quantity_plusminus'] = $enable_quantity_plusminus;
 
             return $settings;
@@ -48,21 +48,21 @@ if( !class_exists( 'Glidex_Shop_Customizer_Others_Quantity_Plus_Minus' ) ) {
              */
 
                 $wp_customize->add_setting(
-                    GLIDEX_CUSTOMISER_VAL . '[wdt-woo-others-enable-quantity-plusminus]', array(
+                    TANKLESS_CUSTOMISER_VAL . '[wdt-woo-others-enable-quantity-plusminus]', array(
                         'type' => 'option',
                         'sanitize_callback' => 'wp_filter_nohtml_kses'
                     )
                 );
 
                 $wp_customize->add_control(
-                    new Glidex_Customize_Control_Switch(
-                        $wp_customize, GLIDEX_CUSTOMISER_VAL . '[wdt-woo-others-enable-quantity-plusminus]', array(
+                    new Tankless_Customize_Control_Switch(
+                        $wp_customize, TANKLESS_CUSTOMISER_VAL . '[wdt-woo-others-enable-quantity-plusminus]', array(
                             'type'    => 'wdt-switch',
-                            'label'   => esc_html__( 'Enable Quantity Plus Minus', 'glidex'),
+                            'label'   => esc_html__( 'Enable Quantity Plus Minus', 'tankless'),
                             'section' => 'woocommerce-others-section',
                             'choices' => array(
-                                'on'  => esc_attr__( 'Yes', 'glidex' ),
-                                'off' => esc_attr__( 'No', 'glidex' )
+                                'on'  => esc_attr__( 'Yes', 'tankless' ),
+                                'off' => esc_attr__( 'No', 'tankless' )
                             )
                         )
                     )
@@ -75,10 +75,10 @@ if( !class_exists( 'Glidex_Shop_Customizer_Others_Quantity_Plus_Minus' ) ) {
 }
 
 
-if( !function_exists('glidex_shop_customizer_others_quantity_plus_minus') ) {
-	function glidex_shop_customizer_others_quantity_plus_minus() {
-		return Glidex_Shop_Customizer_Others_Quantity_Plus_Minus::instance();
+if( !function_exists('tankless_shop_customizer_others_quantity_plus_minus') ) {
+	function tankless_shop_customizer_others_quantity_plus_minus() {
+		return Tankless_Shop_Customizer_Others_Quantity_Plus_Minus::instance();
 	}
 }
 
-glidex_shop_customizer_others_quantity_plus_minus();
+tankless_shop_customizer_others_quantity_plus_minus();

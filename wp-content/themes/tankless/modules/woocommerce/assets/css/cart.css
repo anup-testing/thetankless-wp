@@ -131,7 +131,7 @@
     .woocommerce table.cart td.product-name a { display: inline-block; vertical-align: middle;font-weight: 500; }
 
     .woocommerce table.cart td.product-name .yith-wcqv-button { background: none; color: currentColor; display: inline-block; font-size: 0; height: 25px; line-height: 25px; margin: 0 0 0 10px; padding: 0; position: relative; text-align: center; vertical-align: middle; width: 25px; }
-    .woocommerce table.cart td.product-name .yith-wcqv-button:before { content: "\e802"; font-family: "Glidex Icons"; font-size: 18px; line-height: inherit; }
+    .woocommerce table.cart td.product-name .yith-wcqv-button:before { content: "\e802"; font-family: "Tankless Icons"; font-size: 18px; line-height: inherit; }
 
     .woocommerce table.cart td.product-name a:not(:focus) { text-decoration: none; }
     .woocommerce table.cart td.product-name a:not(.button),

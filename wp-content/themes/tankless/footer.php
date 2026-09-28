@@ -1,12 +1,12 @@
-                    <?php do_action( 'glidex_hook_sections_after' ); ?>
+                    <?php do_action( 'tankless_hook_sections_after' ); ?>
                 </div><!-- ** Container End ** -->
             </div><!-- **Main - End ** -->
 
-            <?php do_action( 'glidex_hook_content_after' ); ?>
+            <?php do_action( 'tankless_hook_content_after' ); ?>
 
             <?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) : ?>
             <!-- **Footer** -->
-            <?php do_action( 'glidex_footer' ); ?>
+            <?php do_action( 'tankless_footer' ); ?>
             <!-- **Footer - End** -->
             <?php endif; ?>
         </div><!-- **Inner Wrapper - End** -->
@@ -15,7 +15,7 @@
 
     <?php
         // Hook to add additional content before body tag closed.
-        do_action( 'glidex_hook_bottom' );
+        do_action( 'tankless_hook_bottom' );
 	    wp_footer(); ?>
 </body>
 </html>

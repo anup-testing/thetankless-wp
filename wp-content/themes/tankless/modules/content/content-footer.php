@@ -1,1 +1,1 @@
-<?php echo apply_filters( 'glidex_footer_get_template_part', glidex_get_template_part( 'footer', 'templates/footer', '', array() ) ); ?>
+<?php echo apply_filters( 'tankless_footer_get_template_part', tankless_get_template_part( 'footer', 'templates/footer', '', array() ) ); ?>

@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Core' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Core' ) ) {
 
-    class Glidex_Woo_Listing_Core {
+    class Tankless_Woo_Listing_Core {
 
         private static $_instance = null;
 
@@ -40,7 +40,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Core' ) ) {
         */
             function load_all_options() {
 
-                $option_locations = apply_filters( 'glidex_woo_option_locations', array ( GLIDEX_MODULE_DIR. '/woocommerce/listings/options/*/index.php' ) );
+                $option_locations = apply_filters( 'tankless_woo_option_locations', array ( TANKLESS_MODULE_DIR. '/woocommerce/listings/options/*/index.php' ) );
 
                 if( is_array( $option_locations ) && !empty( $option_locations ) ) {
                     foreach( $option_locations as $option_location ) {
@@ -57,7 +57,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Core' ) ) {
         */
             function load_all_types() {
 
-                $type_locations = apply_filters( 'glidex_woo_type_locations', array ( GLIDEX_MODULE_DIR. '/woocommerce/listings/types/*/index.php' ) );
+                $type_locations = apply_filters( 'tankless_woo_type_locations', array ( TANKLESS_MODULE_DIR. '/woocommerce/listings/types/*/index.php' ) );
 
                 if( is_array( $type_locations ) && !empty( $type_locations ) ) {
                     foreach( $type_locations as $type_location ) {
@@ -74,10 +74,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Core' ) ) {
 }
 
 
-if( !function_exists('glidex_woo_listing_core') ) {
-	function glidex_woo_listing_core() {
-		return Glidex_Woo_Listing_Core::instance();
+if( !function_exists('tankless_woo_listing_core') ) {
+	function tankless_woo_listing_core() {
+		return Tankless_Woo_Listing_Core::instance();
 	}
 }
 
-glidex_woo_listing_core();
+tankless_woo_listing_core();

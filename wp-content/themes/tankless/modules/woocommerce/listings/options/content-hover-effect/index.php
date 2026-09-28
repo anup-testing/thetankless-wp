@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Hover_Effect' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Hover_Effect' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Hover_Effect extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Hover_Effect extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Hover_Effect' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-content-hover-effect';
-            $this->option_name          = esc_html__('Content Hover Effect', 'glidex');
+            $this->option_name          = esc_html__('Content Hover Effect', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-content-hover-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Hover_Effect' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 40, 1 );
+            add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 40, 1 );
         }
 
         /**
@@ -75,14 +75,14 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Hover_Effect' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                                   => esc_html__('None', 'glidex'),
-                'product-content-hover-fade'         => esc_html__('Fade', 'glidex'),
-                'product-content-hover-zoom'         => esc_html__('Zoom', 'glidex'),
-                'product-content-hover-slidedefault' => esc_html__('Slide Default', 'glidex'),
-                'product-content-hover-slideleft'    => esc_html__('Slide From Left', 'glidex'),
-                'product-content-hover-slideright'   => esc_html__('Slide From Right', 'glidex'),
-                'product-content-hover-slidetop'     => esc_html__('Slide From Top', 'glidex'),
-                'product-content-hover-slidebottom'  => esc_html__('Slide From Bottom', 'glidex')
+                ''                                   => esc_html__('None', 'tankless'),
+                'product-content-hover-fade'         => esc_html__('Fade', 'tankless'),
+                'product-content-hover-zoom'         => esc_html__('Zoom', 'tankless'),
+                'product-content-hover-slidedefault' => esc_html__('Slide Default', 'tankless'),
+                'product-content-hover-slideleft'    => esc_html__('Slide From Left', 'tankless'),
+                'product-content-hover-slideright'   => esc_html__('Slide From Right', 'tankless'),
+                'product-content-hover-slidetop'     => esc_html__('Slide From Top', 'tankless'),
+                'product-content-hover-slidebottom'  => esc_html__('Slide From Bottom', 'tankless')
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -92,10 +92,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Hover_Effect' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_hover_effect') ) {
-	function glidex_woo_listing_option_content_hover_effect() {
-		return Glidex_Woo_Listing_Option_Content_Hover_Effect::instance();
+if( !function_exists('tankless_woo_listing_option_content_hover_effect') ) {
+	function tankless_woo_listing_option_content_hover_effect() {
+		return Tankless_Woo_Listing_Option_Content_Hover_Effect::instance();
 	}
 }
 
-glidex_woo_listing_option_content_hover_effect();
+tankless_woo_listing_option_content_hover_effect();

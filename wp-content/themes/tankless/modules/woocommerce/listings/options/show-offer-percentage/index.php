@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
 
-    class Glidex_Woo_Listing_Option_Show_Offer_Percentage extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Show_Offer_Percentage extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-show-offer-percentage';
-            $this->option_name          = esc_html__('Show Product Offer Percentage', 'glidex');
+            $this->option_name          = esc_html__('Show Product Offer Percentage', 'tankless');
             $this->option_type          = array ( 'html', 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = '';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 80, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 80, 1 );
         }
 
         /**
@@ -75,9 +75,9 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''        => esc_html__('None', 'glidex'),
-                'thumb'   => esc_html__('Thumb', 'glidex'),
-                'content' => esc_html__('Content', 'glidex'),
+                ''        => esc_html__('None', 'tankless'),
+                'thumb'   => esc_html__('Thumb', 'tankless'),
+                'content' => esc_html__('Content', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -87,10 +87,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Offer_Percentage' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_show_offer_percentage') ) {
-	function glidex_woo_listing_option_show_offer_percentage() {
-		return Glidex_Woo_Listing_Option_Show_Offer_Percentage::instance();
+if( !function_exists('tankless_woo_listing_option_show_offer_percentage') ) {
+	function tankless_woo_listing_option_show_offer_percentage() {
+		return Tankless_Woo_Listing_Option_Show_Offer_Percentage::instance();
 	}
 }
 
-glidex_woo_listing_option_show_offer_percentage();
+tankless_woo_listing_option_show_offer_percentage();

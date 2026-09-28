@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
 
-    class Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Icon_Group_Hover_Effect extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-icongroup-hover-effect';
-            $this->option_name          = esc_html__('Icon Group Hover Effect', 'glidex');
+            $this->option_name          = esc_html__('Icon Group Hover Effect', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-icongroup-hover-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 35, 1 );
+            add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 35, 1 );
         }
 
         /**
@@ -75,10 +75,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                               => esc_html__('None', 'glidex'),
-                'product-icongroup-hover-flipx'  => esc_html__('Flip X', 'glidex'),
-                'product-icongroup-hover-flipy'  => esc_html__('Flip Y', 'glidex'),
-                'product-icongroup-hover-bounce' => esc_html__('Bounce', 'glidex')
+                ''                               => esc_html__('None', 'tankless'),
+                'product-icongroup-hover-flipx'  => esc_html__('Flip X', 'tankless'),
+                'product-icongroup-hover-flipy'  => esc_html__('Flip Y', 'tankless'),
+                'product-icongroup-hover-bounce' => esc_html__('Bounce', 'tankless')
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -88,10 +88,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_icongroup_hover_effect') ) {
-	function glidex_woo_listing_option_icongroup_hover_effect() {
-		return Glidex_Woo_Listing_Option_Icon_Group_Hover_Effect::instance();
+if( !function_exists('tankless_woo_listing_option_icongroup_hover_effect') ) {
+	function tankless_woo_listing_option_icongroup_hover_effect() {
+		return Tankless_Woo_Listing_Option_Icon_Group_Hover_Effect::instance();
 	}
 }
 
-glidex_woo_listing_option_icongroup_hover_effect();
+tankless_woo_listing_option_icongroup_hover_effect();

@@ -3,7 +3,7 @@ Theme Name: Tankless
 Theme URI: https://thetankless.ca/
 Author: The Tankless
 Author URI: https://thetankless.ca/
-Description: Tankless is the custom theme powering thetankless.ca, forked from Glidex for a site-specific, standalone build.
+Description: Tankless is the custom theme powering thetankless.ca. Originally forked from Glidex, it is now a fully independent, self-contained theme with no runtime dependency on Glidex.
 Tags:Blog,Portfolio
 Version: 1.0.5
 Requires at least: 5.0
@@ -11,7 +11,7 @@ Tested up to: 6.8
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: glidex
+Text Domain: tankless
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 Copyright (C) 2024 buddhathemes. All rights reserved.

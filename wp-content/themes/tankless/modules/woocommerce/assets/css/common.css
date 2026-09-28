@@ -727,7 +727,7 @@ body[class*="woocommerce"] .woocommerce-page form .show-password-input{
 .yith-wcwl-add-to-wishlist .feedback { display: none; margin-bottom: 8px; }
 .yith-wcwl-add-to-wishlist a .yith-wcwl-icon { display: none; }
 
-.woocommerce .button.loading:after, .woocommerce button.button.loading:after, .woocommerce input.button.loading::after, .woocommerce a.button.loading::after, .woocommerce #respond input#submit.loading:after { content: "\f110"; display: inline-block; font-family: "Glidex Icons"; font-size: 16px; margin-left: 10px; position: relative; right: auto; top: auto; vertical-align: middle; }
+.woocommerce .button.loading:after, .woocommerce button.button.loading:after, .woocommerce input.button.loading::after, .woocommerce a.button.loading::after, .woocommerce #respond input#submit.loading:after { content: "\f110"; display: inline-block; font-family: "Tankless Icons"; font-size: 16px; margin-left: 10px; position: relative; right: auto; top: auto; vertical-align: middle; }
 
 
 .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled],

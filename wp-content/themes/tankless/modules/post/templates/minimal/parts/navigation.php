@@ -15,11 +15,11 @@
 			endif; ?>
 
 			<div class="nav-title-wrap">
-				<p><a href="<?php echo get_permalink( $prev_post->ID ); ?>" title="<?php echo esc_attr($prev_post->post_title); ?>"><?php esc_html_e('Previous','glidex'); ?></a></p>
+				<p><a href="<?php echo get_permalink( $prev_post->ID ); ?>" title="<?php echo esc_attr($prev_post->post_title); ?>"><?php esc_html_e('Previous','tankless'); ?></a></p>
 				<span class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></span>
 				<h3><a href="<?php echo get_permalink( $prev_post->ID ); ?>" title="<?php echo esc_attr($prev_post->post_title); ?>"><?php
 					if( get_the_title( $prev_post->ID ) == '') {
-						echo esc_html__('Previous Post', 'glidex');
+						echo esc_html__('Previous Post', 'tankless');
 					} else {
 						echo "$prev_post->post_title";
 					} ?></a>
@@ -30,10 +30,10 @@
 		<?php
 	else: ?>
 		<div class="post-prev-link no-post">
-            <a href="#" style="background-image:url(<?php echo esc_url(GLIDEX_ROOT_URI.'/assets/images/no-post.jpg') ?>);" class="prev-post-bgimg"></a>
+            <a href="#" style="background-image:url(<?php echo esc_url(TANKLESS_ROOT_URI.'/assets/images/no-post.jpg') ?>);" class="prev-post-bgimg"></a>
 			<div class="nav-title-wrap">
 				<span class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></span>
-				<h3><?php echo esc_html__('No previous story to show!', 'glidex'); ?></h3>
+				<h3><?php echo esc_html__('No previous story to show!', 'tankless'); ?></h3>
 			</div>
 		</div>
 		<?php
@@ -52,11 +52,11 @@
 			endif; ?>
 
 			<div class="nav-title-wrap">
-				<p><a href="<?php echo get_permalink( $next_post->ID ); ?>" title="<?php echo esc_attr($next_post->post_title); ?>"><?php esc_html_e('Next','glidex'); ?></a></p>
+				<p><a href="<?php echo get_permalink( $next_post->ID ); ?>" title="<?php echo esc_attr($next_post->post_title); ?>"><?php esc_html_e('Next','tankless'); ?></a></p>
 				<span class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></span>
 				<h3><a href="<?php echo get_permalink( $next_post->ID ); ?>" title="<?php echo esc_attr($next_post->post_title); ?>"><?php
 					if(get_the_title( $next_post->ID ) == '') {
-						echo esc_html__('Next Post', 'glidex');
+						echo esc_html__('Next Post', 'tankless');
 					} else {
 						echo "$next_post->post_title";
 					} ?></a>
@@ -67,10 +67,10 @@
 		<?php
 	else: ?>
 		<div class="post-next-link no-post">
-            <a href="#" style="background-image:url(<?php echo esc_url(GLIDEX_ROOT_URI.'/assets/images/no-post.jpg') ?>);" class="next-post-bgimg"></a>
+            <a href="#" style="background-image:url(<?php echo esc_url(TANKLESS_ROOT_URI.'/assets/images/no-post.jpg') ?>);" class="next-post-bgimg"></a>
 			<div class="nav-title-wrap">
 				<span class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></span>
-				<h3><?php echo esc_html__('No next story to show!', 'glidex'); ?></h3>
+				<h3><?php echo esc_html__('No next story to show!', 'tankless'); ?></h3>
 			</div>
 		</div>
 		<?php

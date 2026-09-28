@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Stretch' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Button_Element_Stretch' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Button_Element_Stretch extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Button_Element_Stretch extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Stretch' ) 
         function __construct() {
 
             $this->option_slug          = 'product-content-buttonelement-stretch';
-            $this->option_name          = esc_html__('Button Element - Stretch', 'glidex');
+            $this->option_name          = esc_html__('Button Element - Stretch', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-content-buttonelement-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Stretch' ) 
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 45, 1 );
+            add_filter( 'tankless_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 45, 1 );
         }
 
         /**
@@ -75,8 +75,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Stretch' ) 
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                                    => esc_html__('False', 'glidex'),
-                'product-content-buttonelement-stretch' => esc_html__('True', 'glidex'),
+                ''                                    => esc_html__('False', 'tankless'),
+                'product-content-buttonelement-stretch' => esc_html__('True', 'tankless'),
             );
             $settings['default']    =  $this->option_default_value;
 
@@ -86,10 +86,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Stretch' ) 
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_buttonelement_stretch') ) {
-	function glidex_woo_listing_option_content_buttonelement_stretch() {
-		return Glidex_Woo_Listing_Option_Content_Button_Element_Stretch::instance();
+if( !function_exists('tankless_woo_listing_option_content_buttonelement_stretch') ) {
+	function tankless_woo_listing_option_content_buttonelement_stretch() {
+		return Tankless_Woo_Listing_Option_Content_Button_Element_Stretch::instance();
 	}
 }
 
-glidex_woo_listing_option_content_buttonelement_stretch();
+tankless_woo_listing_option_content_buttonelement_stretch();

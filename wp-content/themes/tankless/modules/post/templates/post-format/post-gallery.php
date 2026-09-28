@@ -11,6 +11,6 @@
 	else:
 		$template_args['post_ID'] = $post_ID;
 		$template_args['enable_image_lightbox'] = $enable_image_lightbox;
-		glidex_template_part( 'post', 'templates/post-format/post', 'standard', $template_args );
+		tankless_template_part( 'post', 'templates/post-format/post', 'standard', $template_args );
 	endif;
 ?>

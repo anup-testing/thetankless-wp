@@ -58,7 +58,7 @@
 
 .woocommerce div.product div.images .woocommerce-product-gallery__trigger { position: absolute; top: 10px; left: 10px; -webkit-transform: scale(0.5); transform: scale(0.5); z-index: 9; text-align: center; width: 40px; height: 40px; line-height: 40px; background: var(--wdtBodyBGColor); border-radius: 50%; opacity: 0; visibility: hidden; }
 
-.woocommerce div.product div.images .woocommerce-product-gallery__trigger:before { content: "\e802"; display: inline-block; font-family: "Glidex Icons"; font-size: 1em; height: 100%; width: 100%; }
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger:before { content: "\e802"; display: inline-block; font-family: "Tankless Icons"; font-size: 1em; height: 100%; width: 100%; }
 .woocommerce div.product div.images .woocommerce-product-gallery__trigger img { margin: auto !important; position: absolute; bottom: 0; left: 0; right: 0; top: 0; }
 
 .woocommerce div.product div.images:hover .woocommerce-product-gallery__trigger { opacity: 1; visibility: visible; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); }
@@ -410,19 +410,19 @@
 
 /* .woocommerce.single-product .product .single_add_to_cart_button:before {
     content: "\f217";
-    font-family: 'Glidex Icons';
+    font-family: 'Tankless Icons';
     font-weight: normal;
     margin-right: 7px;
     vertical-align: top;
 } */
 
-.woocommerce.single-product .product .add_to_wishlist:before { content: "\e805"; font-family: 'Glidex Icons'; font-weight: normal; margin-right: 5px; position: relative; top: 1px; }
+.woocommerce.single-product .product .add_to_wishlist:before { content: "\e805"; font-family: 'Tankless Icons'; font-weight: normal; margin-right: 5px; position: relative; top: 1px; }
 
 .woocommerce.single-product .product .yith-wcwl-wishlistaddedbrowse a:before,
-.woocommerce.single-product .product .yith-wcwl-wishlistexistsbrowse a:before { content: "\e804"; font-family: 'Glidex Icons'; margin-right: 5px; }
+.woocommerce.single-product .product .yith-wcwl-wishlistexistsbrowse a:before { content: "\e804"; font-family: 'Tankless Icons'; margin-right: 5px; }
 
-.woocommerce.single-product .product .compare:before { content: "\e866"; font-family: "Glidex Icons"; margin-right: 5px; position: relative; top: 1px; }
-.woocommerce.single-product .product .yith-wcqv-button:before { content: "\e802"; font-family: "Glidex Icons"; margin-right: 5px; position: relative; top: 1px; }
+.woocommerce.single-product .product .compare:before { content: "\e866"; font-family: "Tankless Icons"; margin-right: 5px; position: relative; top: 1px; }
+.woocommerce.single-product .product .yith-wcqv-button:before { content: "\e802"; font-family: "Tankless Icons"; margin-right: 5px; position: relative; top: 1px; }
 
 .woocommerce.single-product .product .wdt-wcsg-button:before { content: "\e809"; display: inline-block; font-family: 'Ext Icons'; font-weight: normal; margin-right: 10px; }
 

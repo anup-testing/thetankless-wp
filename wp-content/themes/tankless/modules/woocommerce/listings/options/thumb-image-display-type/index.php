@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Image_Display_Type' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Thumb_Image_Display_Type' ) ) {
 
-    class Glidex_Woo_Listing_Option_Thumb_Image_Display_Type extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Thumb_Image_Display_Type extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -38,8 +38,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Image_Display_Type' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-thumb-image-display-type';
-            $this->option_name          = esc_html__('Thumb Image Display Type', 'glidex');
-            $this->option_desc          = esc_html__('YES! to use it as background image. Its must if you use Product Thumb Content', 'glidex');
+            $this->option_name          = esc_html__('Thumb Image Display Type', 'tankless');
+            $this->option_desc          = esc_html__('YES! to use it as background image. Its must if you use Product Thumb Content', 'tankless');
             $this->option_type          = array ( 'html', 'class', 'key-css' );
             $this->option_default_value = false;
             $this->option_class_name    = 'product-thumb-bg-image';
@@ -52,7 +52,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Image_Display_Type' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 5, 1 );
+            add_filter( 'tankless_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 5, 1 );
         }
 
         /**
@@ -89,10 +89,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Image_Display_Type' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_thumb_image_display_type') ) {
-	function glidex_woo_listing_option_thumb_image_display_type() {
-		return Glidex_Woo_Listing_Option_Thumb_Image_Display_Type::instance();
+if( !function_exists('tankless_woo_listing_option_thumb_image_display_type') ) {
+	function tankless_woo_listing_option_thumb_image_display_type() {
+		return Tankless_Woo_Listing_Option_Thumb_Image_Display_Type::instance();
 	}
 }
 
-glidex_woo_listing_option_thumb_image_display_type();
+tankless_woo_listing_option_thumb_image_display_type();

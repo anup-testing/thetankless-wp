@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
 
-    class Glidex_Woo_Listing_Option_Border_Shadow_Highlight extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Border_Shadow_Highlight extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-bordershadow-highlight';
-            $this->option_name          = esc_html__('Border / Shadow - Highlight', 'glidex');
+            $this->option_name          = esc_html__('Border / Shadow - Highlight', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-bordershadow-highlight-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 60, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 60, 1 );
         }
 
         /**
@@ -75,9 +75,9 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                                       => esc_html__('None', 'glidex' ),
-                'product-bordershadow-highlight-default' => esc_html__('Default', 'glidex'),
-                'product-bordershadow-highlight-onhover' => esc_html__('On Hover', 'glidex'),
+                ''                                       => esc_html__('None', 'tankless' ),
+                'product-bordershadow-highlight-default' => esc_html__('Default', 'tankless'),
+                'product-bordershadow-highlight-onhover' => esc_html__('On Hover', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -87,10 +87,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Border_Shadow_Highlight' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_bordershadow_highlight') ) {
-	function glidex_woo_listing_option_bordershadow_highlight() {
-		return Glidex_Woo_Listing_Option_Border_Shadow_Highlight::instance();
+if( !function_exists('tankless_woo_listing_option_bordershadow_highlight') ) {
+	function tankless_woo_listing_option_bordershadow_highlight() {
+		return Tankless_Woo_Listing_Option_Border_Shadow_Highlight::instance();
 	}
 }
 
-glidex_woo_listing_option_bordershadow_highlight();
+tankless_woo_listing_option_bordershadow_highlight();

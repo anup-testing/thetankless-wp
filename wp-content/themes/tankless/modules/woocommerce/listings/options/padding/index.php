@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Padding' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Padding' ) ) {
 
-    class Glidex_Woo_Listing_Option_Padding extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Padding extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Padding' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-padding';
-            $this->option_name          = esc_html__('Padding', 'glidex');
+            $this->option_name          = esc_html__('Padding', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = 'product-padding-default';
             $this->option_value_prefix  = 'product-padding-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Padding' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 20, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 20, 1 );
         }
 
         /**
@@ -75,10 +75,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Padding' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-padding-default' => esc_html__('Default', 'glidex'),
-                'product-padding-overall' => esc_html__('Product', 'glidex'),
-                'product-padding-thumb'   => esc_html__('Thumb', 'glidex'),
-                'product-padding-content' => esc_html__('Content', 'glidex'),
+                'product-padding-default' => esc_html__('Default', 'tankless'),
+                'product-padding-overall' => esc_html__('Product', 'tankless'),
+                'product-padding-thumb'   => esc_html__('Thumb', 'tankless'),
+                'product-padding-content' => esc_html__('Content', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -88,10 +88,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Padding' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_padding') ) {
-	function glidex_woo_listing_option_padding() {
-		return Glidex_Woo_Listing_Option_Padding::instance();
+if( !function_exists('tankless_woo_listing_option_padding') ) {
+	function tankless_woo_listing_option_padding() {
+		return Tankless_Woo_Listing_Option_Padding::instance();
 	}
 }
 
-glidex_woo_listing_option_padding();
+tankless_woo_listing_option_padding();

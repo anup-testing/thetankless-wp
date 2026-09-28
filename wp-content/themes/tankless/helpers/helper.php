@@ -1,22 +1,22 @@
 <?php
-if ( ! function_exists( 'glidex_template_part' ) ) {
+if ( ! function_exists( 'tankless_template_part' ) ) {
 	/**
 	 * Function that echo module template part.
 	 */
-	function glidex_template_part( $module, $template, $slug = '', $params = array() ) {
-		echo glidex_get_template_part( $module, $template, $slug, $params );
+	function tankless_template_part( $module, $template, $slug = '', $params = array() ) {
+		echo tankless_get_template_part( $module, $template, $slug, $params );
 	}
 }
 
-if ( ! function_exists( 'glidex_get_template_part' ) ) {
+if ( ! function_exists( 'tankless_get_template_part' ) ) {
 	/**
 	 * Function that load module template part.
 	 */
-	function glidex_get_template_part( $module, $template, $slug = '', $params = array() ) {
+	function tankless_get_template_part( $module, $template, $slug = '', $params = array() ) {
 
 		$file_path = '';
         $html      = '';
-        $template_path = GLIDEX_MODULE_DIR . '/' . $module;
+        $template_path = TANKLESS_MODULE_DIR . '/' . $module;
         $temp_path = $template_path . '/' . $template;
         if ( ! empty( $temp_path ) ) {
             if ( ! empty( $slug ) ) {
@@ -28,7 +28,7 @@ if ( ! function_exists( 'glidex_get_template_part' ) ) {
                 $file_path = $temp_path . '.php';
             }
         }
-        $file_path = apply_filters( 'glidex_get_template_plugin_part', $file_path, $module, $template, $slug );
+        $file_path = apply_filters( 'tankless_get_template_plugin_part', $file_path, $module, $template, $slug );
         if ( $file_path && file_exists( $file_path ) ) {
             ob_start();
             if ( is_array( $params ) && count( $params ) ) {
@@ -41,8 +41,17 @@ if ( ! function_exists( 'glidex_get_template_part' ) ) {
 	}
 }
 
-if ( ! function_exists( 'glidex_get_page_id' ) ) {
-	function glidex_get_page_id() {
+// Back-compat aliases for the renamed glidex_* helper functions - safe to
+// remove once confirmed nothing external still references them.
+if ( ! function_exists( 'glidex_template_part' ) ) {
+	function glidex_template_part( ...$args ) { return tankless_template_part( ...$args ); }
+}
+if ( ! function_exists( 'glidex_get_template_part' ) ) {
+	function glidex_get_template_part( ...$args ) { return tankless_get_template_part( ...$args ); }
+}
+
+if ( ! function_exists( 'tankless_get_page_id' ) ) {
+	function tankless_get_page_id() {
 
 		$page_id = get_queried_object_id();
 
@@ -55,8 +64,8 @@ if ( ! function_exists( 'glidex_get_page_id' ) ) {
 }
 
 /* Convert hexdec color string to rgb(a) string */
-if ( ! function_exists( 'glidex_hex2rgba' ) ) {
-	function glidex_hex2rgba($color, $opacity = false) {
+if ( ! function_exists( 'tankless_hex2rgba' ) ) {
+	function tankless_hex2rgba($color, $opacity = false) {
 
 		$default = 'rgb(0,0,0)';
 
@@ -92,42 +101,42 @@ if ( ! function_exists( 'glidex_hex2rgba' ) ) {
 	}
 }
 
-if ( ! function_exists( 'glidex_html_output' ) ) {
-	function glidex_html_output( $html ) {
-		return apply_filters( 'glidex_html_output', $html );
+if ( ! function_exists( 'tankless_html_output' ) ) {
+	function tankless_html_output( $html ) {
+		return apply_filters( 'tankless_html_output', $html );
 	}
 }
 
 
-if ( ! function_exists( 'glidex_theme_defaults' ) ) {
+if ( ! function_exists( 'tankless_theme_defaults' ) ) {
 	/**
 	 * Function to load default values
 	 */
-	function glidex_theme_defaults() {
+	function tankless_theme_defaults() {
 
 		$defaults = array (
 			'primary_color' => '#15c14a',
-			'primary_color_rgb' => glidex_hex2rgba('#15c14a', false),
+			'primary_color_rgb' => tankless_hex2rgba('#15c14a', false),
 			'secondary_color' => '#a3ff00',
-			'secondary_color_rgb' => glidex_hex2rgba('#a3ff00', false),
+			'secondary_color_rgb' => tankless_hex2rgba('#a3ff00', false),
 			'tertiary_color' => '#252525',
-			'tertiary_color_rgb' => glidex_hex2rgba('#252525', false),
+			'tertiary_color_rgb' => tankless_hex2rgba('#252525', false),
 			'quaternary_color' => '#333333',
-			'quaternary_color_rgb' => glidex_hex2rgba('#333333', false),
+			'quaternary_color_rgb' => tankless_hex2rgba('#333333', false),
 			'body_bg_color' => '#1b1b1b',
-			'body_bg_color_rgb' => glidex_hex2rgba('#1b1b1b', false),
+			'body_bg_color_rgb' => tankless_hex2rgba('#1b1b1b', false),
 			'body_text_color' => '#c1c1c1',
-			'body_text_color_rgb' => glidex_hex2rgba('#c1c1c1', false),
+			'body_text_color_rgb' => tankless_hex2rgba('#c1c1c1', false),
 			'headalt_color' => '#ffffff',
-			'headalt_color_rgb' => glidex_hex2rgba('#ffffff', false),
+			'headalt_color_rgb' => tankless_hex2rgba('#ffffff', false),
 			'link_color' => '#ffffff',
-			'link_color_rgb' => glidex_hex2rgba('#ffffff', false),
+			'link_color_rgb' => tankless_hex2rgba('#ffffff', false),
 			'link_hover_color' => '#15c14a',
-			'link_hover_color_rgb' => glidex_hex2rgba('#15c14a', false),
+			'link_hover_color_rgb' => tankless_hex2rgba('#15c14a', false),
 			'border_color' => '#424242',
-			'border_color_rgb' => glidex_hex2rgba('#424242', false),
+			'border_color_rgb' => tankless_hex2rgba('#424242', false),
 			'accent_text_color' => '#000000',
-			'accent_text_color_rgb' => glidex_hex2rgba('#000000', false),
+			'accent_text_color_rgb' => tankless_hex2rgba('#000000', false),
 
 			'body_typo' => array (
 				'font-family' => "Inter",

@@ -8,10 +8,10 @@
 		'one-fourth-column' => 'wdt-blog-iv-column'
 	);
 
-	$post_column = glidex_get_archive_post_column();
+	$post_column = tankless_get_archive_post_column();
 
 	if( has_post_thumbnail( $post_ID ) ) : ?>
-		<a href="<?php echo get_permalink($post_ID);?>" title="<?php printf(esc_attr__('Permalink to %s','glidex'), the_title_attribute('echo=0'));?>">
+		<a href="<?php echo get_permalink($post_ID);?>" title="<?php printf(esc_attr__('Permalink to %s','tankless'), the_title_attribute('echo=0'));?>">
 			<?php echo get_the_post_thumbnail( $post_ID, $img_size[$post_column] );?>
 		</a><?php
 	endif;

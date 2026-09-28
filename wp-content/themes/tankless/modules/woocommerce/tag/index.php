@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Tag' ) ) {
 
-    class Glidex_Woo_Listing_Tag {
+    class Tankless_Woo_Listing_Tag {
 
         private static $_instance = null;
 
@@ -45,7 +45,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
                     $this->woo_default_settings();
 
                 /* Define Sorter Settings */
-                    add_filter( 'glidex_woo_sorter_settings', array( $this, 'woo_sorter_settings' ) );
+                    add_filter( 'tankless_woo_sorter_settings', array( $this, 'woo_sorter_settings' ) );
 
                 /* Load Listings */
                     $this->woo_load_listing();
@@ -80,7 +80,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
 
                 );
 
-                $this->settings = apply_filters( 'glidex_woo_tag_page_default_settings', $this->settings );
+                $this->settings = apply_filters( 'tankless_woo_tag_page_default_settings', $this->settings );
 
                 return $this->settings;
 
@@ -119,9 +119,9 @@ if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
                 $type_options = array ();
 
                 if( $this->settings['product_style_template'] == 'predefined' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_'.$this->settings['product_style_custom_template']; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_'.$this->settings['product_style_custom_template']; // Type Class Instance
                 } else if( $this->settings['product_style_template'] == 'custom' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_custom'; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_custom'; // Type Class Instance
                 }
 
                 if ( function_exists( $type_class_instance ) ) {
@@ -137,7 +137,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
 
                             $type_option_key = str_replace( 'product-', '', $type_option_key);
                             $type_option_key = str_replace( '-', '_', $type_option_key);
-                            $option_class_instance = 'glidex_woo_listing_option_'.$type_option_key;  // Option Class Instance
+                            $option_class_instance = 'tankless_woo_listing_option_'.$type_option_key;  // Option Class Instance
 
                             if ( function_exists( $option_class_instance ) ) {
 
@@ -161,10 +161,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Tag' ) ) {
 }
 
 
-if( !function_exists('glidex_woo_listing_tag') ) {
-	function glidex_woo_listing_tag() {
-		return Glidex_Woo_Listing_Tag::instance();
+if( !function_exists('tankless_woo_listing_tag') ) {
+	function tankless_woo_listing_tag() {
+		return Tankless_Woo_Listing_Tag::instance();
 	}
 }
 
-glidex_woo_listing_tag();
+tankless_woo_listing_tag();

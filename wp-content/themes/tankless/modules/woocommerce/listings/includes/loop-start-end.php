@@ -11,9 +11,9 @@
 
 remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 
-if( ! function_exists( 'glidex_shop_woo_product_style_start' ) ) {
+if( ! function_exists( 'tankless_shop_woo_product_style_start' ) ) {
 
-	function glidex_shop_woo_product_style_start() {
+	function tankless_shop_woo_product_style_start() {
 
 		// Column Class
 		$columns = wc_get_loop_prop('columns');
@@ -26,17 +26,17 @@ if( ! function_exists( 'glidex_shop_woo_product_style_start' ) ) {
 		}
 
 
-		$column_class = glidex_woo_loop_column_class($columns);
+		$column_class = tankless_woo_loop_column_class($columns);
 
 		$product_background_bgcolor = wc_get_loop_prop( 'product-background-bgcolor' );
 		$product_background_bgcolor = (isset($product_background_bgcolor) && !empty($product_background_bgcolor)) ? 'style="background-color:'.esc_attr($product_background_bgcolor).';"' : '';
 
 		echo '<div class="'.esc_attr($column_class).'">';
-			echo '<div class="product-wrapper" '.glidex_html_output($product_background_bgcolor).'>';
+			echo '<div class="product-wrapper" '.tankless_html_output($product_background_bgcolor).'>';
 
 	}
 
-	add_action( 'woocommerce_before_shop_loop_item', 'glidex_shop_woo_product_style_start', 1 );
+	add_action( 'woocommerce_before_shop_loop_item', 'tankless_shop_woo_product_style_start', 1 );
 
 }
 
@@ -46,23 +46,23 @@ if( ! function_exists( 'glidex_shop_woo_product_style_start' ) ) {
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
-if( ! function_exists( 'glidex_shop_woo_product_style_end' ) ) {
+if( ! function_exists( 'tankless_shop_woo_product_style_end' ) ) {
 
-	function glidex_shop_woo_product_style_end() {
+	function tankless_shop_woo_product_style_end() {
 
 			echo '</div>';
 		echo '</div>';
 
 	}
 
-	add_action( 'woocommerce_after_shop_loop_item', 'glidex_shop_woo_product_style_end', 100 );
+	add_action( 'woocommerce_after_shop_loop_item', 'tankless_shop_woo_product_style_end', 100 );
 
 }
 
 // Remove Yith Buttons
 
-// glidex_woo_remove_anonymous_object_action('woocommerce_after_shop_loop_item', 'YITH_WCQV_Frontend', 'yith_add_quick_view_button' , 15 );
-// glidex_woo_remove_anonymous_object_action('woocommerce_after_shop_loop_item', 'YITH_Woocompare_Frontend', 'add_compare_link' , 20 );
+// tankless_woo_remove_anonymous_object_action('woocommerce_after_shop_loop_item', 'YITH_WCQV_Frontend', 'yith_add_quick_view_button' , 15 );
+// tankless_woo_remove_anonymous_object_action('woocommerce_after_shop_loop_item', 'YITH_Woocompare_Frontend', 'add_compare_link' , 20 );
 
 
 ?>

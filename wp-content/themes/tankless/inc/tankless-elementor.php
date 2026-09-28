@@ -57,7 +57,7 @@ function tankless_hero_page_title() {
 	$hidden_title_pages = [ 5285 ];
 
 	if ( is_page( $hidden_title_pages ) ) {
-		remove_action( 'glidex_breadcrumb', 'glidex_breadcrumb_template' );
+		remove_action( 'tankless_breadcrumb', 'tankless_breadcrumb_template' );
 	}
 }
 add_action( 'wp', 'tankless_hero_page_title' );

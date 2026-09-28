@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Label' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Show_Label' ) ) {
 
-    class Glidex_Woo_Listing_Option_Show_Label extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Show_Label extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Label' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-show-label';
-            $this->option_name          = esc_html__('Show Product Label', 'glidex');
+            $this->option_name          = esc_html__('Show Product Label', 'tankless');
             $this->option_type          = array ( 'html', 'class', 'key-css' );
             $this->option_default_value = 'true';
             $this->option_value_prefix  = '';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Label' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 70, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 70, 1 );
         }
 
         /**
@@ -75,8 +75,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Label' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'true'  => esc_html__('True', 'glidex'),
-                'false' => esc_html__('False', 'glidex'),
+                'true'  => esc_html__('True', 'tankless'),
+                'false' => esc_html__('False', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -86,10 +86,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Show_Label' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_show_label') ) {
-	function glidex_woo_listing_option_show_label() {
-		return Glidex_Woo_Listing_Option_Show_Label::instance();
+if( !function_exists('tankless_woo_listing_option_show_label') ) {
+	function tankless_woo_listing_option_show_label() {
+		return Tankless_Woo_Listing_Option_Show_Label::instance();
 	}
 }
 
-glidex_woo_listing_option_show_label();
+tankless_woo_listing_option_show_label();

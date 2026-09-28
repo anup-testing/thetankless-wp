@@ -1,5 +1,5 @@
 <?php
-$active_sidebars = glidex_get_active_sidebars();
+$active_sidebars = tankless_get_active_sidebars();
 $active_sidebars = array_unique( $active_sidebars );
 
 foreach( $active_sidebars as $active_sidebar ) {

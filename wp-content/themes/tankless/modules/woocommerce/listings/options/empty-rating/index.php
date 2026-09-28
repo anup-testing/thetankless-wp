@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Empty_Rating' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Empty_Rating' ) ) {
 
-    class Glidex_Woo_Listing_Option_Empty_Rating extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Empty_Rating extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Empty_Rating' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-empty-rating';
-            $this->option_name          = esc_html__('Show Empty Rating', 'glidex');
+            $this->option_name          = esc_html__('Show Empty Rating', 'tankless');
             $this->option_type          = array ( 'html' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Empty_Rating' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 90, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 90, 1 );
         }
 
         /**
@@ -82,10 +82,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Empty_Rating' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_empty_rating') ) {
-	function glidex_woo_listing_option_empty_rating() {
-		return Glidex_Woo_Listing_Option_Empty_Rating::instance();
+if( !function_exists('tankless_woo_listing_option_empty_rating') ) {
+	function tankless_woo_listing_option_empty_rating() {
+		return Tankless_Woo_Listing_Option_Empty_Rating::instance();
 	}
 }
 
-glidex_woo_listing_option_empty_rating();
+tankless_woo_listing_option_empty_rating();

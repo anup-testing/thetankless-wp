@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
+if( !class_exists( 'Tankless_Shop_Others_Quantity_Plus_Minus' ) ) {
 
-    class Glidex_Shop_Others_Quantity_Plus_Minus {
+    class Tankless_Shop_Others_Quantity_Plus_Minus {
 
         private static $_instance = null;
 
@@ -34,13 +34,13 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
                 add_filter( 'woocommerce_locate_template',  array( $this, 'woocommerce_locate_template' ), 40, 3 );
 
             // CSS
-                add_filter( 'glidex_woo_css', array( $this, 'woo_css'), 10, 1 );
+                add_filter( 'tankless_woo_css', array( $this, 'woo_css'), 10, 1 );
 
             // JS
-                add_filter( 'glidex_woo_js', array( $this, 'woo_js'), 10, 1 );
+                add_filter( 'tankless_woo_js', array( $this, 'woo_js'), 10, 1 );
 
             // JS
-                add_action( 'glidex_after_woo_js', array ( $this, 'after_woo_js' ) );
+                add_action( 'tankless_after_woo_js', array ( $this, 'after_woo_js' ) );
 
         }
 
@@ -51,8 +51,8 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/others/quantity-plus-minus/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/others/quantity-plus-minus/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -61,8 +61,8 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/others/quantity-plus-minus/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/others/quantity-plus-minus/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -74,7 +74,7 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
          */
             function load_modules() {
 
-                if( function_exists( 'glidex_pro' ) ) {
+                if( function_exists( 'tankless_pro' ) ) {
 
                     // Customizer
                         include_once $this->module_dir_path(). 'customizer/index.php';
@@ -166,8 +166,8 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
 
                 if( !is_product() && !is_cart() ) {
 
-                    wp_register_script( 'glidex-woo-quantity-plus-minus', '', array ('jquery'), false, true );
-                    wp_enqueue_script( 'glidex-woo-quantity-plus-minus' );
+                    wp_register_script( 'tankless-woo-quantity-plus-minus', '', array ('jquery'), false, true );
+                    wp_enqueue_script( 'tankless-woo-quantity-plus-minus' );
 
                     $js = '';
 
@@ -180,7 +180,7 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
                     }
 
                     if( !empty($js) ) {
-                        wp_add_inline_script( 'glidex-woo-quantity-plus-minus', $js );
+                        wp_add_inline_script( 'tankless-woo-quantity-plus-minus', $js );
                     }
 
                     return $js;
@@ -192,11 +192,11 @@ if( !class_exists( 'Glidex_Shop_Others_Quantity_Plus_Minus' ) ) {
 
 }
 
-if( !function_exists('glidex_shop_others_quantity_plus_minus') ) {
-	function glidex_shop_others_quantity_plus_minus() {
-        $reflection = new ReflectionClass('Glidex_Shop_Others_Quantity_Plus_Minus');
+if( !function_exists('tankless_shop_others_quantity_plus_minus') ) {
+	function tankless_shop_others_quantity_plus_minus() {
+        $reflection = new ReflectionClass('Tankless_Shop_Others_Quantity_Plus_Minus');
         return $reflection->newInstanceWithoutConstructor();
 	}
 }
 
-Glidex_Shop_Others_Quantity_Plus_Minus::instance();
+Tankless_Shop_Others_Quantity_Plus_Minus::instance();

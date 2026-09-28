@@ -67,13 +67,13 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 
     <div class="wdt-events-meta-content">
         <p class="tribe-events-back">
-            <a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'glidex' ), $events_label_plural ); ?></a>
+            <a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'tankless' ), $events_label_plural ); ?></a>
         </p>
 
         <!-- Notices -->
         <?php tribe_the_notices() ?>
 
-        <?php echo glidex_html_output($title); ?>
+        <?php echo tankless_html_output($title); ?>
 
         <p><?php echo wp_trim_words(get_the_excerpt(), 15); ?></p>
 
@@ -88,7 +88,7 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
 		<!-- Navigation -->
-		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'glidex' ), $events_label_singular ); ?>">
+		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'tankless' ), $events_label_singular ); ?>">
 			<ul class="tribe-events-sub-nav">
 				<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
 				<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>
@@ -125,7 +125,7 @@ $title = apply_filters( 'tribe_events_single_event_title_html', the_title( $befo
 	<!-- Event footer -->
 	<div id="tribe-events-footer">
 		<!-- Navigation -->
-		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'glidex' ), $events_label_singular ); ?>">
+		<nav class="tribe-events-nav-pagination" aria-label="<?php printf( esc_html__( '%s Navigation', 'tankless' ), $events_label_singular ); ?>">
 			<ul class="tribe-events-sub-nav">
 				<li class="tribe-events-nav-previous"><?php tribe_the_prev_event_link( '<span>&laquo;</span> %title%' ) ?></li>
 				<li class="tribe-events-nav-next"><?php tribe_the_next_event_link( '%title% <span>&raquo;</span>' ) ?></li>

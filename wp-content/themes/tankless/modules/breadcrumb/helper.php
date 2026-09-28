@@ -1,51 +1,51 @@
 <?php
-add_action( 'glidex_after_main_css', 'breadcrumb_style' );
+add_action( 'tankless_after_main_css', 'breadcrumb_style' );
 function breadcrumb_style() {
-    wp_enqueue_style( 'glidex-breadcrumb', get_theme_file_uri('/modules/breadcrumb/assets/css/breadcrumb.css'), false, GLIDEX_THEME_VERSION, 'all');
+    wp_enqueue_style( 'tankless-breadcrumb', get_theme_file_uri('/modules/breadcrumb/assets/css/breadcrumb.css'), false, TANKLESS_THEME_VERSION, 'all');
 }
 
-if( ! function_exists( 'glidex_breadcrumb_template' )  ) {
-	function glidex_breadcrumb_template() {
+if( ! function_exists( 'tankless_breadcrumb_template' )  ) {
+	function tankless_breadcrumb_template() {
         if ( !is_front_page() && !is_home() ) {
-		    glidex_template_part( 'breadcrumb', 'templates/title' );
+		    tankless_template_part( 'breadcrumb', 'templates/title' );
         }
 	}
 
-	add_action( 'glidex_breadcrumb', 'glidex_breadcrumb_template' );
+	add_action( 'tankless_breadcrumb', 'tankless_breadcrumb_template' );
 }
-function glidex_breadcrumb_params() {
+function tankless_breadcrumb_params() {
     $params = array(
-        "home"            => esc_html__('Home','glidex'),
+        "home"            => esc_html__('Home','tankless'),
         "home_link"       => home_url('/'),
         "delimiter"       => '<span class="breadcrumb-default-delimiter"></span>',
         "wrapper_classes" => "default"
     );
-    return apply_filters( 'glidex_breadcrumb_params', $params );
+    return apply_filters( 'tankless_breadcrumb_params', $params );
 }
 
-if( ! function_exists( 'glidex_update_header_wrapper_classes' )  ) {
-	function glidex_update_header_wrapper_classes($classes) {
+if( ! function_exists( 'tankless_update_header_wrapper_classes' )  ) {
+	function tankless_update_header_wrapper_classes($classes) {
         // array_push($classes, 'wdt-dark-bg'); // For dark bg enable this line
         return $classes;
 	}
-	add_filter( 'glidex_header_wrapper_classes', 'glidex_update_header_wrapper_classes', 10, 1 );
+	add_filter( 'tankless_header_wrapper_classes', 'tankless_update_header_wrapper_classes', 10, 1 );
 }
 
-function glidex_breadcrumb_title() {
-    $title = get_the_title( glidex_get_page_id() );
+function tankless_breadcrumb_title() {
+    $title = get_the_title( tankless_get_page_id() );
 
 	if ( ( is_home() && is_front_page() ) || is_singular('attachment') ) {
         $title = get_option( 'blogname' );
     } elseif( is_archive() ) {
         $title = get_the_archive_title();
     } elseif ( is_search() ) {
-        $title = esc_html__("Search Result for: ",'glidex').' '.get_search_query();
+        $title = esc_html__("Search Result for: ",'tankless').' '.get_search_query();
     }
 
-    return apply_filters( 'glidex_breadcrumb_title', '<h1>'.$title.'</h1>' );
+    return apply_filters( 'tankless_breadcrumb_title', '<h1>'.$title.'</h1>' );
 }
 
-function glidex_breadcrumbs( $home, $separator ) {
+function tankless_breadcrumbs( $home, $separator ) {
     $output      = '';
     $breadcrumbs = array();
 
@@ -73,7 +73,7 @@ function glidex_breadcrumbs( $home, $separator ) {
     }
 
     if( is_search() ) {
-    	$breadcrumbs[] = '<a href="javascript:void(0);">' . esc_html__('Search', 'glidex') . '</a>';
+    	$breadcrumbs[] = '<a href="javascript:void(0);">' . esc_html__('Search', 'tankless') . '</a>';
     }
 
     if( is_page() ) {
@@ -104,7 +104,7 @@ function glidex_breadcrumbs( $home, $separator ) {
 		$breadcrumbs[] = the_title( '<span class="current">', '</span>', false );
     }
 
-    $filtered_breadcrumbs = apply_filters( 'glidex_breadcrumbs', $breadcrumbs );
+    $filtered_breadcrumbs = apply_filters( 'tankless_breadcrumbs', $breadcrumbs );
 
     $count = count( $filtered_breadcrumbs );
     if( $count > 1 ) {

@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Background_Bgcolor' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Background_Bgcolor' ) ) {
 
-    class Glidex_Woo_Listing_Option_Background_Bgcolor extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Background_Bgcolor extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Background_Bgcolor' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-background-bgcolor';
-            $this->option_name          = esc_html__('Background - Background Color', 'glidex');
+            $this->option_name          = esc_html__('Background - Background Color', 'tankless');
             $this->option_type          = array ( 'html', 'key-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Background_Bgcolor' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 25, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 25, 1 );
         }
 
         /**
@@ -82,10 +82,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Background_Bgcolor' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_background_bgcolor') ) {
-	function glidex_woo_listing_option_background_bgcolor() {
-		return Glidex_Woo_Listing_Option_Background_Bgcolor::instance();
+if( !function_exists('tankless_woo_listing_option_background_bgcolor') ) {
+	function tankless_woo_listing_option_background_bgcolor() {
+		return Tankless_Woo_Listing_Option_Background_Bgcolor::instance();
 	}
 }
 
-glidex_woo_listing_option_background_bgcolor();
+tankless_woo_listing_option_background_bgcolor();

@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Dark_BGColor' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Overlay_Dark_BGColor' ) ) {
 
-    class Glidex_Woo_Listing_Option_Overlay_Dark_BGColor extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Overlay_Dark_BGColor extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Dark_BGColor' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-overlay-dark-bgcolor';
-            $this->option_name          = esc_html__('Overlay Dark Background', 'glidex');
+            $this->option_name          = esc_html__('Overlay Dark Background', 'tankless');
             $this->option_type          = array ( 'html', 'class', 'key-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Dark_BGColor' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 30, 1 );
+            add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 30, 1 );
         }
 
         /**
@@ -82,10 +82,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Dark_BGColor' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_overlay_dark_bgcolor') ) {
-	function glidex_woo_listing_option_overlay_dark_bgcolor() {
-		return Glidex_Woo_Listing_Option_Overlay_Dark_BGColor::instance();
+if( !function_exists('tankless_woo_listing_option_overlay_dark_bgcolor') ) {
+	function tankless_woo_listing_option_overlay_dark_bgcolor() {
+		return Tankless_Woo_Listing_Option_Overlay_Dark_BGColor::instance();
 	}
 }
 
-glidex_woo_listing_option_overlay_dark_bgcolor();
+tankless_woo_listing_option_overlay_dark_bgcolor();

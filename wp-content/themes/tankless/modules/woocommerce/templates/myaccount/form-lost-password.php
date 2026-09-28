@@ -22,11 +22,11 @@ do_action( 'woocommerce_before_lost_password_form' );
 
 <form method="post" class="woocommerce-ResetPassword lost_reset_password">
 
-	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'glidex' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
+	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'tankless' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
 	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
-		<!-- <label for="user_login"><?php //esc_html_e( 'Username or email', 'glidex' ); ?></label> -->
-<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" placeholder="<?php echo esc_attr__('Username or email', 'glidex'); ?>" autocomplete="username" />	</p>
+		<!-- <label for="user_login"><?php //esc_html_e( 'Username or email', 'tankless' ); ?></label> -->
+<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" placeholder="<?php echo esc_attr__('Username or email', 'tankless'); ?>" autocomplete="username" />	</p>
 
 	<div class="clear"></div>
 
@@ -34,7 +34,7 @@ do_action( 'woocommerce_before_lost_password_form' );
 
 	<p class="woocommerce-form-row form-row">
 		<input type="hidden" name="wc_reset_password" value="true" />
-		<button type="submit" class="woocommerce-Button button" value="<?php esc_attr_e( 'Reset password', 'glidex' ); ?>"><?php esc_html_e( 'Reset password', 'glidex' ); ?></button>
+		<button type="submit" class="woocommerce-Button button" value="<?php esc_attr_e( 'Reset password', 'tankless' ); ?>"><?php esc_html_e( 'Reset password', 'tankless' ); ?></button>
 	</p>
 
 	<?php wp_nonce_field( 'lost_password', 'woocommerce-lost-password-nonce' ); ?>

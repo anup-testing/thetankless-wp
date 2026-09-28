@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
+if( !class_exists( 'Tankless_Shop_Single_Module_Upsell_Related' ) ) {
 
-    class Glidex_Shop_Single_Module_Upsell_Related {
+    class Tankless_Shop_Single_Module_Upsell_Related {
 
         private static $_instance = null;
 
@@ -38,8 +38,8 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/single/modules/upsell-and-related/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/single/modules/upsell-and-related/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -48,8 +48,8 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/single/modules/upsell-and-related/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/single/modules/upsell-and-related/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -64,7 +64,7 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
 
                 // If Theme-Plugin is activated
 
-                    if( function_exists( 'glidex_pro' ) ) {
+                    if( function_exists( 'tankless_pro' ) ) {
 
                         // Customizer
                             include_once $this->module_dir_path() . 'customizer/index.php';
@@ -89,9 +89,9 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
                 $type_options = array ();
 
                 if( $product_style_template == 'predefined' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_'.$product_style_custom_template; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_'.$product_style_custom_template; // Type Class Instance
                 } else if( $product_style_template == 'custom' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_custom'; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_custom'; // Type Class Instance
                 }
 
                 if ( function_exists( $type_class_instance ) ) {
@@ -107,7 +107,7 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
 
                             $type_option_key = str_replace( 'product-', '', $type_option_key);
                             $type_option_key = str_replace( '-', '_', $type_option_key);
-                            $option_class_instance = 'glidex_woo_listing_option_'.$type_option_key;  // Option Class Instance
+                            $option_class_instance = 'tankless_woo_listing_option_'.$type_option_key;  // Option Class Instance
 
                             if ( function_exists( $option_class_instance ) ) {
 
@@ -131,10 +131,10 @@ if( !class_exists( 'Glidex_Shop_Single_Module_Upsell_Related' ) ) {
 
 }
 
-if( !function_exists('glidex_shop_single_module_upsell_related') ) {
-	function glidex_shop_single_module_upsell_related() {
-		return Glidex_Shop_Single_Module_Upsell_Related::instance();
+if( !function_exists('tankless_shop_single_module_upsell_related') ) {
+	function tankless_shop_single_module_upsell_related() {
+		return Tankless_Shop_Single_Module_Upsell_Related::instance();
 	}
 }
 
-glidex_shop_single_module_upsell_related();
+tankless_shop_single_module_upsell_related();

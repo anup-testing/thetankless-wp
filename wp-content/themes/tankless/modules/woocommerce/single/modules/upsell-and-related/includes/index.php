@@ -6,18 +6,18 @@
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 
-if( ! function_exists( 'glidex_shop_woo_show_upsell' ) ) {
+if( ! function_exists( 'tankless_shop_woo_show_upsell' ) ) {
 
-	function glidex_shop_woo_show_upsell() {
+	function tankless_shop_woo_show_upsell() {
 
 		global $product;
 
-        $settings = glidex_woo_single_core()->woo_default_settings();
-        $settings = apply_filters( 'glidex_woo_single_upsell_related_settings', $settings );
+        $settings = tankless_woo_single_core()->woo_default_settings();
+        $settings = apply_filters( 'tankless_woo_single_upsell_related_settings', $settings );
 
 		if( $settings['product_upsell_display'] ) {
 
-			glidex_shop_single_module_upsell_related()->woo_load_listing( $settings['product_upsell_style_template'], $settings['product_upsell_style_custom_template'] );
+			tankless_shop_single_module_upsell_related()->woo_load_listing( $settings['product_upsell_style_template'], $settings['product_upsell_style_custom_template'] );
 
 			$product_display_type = wc_get_loop_prop( 'product-display-type', 'grid' );
 			if($product_display_type == 'list') {
@@ -28,13 +28,13 @@ if( ! function_exists( 'glidex_shop_woo_show_upsell' ) ) {
 
 			woocommerce_upsell_display( $limit = $settings['product_upsell_limit'], $columns = $settings['product_upsell_column'], $orderby = 'rand', $order = 'desc' );
 
-			glidex_shop_product_style_reset_loop_prop(); /* Reset Product Style Loop Prop */
+			tankless_shop_product_style_reset_loop_prop(); /* Reset Product Style Loop Prop */
 
 		}
 
 	}
 
-	add_action( 'woocommerce_after_single_product_summary', 'glidex_shop_woo_show_upsell', 15 );
+	add_action( 'woocommerce_after_single_product_summary', 'tankless_shop_woo_show_upsell', 15 );
 
 }
 
@@ -45,18 +45,18 @@ if( ! function_exists( 'glidex_shop_woo_show_upsell' ) ) {
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
-if( ! function_exists( 'glidex_shop_woo_show_related_products' ) ) {
+if( ! function_exists( 'tankless_shop_woo_show_related_products' ) ) {
 
-	function glidex_shop_woo_show_related_products() {
+	function tankless_shop_woo_show_related_products() {
 
 		global $product;
 
-        $settings = glidex_woo_single_core()->woo_default_settings();
-        $settings = apply_filters( 'glidex_woo_single_upsell_related_settings', $settings );
+        $settings = tankless_woo_single_core()->woo_default_settings();
+        $settings = apply_filters( 'tankless_woo_single_upsell_related_settings', $settings );
 
 		if( $settings['product_related_display'] ) {
 
-			glidex_shop_single_module_upsell_related()->woo_load_listing( $settings['product_related_style_template'], $settings['product_related_style_custom_template'] );
+			tankless_shop_single_module_upsell_related()->woo_load_listing( $settings['product_related_style_template'], $settings['product_related_style_custom_template'] );
 
 			$product_display_type = wc_get_loop_prop( 'product-display-type', 'grid' );
 			if($product_display_type == 'list') {
@@ -71,13 +71,13 @@ if( ! function_exists( 'glidex_shop_woo_show_related_products' ) ) {
 				'orderby'        => 'rand'
 			) );
 
-			glidex_shop_product_style_reset_loop_prop(); /* Reset Product Style Loop Prop */
+			tankless_shop_product_style_reset_loop_prop(); /* Reset Product Style Loop Prop */
 
 		}
 
 	}
 
-	add_action( 'woocommerce_after_single_product_summary', 'glidex_shop_woo_show_related_products', 20 );
+	add_action( 'woocommerce_after_single_product_summary', 'tankless_shop_woo_show_related_products', 20 );
 
 }
 
@@ -86,11 +86,11 @@ if( ! function_exists( 'glidex_shop_woo_show_related_products' ) ) {
  * Filter for  Default Settings
  */
 
-if( ! function_exists( 'glidex_shop_woo_single_upsell_related_settings' ) ) {
+if( ! function_exists( 'tankless_shop_woo_single_upsell_related_settings' ) ) {
 
-	function glidex_shop_woo_single_upsell_related_settings( $settings ) {
+	function tankless_shop_woo_single_upsell_related_settings( $settings ) {
 
-        if( !function_exists( 'glidex_pro' ) ) {
+        if( !function_exists( 'tankless_pro' ) ) {
             return $settings; // If Theme-Plugin is not activated
         }
 
@@ -117,29 +117,29 @@ if( ! function_exists( 'glidex_shop_woo_single_upsell_related_settings' ) ) {
 
         if( isset( $custom_settings['show-upsell'] ) && $custom_settings['show-upsell'] == 'admin-option' ) {
 
-            $settings['product_upsell_display'] = glidex_customizer_settings('wdt-single-product-upsell-display' );
-            $settings['product_upsell_column']  = glidex_customizer_settings('wdt-single-product-upsell-column' );
-            $settings['product_upsell_limit']   = glidex_customizer_settings('wdt-single-product-upsell-limit' );
+            $settings['product_upsell_display'] = tankless_customizer_settings('wdt-single-product-upsell-display' );
+            $settings['product_upsell_column']  = tankless_customizer_settings('wdt-single-product-upsell-column' );
+            $settings['product_upsell_limit']   = tankless_customizer_settings('wdt-single-product-upsell-limit' );
 
         } else if( isset( $custom_settings['show-upsell'] ) && $custom_settings['show-upsell'] == 'true' ) {
 
             $settings['product_upsell_display'] = true;
 
             if( $custom_settings['upsell-column'] == 'admin-option' ) {
-                $settings['product_upsell_column']  = glidex_customizer_settings('wdt-single-product-upsell-column' );
+                $settings['product_upsell_column']  = tankless_customizer_settings('wdt-single-product-upsell-column' );
             } else {
                 $settings['product_upsell_column']  = $custom_settings['upsell-column'];
             }
 
             if( $custom_settings['upsell-limit'] == 'admin-option' ) {
-                $settings['product_upsell_limit']   = glidex_customizer_settings('wdt-single-product-upsell-limit' );
+                $settings['product_upsell_limit']   = tankless_customizer_settings('wdt-single-product-upsell-limit' );
             } else {
                 $settings['product_upsell_limit']   = $custom_settings['upsell-limit'];
             }
 
         }
 
-        $product_upsell_style_custom_template = glidex_customizer_settings('wdt-single-product-upsell-style-template' );
+        $product_upsell_style_custom_template = tankless_customizer_settings('wdt-single-product-upsell-style-template' );
         if( isset($product_upsell_style_custom_template) && !empty($product_upsell_style_custom_template) ) {
             $settings['product_upsell_style_template']        = 'custom';
             $settings['product_upsell_style_custom_template'] = $product_upsell_style_custom_template;
@@ -150,29 +150,29 @@ if( ! function_exists( 'glidex_shop_woo_single_upsell_related_settings' ) ) {
 
         if( isset( $custom_settings['show-related'] ) && $custom_settings['show-related'] == 'admin-option' ) {
 
-            $settings['product_related_display'] = glidex_customizer_settings('wdt-single-product-related-display' );
-            $settings['product_related_column']  = glidex_customizer_settings('wdt-single-product-related-column' );
-            $settings['product_related_limit']   = glidex_customizer_settings('wdt-single-product-related-limit' );
+            $settings['product_related_display'] = tankless_customizer_settings('wdt-single-product-related-display' );
+            $settings['product_related_column']  = tankless_customizer_settings('wdt-single-product-related-column' );
+            $settings['product_related_limit']   = tankless_customizer_settings('wdt-single-product-related-limit' );
 
         } else if( isset( $custom_settings['show-related'] ) && $custom_settings['show-related'] == 'true' ) {
 
             $settings['product_related_display'] = true;
 
             if( $custom_settings['related-column'] == 'admin-option' ) {
-                $settings['product_related_column']  = glidex_customizer_settings('wdt-single-product-related-column' );
+                $settings['product_related_column']  = tankless_customizer_settings('wdt-single-product-related-column' );
             } else {
                 $settings['product_related_column']  = $custom_settings['related-column'];
             }
 
             if( $custom_settings['related-limit'] == 'admin-option' ) {
-                $settings['product_related_limit']   = glidex_customizer_settings('wdt-single-product-related-limit' );
+                $settings['product_related_limit']   = tankless_customizer_settings('wdt-single-product-related-limit' );
             } else {
                 $settings['product_related_limit']   = $custom_settings['related-limit'];
             }
 
         }
 
-        $product_related_style_custom_template = glidex_customizer_settings('wdt-single-product-related-style-template' );
+        $product_related_style_custom_template = tankless_customizer_settings('wdt-single-product-related-style-template' );
         if( isset($product_related_style_custom_template) && !empty($product_related_style_custom_template) ) {
             $settings['product_related_style_template']        = 'custom';
             $settings['product_related_style_custom_template'] = $product_related_style_custom_template;
@@ -182,7 +182,7 @@ if( ! function_exists( 'glidex_shop_woo_single_upsell_related_settings' ) ) {
 
 	}
 
-	add_filter( 'glidex_woo_single_upsell_related_settings', 'glidex_shop_woo_single_upsell_related_settings', 10, 1 );
+	add_filter( 'tankless_woo_single_upsell_related_settings', 'tankless_shop_woo_single_upsell_related_settings', 10, 1 );
 
 }
 
@@ -191,14 +191,14 @@ if( ! function_exists( 'glidex_shop_woo_single_upsell_related_settings' ) ) {
  * Reset Loop Prop
  */
 
-if( ! function_exists( 'glidex_shop_product_style_reset_loop_prop' ) ) {
+if( ! function_exists( 'tankless_shop_product_style_reset_loop_prop' ) ) {
 
-	function glidex_shop_product_style_reset_loop_prop() {
+	function tankless_shop_product_style_reset_loop_prop() {
 
-		$glidex_shop_loop_prop = wc_get_loop_prop('wdt-shop-loop-prop', array ());
+		$tankless_shop_loop_prop = wc_get_loop_prop('wdt-shop-loop-prop', array ());
 
-		if( is_array($glidex_shop_loop_prop) && !empty($glidex_shop_loop_prop) ) {
-			foreach( $glidex_shop_loop_prop as $loop_prop ) {
+		if( is_array($tankless_shop_loop_prop) && !empty($tankless_shop_loop_prop) ) {
+			foreach( $tankless_shop_loop_prop as $loop_prop ) {
 				unset($GLOBALS['woocommerce_loop'][$loop_prop]);
 			}
 		}
@@ -215,19 +215,19 @@ if( ! function_exists( 'glidex_shop_product_style_reset_loop_prop' ) ) {
  * Related Products Heading
  */
 
-if( ! function_exists( 'glidex_shop_woo_related_products_heading' ) ) {
+if( ! function_exists( 'tankless_shop_woo_related_products_heading' ) ) {
 
-	function glidex_shop_woo_related_products_heading($heading) {
+	function tankless_shop_woo_related_products_heading($heading) {
 
-        if( !function_exists( 'glidex_pro' ) ) {
+        if( !function_exists( 'tankless_pro' ) ) {
             return $heading; // If Theme-Plugin is not activated
         }
 
 		$product_related_hide_title = wc_get_loop_prop('product_related_hide_title');
-		$product_template = glidex_shop_woo_product_single_template_option();
+		$product_template = tankless_shop_woo_product_single_template_option();
 		if( ( $product_template == 'custom-template' && $product_related_hide_title != 'true' ) || $product_template == 'woo-default' ) {
 
-			$title = glidex_customizer_settings( 'wdt-single-product-related-title' );
+			$title = tankless_customizer_settings( 'wdt-single-product-related-title' );
 			$heading = ( isset($title) && !empty($title) ) ? $title : $heading;
 
 		} else if( $product_template == 'custom-template' && $product_related_hide_title == 'true' ) {
@@ -240,7 +240,7 @@ if( ! function_exists( 'glidex_shop_woo_related_products_heading' ) ) {
 
 	}
 
-	add_filter( 'woocommerce_product_related_products_heading', 'glidex_shop_woo_related_products_heading', 1 );
+	add_filter( 'woocommerce_product_related_products_heading', 'tankless_shop_woo_related_products_heading', 1 );
 
 }
 
@@ -249,19 +249,19 @@ if( ! function_exists( 'glidex_shop_woo_related_products_heading' ) ) {
  * Upsell Products Heading
  */
 
-if( ! function_exists( 'glidex_shop_woo_upsells_products_heading' ) ) {
+if( ! function_exists( 'tankless_shop_woo_upsells_products_heading' ) ) {
 
-	function glidex_shop_woo_upsells_products_heading($heading) {
+	function tankless_shop_woo_upsells_products_heading($heading) {
 
-        if( !function_exists( 'glidex_pro' ) ) {
+        if( !function_exists( 'tankless_pro' ) ) {
             return $heading; // If Theme-Plugin is not activated
         }
 
 		$product_upsell_hide_title = wc_get_loop_prop('product_upsell_hide_title');
-		$product_template = glidex_shop_woo_product_single_template_option();
+		$product_template = tankless_shop_woo_product_single_template_option();
 		if( ( $product_template == 'custom-template' && $product_upsell_hide_title != 'true' ) || $product_template == 'woo-default' ) {
 
-			$title = glidex_customizer_settings( 'wdt-single-product-upsell-title' );
+			$title = tankless_customizer_settings( 'wdt-single-product-upsell-title' );
             $heading = ( isset($title) && !empty($title) ) ? $title : $heading;
 
 		} else if( $product_template == 'custom-template' && $product_upsell_hide_title == 'true' ) {
@@ -274,6 +274,6 @@ if( ! function_exists( 'glidex_shop_woo_upsells_products_heading' ) ) {
 
 	}
 
-	add_filter( 'woocommerce_product_upsells_products_heading', 'glidex_shop_woo_upsells_products_heading', 1 );
+	add_filter( 'woocommerce_product_upsells_products_heading', 'tankless_shop_woo_upsells_products_heading', 1 );
 
 }

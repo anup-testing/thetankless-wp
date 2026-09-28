@@ -20,27 +20,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/* Customized script - 'glidex_shop_products_list_class' function */
+/* Customized script - 'tankless_shop_products_list_class' function */
 $columns = wc_get_loop_prop('columns');
 
-$classes = apply_filters( 'glidex_woo_listings_class', array () );
+$classes = apply_filters( 'tankless_woo_listings_class', array () );
 $classes = ( is_array ($classes) && !empty ($classes) ) ? implode( ' ', $classes ) : '';
 
-$settings = glidex_woo_listing_shop()->woo_default_settings();
+$settings = tankless_woo_listing_shop()->woo_default_settings();
 extract($settings);
 
 
 $apply_isotope = ( isset($apply_isotope) && !empty($apply_isotope) && ($apply_isotope == 1) ) ? 'products-apply-isotope' : '';
 ?>
 
-<ul class="products <?php echo esc_attr($apply_isotope);?> columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> <?php echo esc_attr($classes ); ?> glidex-related-product-carousel">
+<ul class="products <?php echo esc_attr($apply_isotope);?> columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> <?php echo esc_attr($classes ); ?> tankless-related-product-carousel">
 
 <?php
-if( function_exists ( 'glidex_woo_loop_column_class' ) ) {
+if( function_exists ( 'tankless_woo_loop_column_class' ) ) {
 	?>
 	
 	<li class="product isotope-grid-sizer">
-		<div class="<?php echo glidex_woo_loop_column_class ( $columns ); ?>"></div>
+		<div class="<?php echo tankless_woo_loop_column_class ( $columns ); ?>"></div>
 	</li>
 	<?php
 }

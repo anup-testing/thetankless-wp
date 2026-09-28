@@ -1,24 +1,24 @@
 <?php
-	$post_style = glidex_get_single_post_style( get_the_ID() );
+	$post_style = tankless_get_single_post_style( get_the_ID() );
 
 	$template_args['ID'] = get_the_ID();
 	$template_args['Post_Style'] = $post_style; ?>
 
 	<!-- Primary -->
-	<section id="primary" class="<?php echo esc_attr( glidex_get_primary_classes() ); ?>">
+	<section id="primary" class="<?php echo esc_attr( tankless_get_primary_classes() ); ?>">
 	<?php
-	    do_action( 'glidex_before_single_post_content_wrap' );
+	    do_action( 'tankless_before_single_post_content_wrap' );
 
 	    if( have_posts() ) {
 	        while( have_posts() ) {
 	            the_post();?>
 	            <!-- #post-<?php the_ID(); ?> -->
 	            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	                <?php echo glidex_get_template_part( 'post', 'templates/'.$post_style.'/post', '', $template_args ); ?>
+	                <?php echo tankless_get_template_part( 'post', 'templates/'.$post_style.'/post', '', $template_args ); ?>
 	            </article><!-- #post-<?php the_ID(); ?> --><?php
 	        }
 	    }
 
-	    do_action( 'glidex_after_single_post_content_wrap', $template_args['ID'] );?>
+	    do_action( 'tankless_after_single_post_content_wrap', $template_args['ID'] );?>
 	</section><!-- Primary End -->
-	<?php glidex_template_part( 'sidebar', 'templates/sidebar' ); ?>
+	<?php tankless_template_part( 'sidebar', 'templates/sidebar' ); ?>

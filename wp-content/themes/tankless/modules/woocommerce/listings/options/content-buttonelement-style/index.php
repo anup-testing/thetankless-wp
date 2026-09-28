@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Style' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Button_Element_Style' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Button_Element_Style extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Button_Element_Style extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Style' ) ) 
         function __construct() {
 
             $this->option_slug          = 'product-content-buttonelement-style';
-            $this->option_name          = esc_html__('Button Element - Style', 'glidex');
+            $this->option_name          = esc_html__('Button Element - Style', 'tankless');
             $this->option_default_value = 'product-content-buttonelement-style-simple';
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_value_prefix  = 'product-content-buttonelement-style-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Style' ) ) 
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 40, 1 );
+            add_filter( 'tankless_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 40, 1 );
         }
 
         /**
@@ -75,19 +75,19 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Style' ) ) 
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-content-buttonelement-style-simple'                      => esc_html__('Simple', 'glidex'),
-                'product-content-buttonelement-style-bgfill-square'               => esc_html__('Background Fill Square', 'glidex'),
-                'product-content-buttonelement-style-bgfill-rounded-square'       => esc_html__('Background Fill Rounded Square', 'glidex'),
-                'product-content-buttonelement-style-bgfill-rounded'              => esc_html__('Background Fill Rounded', 'glidex'),
-                'product-content-buttonelement-style-brdrfill-square'             => esc_html__('Border Fill Square', 'glidex'),
-                'product-content-buttonelement-style-brdrfill-rounded-square'     => esc_html__('Border Fill Rounded Square', 'glidex'),
-                'product-content-buttonelement-style-brdrfill-rounded'            => esc_html__('Border Fill Rounded', 'glidex'),
-                'product-content-buttonelement-style-skinbgfill-square'           => esc_html__('Skin Background Fill Square', 'glidex'),
-                'product-content-buttonelement-style-skinbgfill-rounded-square'   => esc_html__('Skin Background Fill Rounded Square', 'glidex'),
-                'product-content-buttonelement-style-skinbgfill-rounded'          => esc_html__('Skin Background Fill Rounded', 'glidex'),
-                'product-content-buttonelement-style-skinbrdrfill-square'         => esc_html__('Skin Border Fill Square', 'glidex'),
-                'product-content-buttonelement-style-skinbrdrfill-rounded-square' => esc_html__('Skin Border Fill Rounded Square', 'glidex'),
-                'product-content-buttonelement-style-skinbrdrfill-rounded'        => esc_html__('Skin Border Fill Rounded', 'glidex')
+                'product-content-buttonelement-style-simple'                      => esc_html__('Simple', 'tankless'),
+                'product-content-buttonelement-style-bgfill-square'               => esc_html__('Background Fill Square', 'tankless'),
+                'product-content-buttonelement-style-bgfill-rounded-square'       => esc_html__('Background Fill Rounded Square', 'tankless'),
+                'product-content-buttonelement-style-bgfill-rounded'              => esc_html__('Background Fill Rounded', 'tankless'),
+                'product-content-buttonelement-style-brdrfill-square'             => esc_html__('Border Fill Square', 'tankless'),
+                'product-content-buttonelement-style-brdrfill-rounded-square'     => esc_html__('Border Fill Rounded Square', 'tankless'),
+                'product-content-buttonelement-style-brdrfill-rounded'            => esc_html__('Border Fill Rounded', 'tankless'),
+                'product-content-buttonelement-style-skinbgfill-square'           => esc_html__('Skin Background Fill Square', 'tankless'),
+                'product-content-buttonelement-style-skinbgfill-rounded-square'   => esc_html__('Skin Background Fill Rounded Square', 'tankless'),
+                'product-content-buttonelement-style-skinbgfill-rounded'          => esc_html__('Skin Background Fill Rounded', 'tankless'),
+                'product-content-buttonelement-style-skinbrdrfill-square'         => esc_html__('Skin Border Fill Square', 'tankless'),
+                'product-content-buttonelement-style-skinbrdrfill-rounded-square' => esc_html__('Skin Border Fill Rounded Square', 'tankless'),
+                'product-content-buttonelement-style-skinbrdrfill-rounded'        => esc_html__('Skin Border Fill Rounded', 'tankless')
             );
             $settings['default']    =  $this->option_default_value;
 
@@ -97,10 +97,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Button_Element_Style' ) ) 
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_buttonelement_style') ) {
-	function glidex_woo_listing_option_content_buttonelement_style() {
-		return Glidex_Woo_Listing_Option_Content_Button_Element_Style::instance();
+if( !function_exists('tankless_woo_listing_option_content_buttonelement_style') ) {
+	function tankless_woo_listing_option_content_buttonelement_style() {
+		return Tankless_Woo_Listing_Option_Content_Button_Element_Style::instance();
 	}
 }
 
-glidex_woo_listing_option_content_buttonelement_style();
+tankless_woo_listing_option_content_buttonelement_style();

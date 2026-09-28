@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
+if( !class_exists( 'Tankless_Woo_Single_core' ) ) {
 
-    class Glidex_Woo_Single_core {
+    class Tankless_Woo_Single_core {
 
         private static $_instance = null;
 
@@ -39,7 +39,7 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
                 $this->load_custom_modules();
 
             // Enqueue CSS
-                add_action( 'glidex_after_woo_css', array ( $this, 'after_woo_css' ), 10 );
+                add_action( 'tankless_after_woo_css', array ( $this, 'after_woo_css' ), 10 );
 
             if($settings['product_title_breadcrumb']) {
                 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
@@ -54,8 +54,8 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/single/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/single/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -64,8 +64,8 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/single/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/single/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -120,7 +120,7 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
 
                 );
 
-                $this->settings = apply_filters( 'glidex_woo_single_page_settings', $this->settings );
+                $this->settings = apply_filters( 'tankless_woo_single_page_settings', $this->settings );
 
                 return $this->settings;
 
@@ -131,8 +131,8 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
         */
             function load_modules() {
 
-                include_once GLIDEX_MODULE_DIR. '/woocommerce/single/includes/template.php';
-                include_once GLIDEX_MODULE_DIR. '/woocommerce/single/includes/labels.php';
+                include_once TANKLESS_MODULE_DIR. '/woocommerce/single/includes/template.php';
+                include_once TANKLESS_MODULE_DIR. '/woocommerce/single/includes/labels.php';
 
             }
 
@@ -157,7 +157,7 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
                 if( is_array( $custom_modules ) && !empty( $custom_modules ) ) {
                     foreach( $custom_modules as $custom_module ) {
 
-                        if( $file_path = glidex_woo_locate_file( $custom_module ) ) {
+                        if( $file_path = tankless_woo_locate_file( $custom_module ) ) {
                             include_once $file_path;
                         }
 
@@ -172,7 +172,7 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
             function after_woo_css() {
 
                 if( is_product() ) {
-                    wp_enqueue_style('glidex-woo-single-common', $this->module_dir_url() . 'assets/css/common.css');
+                    wp_enqueue_style('tankless-woo-single-common', $this->module_dir_url() . 'assets/css/common.css');
                 }
 
             }
@@ -182,11 +182,11 @@ if( !class_exists( 'Glidex_Woo_Single_core' ) ) {
 }
 
 
-if( !function_exists('glidex_woo_single_core') ) {
-	function glidex_woo_single_core() {
-        $reflection = new ReflectionClass('Glidex_Woo_Single_core');
+if( !function_exists('tankless_woo_single_core') ) {
+	function tankless_woo_single_core() {
+        $reflection = new ReflectionClass('Tankless_Woo_Single_core');
         return $reflection->newInstanceWithoutConstructor();
 	}
 }
 
-Glidex_Woo_Single_core::instance();
+Tankless_Woo_Single_core::instance();

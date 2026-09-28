@@ -9,7 +9,7 @@
 
         <div class="details">
             <h3>
-                <span><?php esc_html_e('About Author', 'glidex'); ?></span>
+                <span><?php esc_html_e('About Author', 'tankless'); ?></span>
                 <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a>
             </h3>
             <div class="desc"><?php echo nl2br( get_the_author_meta('description') ); ?></div>

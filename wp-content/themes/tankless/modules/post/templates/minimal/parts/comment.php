@@ -6,11 +6,11 @@ if(  ! post_password_required() && ( comments_open() || get_comments_number() ) 
 		<div class="single-entry-comments">
 		<div class="comment-wrap"><?php
 			comments_popup_link(
-				esc_html__('No Comments', 'glidex'),
-				esc_html__('1 Comment', 'glidex'),
-				esc_html__('% Comments', 'glidex'),
+				esc_html__('No Comments', 'tankless'),
+				esc_html__('1 Comment', 'tankless'),
+				esc_html__('% Comments', 'tankless'),
 				'',
-				esc_html__('Comments Off', 'glidex')
+				esc_html__('Comments Off', 'tankless')
 			); ?>
 		</div>
 	</div><!-- Entry Comment --><?php

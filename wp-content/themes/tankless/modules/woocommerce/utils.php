@@ -4,16 +4,16 @@
  * Locate file
  */
 
-if ( ! function_exists( 'glidex_woo_locate_file' ) ) {
+if ( ! function_exists( 'tankless_woo_locate_file' ) ) {
 
-	function glidex_woo_locate_file( $module ) {
+	function tankless_woo_locate_file( $module ) {
 
-		$plugin_file_path = apply_filters( 'glidex_woo_locate_file', '', $module);
+		$plugin_file_path = apply_filters( 'tankless_woo_locate_file', '', $module);
 
 		if( $plugin_file_path ) {
 			$file_path = $plugin_file_path;
 		} else {
-			$file_path = GLIDEX_MODULE_DIR . '/woocommerce/' . $module .'.php';
+			$file_path = TANKLESS_MODULE_DIR . '/woocommerce/' . $module .'.php';
 		}
 
 		$located_file_path = false;
@@ -30,9 +30,9 @@ if ( ! function_exists( 'glidex_woo_locate_file' ) ) {
  * Check file is in theme
  */
 
-if ( ! function_exists( 'glidex_is_file_in_theme' ) ) {
+if ( ! function_exists( 'tankless_is_file_in_theme' ) ) {
 
-	function glidex_is_file_in_theme( $file_path = __FILE__ ) {
+	function tankless_is_file_in_theme( $file_path = __FILE__ ) {
 
 		$root = get_theme_root();
 		$root = str_replace( '\\', '/', $root );
@@ -53,9 +53,9 @@ if ( ! function_exists( 'glidex_is_file_in_theme' ) ) {
  * Check item is in cart
  */
 
-if(!function_exists('glidex_check_item_is_in_cart')) {
+if(!function_exists('tankless_check_item_is_in_cart')) {
 
-	function glidex_check_item_is_in_cart( $product_id ){
+	function tankless_check_item_is_in_cart( $product_id ){
 
 		if ( $product_id > 0 ) {
 

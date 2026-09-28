@@ -5,5 +5,5 @@ if ( post_password_required() || !post_type_supports( get_post_type(), 'comments
 
 if ( comments_open() || get_comments_number() ) {
 
-    do_action( 'glidex_comments_template' );
+    do_action( 'tankless_comments_template' );
 }?>

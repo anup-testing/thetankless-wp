@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Element_Group' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Element_Group' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Element_Group extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Element_Group extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -38,7 +38,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Element_Group' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-content-element-group';
-            $this->option_name          = esc_html__('Element Group Content', 'glidex');
+            $this->option_name          = esc_html__('Element Group Content', 'tankless');
             $this->option_type          = array ( 'html', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = '';
@@ -52,7 +52,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Element_Group' ) ) {
         function render_backend() {
 
             /* Custom Product Templates - Options */
-            add_filter( 'glidex_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 50, 1 );
+            add_filter( 'tankless_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 50, 1 );
         }
 
         /**
@@ -83,25 +83,25 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Element_Group' ) ) {
             $settings['title']   =  $this->option_name;
             $settings['default'] =  array (
                 'enabled' => array(
-                    'title' => esc_html__('Title', 'glidex'),
-                    'price' => esc_html__('Price', 'glidex'),
+                    'title' => esc_html__('Title', 'tankless'),
+                    'price' => esc_html__('Price', 'tankless'),
                 ),
                 'disabled' => array(
-                    'cart'           => esc_html__('Cart', 'glidex'),
-                    'wishlist'       => esc_html__('Wishlist', 'glidex'),
-                    'compare'        => esc_html__('Compare', 'glidex'),
-                    'quickview'      => esc_html__('Quick View', 'glidex'),
-                    'category'       => esc_html__('Category', 'glidex'),
-                    'button_element' => esc_html__('Button Element', 'glidex'),
-                    'icons_group'    => esc_html__('Icons Group', 'glidex'),
-                    'excerpt'        => esc_html__('Excerpt', 'glidex'),
-                    'rating'         => esc_html__('Rating', 'glidex'),
-                    'separator'      => esc_html__('Separator', 'glidex'),
-                    'swatches'       => esc_html__('Swatches', 'glidex')
+                    'cart'           => esc_html__('Cart', 'tankless'),
+                    'wishlist'       => esc_html__('Wishlist', 'tankless'),
+                    'compare'        => esc_html__('Compare', 'tankless'),
+                    'quickview'      => esc_html__('Quick View', 'tankless'),
+                    'category'       => esc_html__('Category', 'tankless'),
+                    'button_element' => esc_html__('Button Element', 'tankless'),
+                    'icons_group'    => esc_html__('Icons Group', 'tankless'),
+                    'excerpt'        => esc_html__('Excerpt', 'tankless'),
+                    'rating'         => esc_html__('Rating', 'tankless'),
+                    'separator'      => esc_html__('Separator', 'tankless'),
+                    'swatches'       => esc_html__('Swatches', 'tankless')
                 ),
             );
-            $settings['enabled_title']  =  esc_html__('Active Elements', 'glidex');
-            $settings['disabled_title'] =  esc_html__('Deatcive Elements', 'glidex');
+            $settings['enabled_title']  =  esc_html__('Active Elements', 'tankless');
+            $settings['disabled_title'] =  esc_html__('Deatcive Elements', 'tankless');
 
             return $settings;
         }
@@ -109,10 +109,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Element_Group' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_element_group') ) {
-	function glidex_woo_listing_option_content_element_group() {
-		return Glidex_Woo_Listing_Option_Content_Element_Group::instance();
+if( !function_exists('tankless_woo_listing_option_content_element_group') ) {
+	function tankless_woo_listing_option_content_element_group() {
+		return Tankless_Woo_Listing_Option_Content_Element_Group::instance();
 	}
 }
 
-glidex_woo_listing_option_content_element_group();
+tankless_woo_listing_option_content_element_group();

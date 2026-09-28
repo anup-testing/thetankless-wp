@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Category' ) ) {
 
-    class Glidex_Woo_Listing_Category {
+    class Tankless_Woo_Listing_Category {
 
         private static $_instance = null;
 
@@ -43,8 +43,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/category/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/category/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -53,8 +53,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/category/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/category/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -82,7 +82,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
                     $this->woo_default_settings();
 
                 /* Define Sorter Settings */
-                    add_filter( 'glidex_woo_sorter_settings', array( $this, 'woo_sorter_settings' ) );
+                    add_filter( 'tankless_woo_sorter_settings', array( $this, 'woo_sorter_settings' ) );
 
                 /* Load Listings */
                     $this->woo_load_listing();
@@ -117,7 +117,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
 
                 );
 
-                $this->settings = apply_filters( 'glidex_woo_category_page_default_settings', $this->settings );
+                $this->settings = apply_filters( 'tankless_woo_category_page_default_settings', $this->settings );
 
                 return $this->settings;
 
@@ -156,9 +156,9 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
                 $type_options = array ();
 
                 if( $this->settings['product_style_template'] == 'predefined' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_'.$this->settings['product_style_custom_template']; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_'.$this->settings['product_style_custom_template']; // Type Class Instance
                 } else if( $this->settings['product_style_template'] == 'custom' ) {
-                    $type_class_instance = 'glidex_woo_listing_type_custom'; // Type Class Instance
+                    $type_class_instance = 'tankless_woo_listing_type_custom'; // Type Class Instance
                 }
 
                 if ( function_exists( $type_class_instance ) ) {
@@ -174,7 +174,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
 
                             $type_option_key = str_replace( 'product-', '', $type_option_key);
                             $type_option_key = str_replace( '-', '_', $type_option_key);
-                            $option_class_instance = 'glidex_woo_listing_option_'.$type_option_key;  // Option Class Instance
+                            $option_class_instance = 'tankless_woo_listing_option_'.$type_option_key;  // Option Class Instance
 
                             if ( function_exists( $option_class_instance ) ) {
 
@@ -198,10 +198,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Category' ) ) {
 }
 
 
-if( !function_exists('glidex_woo_listing_category') ) {
-	function glidex_woo_listing_category() {
-		return Glidex_Woo_Listing_Category::instance();
+if( !function_exists('tankless_woo_listing_category') ) {
+	function tankless_woo_listing_category() {
+		return Tankless_Woo_Listing_Category::instance();
 	}
 }
 
-glidex_woo_listing_category();
+tankless_woo_listing_category();

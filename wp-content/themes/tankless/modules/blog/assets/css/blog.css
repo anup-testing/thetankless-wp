@@ -122,7 +122,7 @@
 
     .blog-entry .entry-format { display: none; left: 0; position: absolute; top: 0; z-index: 9; }
     .blog-entry .entry-format a { float: left; height: 50px; line-height: 50px; margin: 5px; position: relative; text-align: center; width: 50px; }
-    .blog-entry .entry-format a:before { font-family: "Glidex Icons"; font-style: normal; font-size: 26px; height: 100%; left: 0; line-height: 50px; margin: 0; position: absolute; text-align: center; top: 0; width: 100%;}
+    .blog-entry .entry-format a:before { font-family: "Tankless Icons"; font-style: normal; font-size: 26px; height: 100%; left: 0; line-height: 50px; margin: 0; position: absolute; text-align: center; top: 0; width: 100%;}
     .blog-entry .entry-format a:focus { outline: thin dotted; outline-offset: -5px; }
 
     .blog-entry.type-post:not(.has-post-thumbnail) .entry-format { display: none; }
@@ -145,7 +145,7 @@
 
     .blog-entry .entry-thumb .bx-controls a { bottom: 0; filter: alpha(opacity=60); font-size: 0; height: 50px; margin: auto; opacity: .6; position: absolute; top: 0; width: 35px; z-index: 9; }
     .blog-entry .entry-thumb .bx-controls a:hover { filter: alpha(opacity=100); opacity: 1; }
-    .blog-entry .entry-thumb .bx-controls a.bx-prev:before, .entry-thumb .bx-controls a.bx-next:before { content: '\e85b'; font-family: "Glidex Icons"; font-size: 14px; left: 0; line-height: 50px; position: absolute; text-align: center; top: 0; width: 100%; }
+    .blog-entry .entry-thumb .bx-controls a.bx-prev:before, .entry-thumb .bx-controls a.bx-next:before { content: '\e85b'; font-family: "Tankless Icons"; font-size: 14px; left: 0; line-height: 50px; position: absolute; text-align: center; top: 0; width: 100%; }
     .blog-entry .entry-thumb .bx-controls a.bx-prev:before { content: '\e85a'; }
     .blog-entry .entry-thumb .bx-controls a.bx-prev { left: -35px; }
     .blog-entry .entry-thumb .bx-controls a.bx-next { right: -35px; }

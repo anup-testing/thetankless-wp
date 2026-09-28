@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-abstract class Glidex_Woo_Listing_Option_Core {
+abstract class Tankless_Woo_Listing_Option_Core {
 
     private static $_instance = null;
 
@@ -29,8 +29,8 @@ abstract class Glidex_Woo_Listing_Option_Core {
 
         function module_dir_path() {
 
-            if( glidex_is_file_in_theme( __FILE__ ) ) {
-                return GLIDEX_MODULE_DIR . '/woocommerce/listings/options/';
+            if( tankless_is_file_in_theme( __FILE__ ) ) {
+                return TANKLESS_MODULE_DIR . '/woocommerce/listings/options/';
             } else {
                 return trailingslashit( plugin_dir_path( __FILE__ ) );
             }
@@ -39,8 +39,8 @@ abstract class Glidex_Woo_Listing_Option_Core {
 
         function module_dir_url() {
 
-            if( glidex_is_file_in_theme( __FILE__ ) ) {
-                return GLIDEX_MODULE_URI . '/woocommerce/listings/options/';
+            if( tankless_is_file_in_theme( __FILE__ ) ) {
+                return TANKLESS_MODULE_URI . '/woocommerce/listings/options/';
             } else {
                 return trailingslashit( plugin_dir_url( __FILE__ ) );
             }
@@ -53,24 +53,24 @@ abstract class Glidex_Woo_Listing_Option_Core {
         function render_frontend() {
 
             /* Options Class Names */
-                add_filter( 'glidex_woo_listings_class', array( $this, 'woo_listings_class_load'), 10, 1 );
+                add_filter( 'tankless_woo_listings_class', array( $this, 'woo_listings_class_load'), 10, 1 );
 
             $non_archive_listing = wc_get_loop_prop('non_archive_listing');
             if( $non_archive_listing ) {
 
                 /* Options CSS */
-                    add_filter( 'glidex_woo_non_archive_css', array( $this, 'woo_listings_css_load'), 10, 1 );
+                    add_filter( 'tankless_woo_non_archive_css', array( $this, 'woo_listings_css_load'), 10, 1 );
 
                 /* Options JS */
-                    add_filter( 'glidex_woo_non_archive_js', array( $this, 'woo_listings_js_load'), 10, 1 );
+                    add_filter( 'tankless_woo_non_archive_js', array( $this, 'woo_listings_js_load'), 10, 1 );
 
             } else {
 
                 /* Options CSS */
-                    add_filter( 'glidex_woo_archive_css', array( $this, 'woo_listings_css_load'), 10, 1 );
+                    add_filter( 'tankless_woo_archive_css', array( $this, 'woo_listings_css_load'), 10, 1 );
 
                 /* Options JS */
-                    add_filter( 'glidex_woo_archive_js', array( $this, 'woo_listings_js_load'), 10, 1 );
+                    add_filter( 'tankless_woo_archive_js', array( $this, 'woo_listings_js_load'), 10, 1 );
             }
 
         }
@@ -213,9 +213,9 @@ abstract class Glidex_Woo_Listing_Option_Core {
 
                     wc_set_loop_prop($this->option_slug, $this->option_default_value);
 
-                    $glidex_shop_loop_prop = wc_get_loop_prop('wdt-shop-loop-prop', array ());
-                    array_push( $glidex_shop_loop_prop, $this->option_slug );
-                    wc_set_loop_prop('wdt-shop-loop-prop', $glidex_shop_loop_prop);
+                    $tankless_shop_loop_prop = wc_get_loop_prop('wdt-shop-loop-prop', array ());
+                    array_push( $tankless_shop_loop_prop, $this->option_slug );
+                    wc_set_loop_prop('wdt-shop-loop-prop', $tankless_shop_loop_prop);
 
                 }
             }
@@ -223,8 +223,8 @@ abstract class Glidex_Woo_Listing_Option_Core {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_core') ) {
-	function glidex_woo_listing_option_core() {
-		return Glidex_Woo_Listing_Option_Core::instance();
+if( !function_exists('tankless_woo_listing_option_core') ) {
+	function tankless_woo_listing_option_core() {
+		return Tankless_Woo_Listing_Option_Core::instance();
 	}
 }

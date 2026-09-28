@@ -1,15 +1,15 @@
 <?php
-add_action( 'glidex_after_main_css', 'notfound_style' );
+add_action( 'tankless_after_main_css', 'notfound_style' );
 function notfound_style() {
     if( is_404() ) {
-        wp_enqueue_style( 'glidex-404', get_theme_file_uri('/modules/404/assets/css/404.css'), false, GLIDEX_THEME_VERSION, 'all');
+        wp_enqueue_style( 'tankless-404', get_theme_file_uri('/modules/404/assets/css/404.css'), false, TANKLESS_THEME_VERSION, 'all');
     }
 }
 
-add_filter( 'glidex_add_inline_style', 'notfound_inline_style' );
+add_filter( 'tankless_add_inline_style', 'notfound_inline_style' );
 function notfound_inline_style( $style ) {
     if( is_404() ) {
-        $params = glidex_404_page_params();
+        $params = tankless_404_page_params();
 
         if( isset( $params['notfound_bg_style'] ) && !empty( $params['notfound_bg_style'] ) ) {
             $style .= 'body.error404 div.wrapper {'.$params['notfound_bg_style'].'}'."\n";
@@ -33,7 +33,7 @@ function notfound_inline_style( $style ) {
     return $style;
 }
 
-function glidex_404_page_params() {
+function tankless_404_page_params() {
     $params = array(
         'enable_404message' => 1,
         'notfound_style'    => 'type2',
@@ -41,5 +41,5 @@ function glidex_404_page_params() {
         'notfound_bg_style' => 'background-color:var(--wdtAccentTxtColor);'
     );
 
-    return apply_filters( 'glidex_404_page_params', $params );
+    return apply_filters( 'tankless_404_page_params', $params );
 }

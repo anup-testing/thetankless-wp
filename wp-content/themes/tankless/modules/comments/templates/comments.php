@@ -2,7 +2,7 @@
 <?php
     if ( have_comments() ) {
         echo '<h3>';
-            comments_number(esc_html__('No Comments','glidex'), esc_html__('Comments ( 1 )','glidex'), esc_html__('Comments ( % )','glidex') );
+            comments_number(esc_html__('No Comments','tankless'), esc_html__('Comments ( 1 )','tankless'), esc_html__('Comments ( % )','tankless') );
         echo '</h3>';
 
         the_comments_navigation();
@@ -16,9 +16,9 @@
 
     if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
         echo '<p class="nocomments">';
-            esc_html_e( 'Comments are closed.','glidex');
+            esc_html_e( 'Comments are closed.','tankless');
         echo '</p>';
     }
 
-    comment_form( apply_filters('glidex_comment_form_args', array() ) );?>
+    comment_form( apply_filters('tankless_comment_form_args', array() ) );?>
 </div>

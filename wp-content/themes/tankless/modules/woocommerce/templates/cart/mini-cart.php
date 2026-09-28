@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						sprintf(
 							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							esc_html__( 'Remove this item', 'glidex' ),
+							esc_html__( 'Remove this item', 'tankless' ),
 							esc_attr( $product_id ),
 							esc_attr( $cart_item_key ),
 							esc_attr( $_product->get_sku() )
@@ -53,10 +53,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					);
 					?>
 					<?php if ( empty( $product_permalink ) ) : ?>
-						<?php echo glidex_html_output($thumbnail . $product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo tankless_html_output($thumbnail . $product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php else : ?>
 						<a href="<?php echo esc_url( $product_permalink ); ?>">
-							<?php echo glidex_html_output($thumbnail . $product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<?php echo tankless_html_output($thumbnail . $product_name); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</a>
 					<?php endif; ?>
 					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -72,7 +72,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 	<div class="woocommerce-mini-cart-footer"> <?php /* Customized script - Added column class for all fields */ ?>
 
-		<p class="woocommerce-mini-cart__total total"><strong><?php esc_html_e( 'Subtotal', 'glidex' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+		<p class="woocommerce-mini-cart__total total"><strong><?php esc_html_e( 'Subtotal', 'tankless' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
 
 		<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
@@ -82,7 +82,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <?php else : ?>
 
-	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'glidex' ); ?></p>
+	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'tankless' ); ?></p>
 
 <?php endif; ?>
 

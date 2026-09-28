@@ -27,11 +27,11 @@ if ( $max_value && $min_value === $max_value ) {
 	<?php
 } else {
 	/* translators: %s: Quantity. */
-	$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'glidex' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'glidex' );
+	$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'tankless' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'tankless' );
 
 	/* Customized script */
 
-	$settings = glidex_woo_others()->woo_default_settings();
+	$settings = tankless_woo_others()->woo_default_settings();
 	extract($settings);
 
 	$woo_quantity_plusnminus = $enable_quantity_plusminus;
@@ -61,7 +61,7 @@ if ( $max_value && $min_value === $max_value ) {
 			max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
 			name="<?php echo esc_attr( $input_name ); ?>"
 			value="<?php echo esc_attr( $input_value ); ?>"
-			title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'glidex' ); ?>"
+			title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'tankless' ); ?>"
 			placeholder="<?php echo esc_attr( $placeholder ); ?>"
 			inputmode="<?php echo esc_attr( $inputmode ); ?>" />
 		<?php

@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Alignment' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Content_Alignment' ) ) {
 
-    class Glidex_Woo_Listing_Option_Content_Alignment extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Content_Alignment extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Alignment' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-content-alignment';
-            $this->option_name          = esc_html__('Alignment', 'glidex');
+            $this->option_name          = esc_html__('Alignment', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = 'product-content-alignment-left';
             $this->option_value_prefix  = 'product-content-alignment-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Alignment' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 15, 1 );
+            add_filter( 'tankless_woo_custom_product_template_content_options', array( $this, 'woo_custom_product_template_content_options'), 15, 1 );
         }
 
         /**
@@ -75,9 +75,9 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Alignment' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-content-alignment-left'   => esc_html__('Left', 'glidex'),
-                'product-content-alignment-center' => esc_html__('Center', 'glidex'),
-                'product-content-alignment-right'  => esc_html__('Right', 'glidex')
+                'product-content-alignment-left'   => esc_html__('Left', 'tankless'),
+                'product-content-alignment-center' => esc_html__('Center', 'tankless'),
+                'product-content-alignment-right'  => esc_html__('Right', 'tankless')
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -87,10 +87,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Content_Alignment' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_content_alignment') ) {
-	function glidex_woo_listing_option_content_alignment() {
-		return Glidex_Woo_Listing_Option_Content_Alignment::instance();
+if( !function_exists('tankless_woo_listing_option_content_alignment') ) {
+	function tankless_woo_listing_option_content_alignment() {
+		return Tankless_Woo_Listing_Option_Content_Alignment::instance();
 	}
 }
 
-glidex_woo_listing_option_content_alignment();
+tankless_woo_listing_option_content_alignment();

@@ -1,7 +1,7 @@
 <?php
-add_action( 'glidex_after_main_css', 'pagination_style' );
+add_action( 'tankless_after_main_css', 'pagination_style' );
 function pagination_style() {
-    wp_enqueue_style( 'glidex-pagination', get_theme_file_uri('/modules/pagination/assets/css/pagination.css'), false, GLIDEX_THEME_VERSION, 'all');
+    wp_enqueue_style( 'tankless-pagination', get_theme_file_uri('/modules/pagination/assets/css/pagination.css'), false, TANKLESS_THEME_VERSION, 'all');
 }
 
 if( !function_exists( 'after_single_page_content_wp_link_pages' ) ) {
@@ -16,14 +16,14 @@ if( !function_exists( 'after_single_page_content_wp_link_pages' ) ) {
             'pagelink'       => '%',
         ));
 
-        edit_post_link( esc_html__( ' Edit ','glidex' ) );
+        edit_post_link( esc_html__( ' Edit ','tankless' ) );
     }
 
-    add_action( 'glidex_after_single_page_content', 'after_single_page_content_wp_link_pages' );
+    add_action( 'tankless_after_single_page_content', 'after_single_page_content_wp_link_pages' );
 }
 
-if( !function_exists( 'glidex_pagination' ) ) {
-    function glidex_pagination( $query = false, $load_more = false ) {
+if( !function_exists( 'tankless_pagination' ) ) {
+    function tankless_pagination( $query = false, $load_more = false ) {
 
         global $wp_query;
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : ( ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1 );
@@ -43,7 +43,7 @@ if( !function_exists( 'glidex_pagination' ) ) {
 
         $end_size = 1;
         $mid_size = 2;
-        #$show_all = glidex_get_option( 'showall-pagination' );
+        #$show_all = tankless_get_option( 'showall-pagination' );
         $dots = false;
 
         if( ! $total = $custom_query->max_num_pages ) $total = 1;
@@ -57,7 +57,7 @@ if( !function_exists( 'glidex_pagination' ) ) {
                     $output .= '<div class="column one pager_wrapper pager_lm">';
                         $output .= '<a class="pager_load_more button button_js" href="'. get_pagenum_link( $next ) .'">';
                             $output .= '<span class="button_icon"><i class="icon-layout"></i></span>';
-                            $output .= '<span class="button_label">'. esc_html__('Load more', 'glidex') .'</span>';
+                            $output .= '<span class="button_label">'. esc_html__('Load more', 'tankless') .'</span>';
                         $output .= '</a>';
                     $output .= '</div>';
                 }

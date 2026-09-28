@@ -13,7 +13,7 @@ $include_modules = array (
 if( is_array( $include_modules ) && !empty( $include_modules ) ) {
     foreach( $include_modules as $include_module ) {
 
-        if( $file_content = glidex_woo_locate_file( $include_module ) ) {
+        if( $file_content = tankless_woo_locate_file( $include_module ) ) {
             include_once $file_content;
         }
 

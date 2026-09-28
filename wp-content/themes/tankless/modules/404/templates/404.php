@@ -9,15 +9,15 @@
                 <div class="center-content">
                     <div class="error-box square">
                         <div class="error-box-inner">
-                        <img class="error-image" alt="The Page Not Found" src="<?php echo esc_url(GLIDEX_ROOT_URI.'/assets/images/404-image.png');?>"/>
-                            <h4><?php esc_html_e("Taking a Wrong Turn? Let’s Get You Rolling Again!", 'glidex'); ?></h4>
+                        <img class="error-image" alt="The Page Not Found" src="<?php echo esc_url(TANKLESS_ROOT_URI.'/assets/images/404-image.png');?>"/>
+                            <h4><?php esc_html_e("Taking a Wrong Turn? Let’s Get You Rolling Again!", 'tankless'); ?></h4>
                         </div>
                     </div>
                     <div class="wdt-hr-invisible-xsmall"></div>
-                    <p><?php esc_html_e("Sorry, the page you are looking for cannot be found. It seems that the URL you were trying to access is either incorrect or the page has been removed.", 'glidex'); ?></p>
+                    <p><?php esc_html_e("Sorry, the page you are looking for cannot be found. It seems that the URL you were trying to access is either incorrect or the page has been removed.", 'tankless'); ?></p>
                     <div class="wdt-hr-invisible-xsmall"></div>
                     <a class="wdt-button filled small" target="_self" href="<?php echo esc_url(home_url('/'));?>">
-                    <?php esc_html_e("Back to Home",'glidex');?></a>
+                    <?php esc_html_e("Back to Home",'tankless');?></a>
                 </div>
             </div>
         </div>

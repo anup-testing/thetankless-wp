@@ -1,8 +1,8 @@
 <?php
 
-if( !class_exists( 'Glidex_Loader' ) ) {
+if( !class_exists( 'Tankless_Loader' ) ) {
 
-    class Glidex_Loader {
+    class Tankless_Loader {
 
         private static $_instance = null;
 
@@ -20,7 +20,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             $this->define_constants();
             $this->load_helpers();
 
-            $this->theme_defaults = glidex_theme_defaults();
+            $this->theme_defaults = tankless_theme_defaults();
 
             add_action( 'after_setup_theme', array( $this, 'set_theme_support' ) );
 
@@ -29,7 +29,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_css' ), 50 );
             add_action( 'wp_enqueue_scripts', array( $this, 'add_inline_style' ), 60 );
 
-            add_action( 'glidex_before_main_css', array( $this, 'add_google_fonts' ) );
+            add_action( 'tankless_before_main_css', array( $this, 'add_google_fonts' ) );
 
             add_action( 'after_setup_theme', array( $this, 'include_module_helpers' ) );
 
@@ -46,18 +46,24 @@ if( !class_exists( 'Glidex_Loader' ) ) {
         }
 
         function define_constants() {
-            define( 'GLIDEX_ROOT_DIR', get_template_directory() );
-            define( 'GLIDEX_ROOT_URI', get_template_directory_uri() );
-            define( 'GLIDEX_MODULE_DIR', GLIDEX_ROOT_DIR.'/modules'  );
-            define( 'GLIDEX_MODULE_URI', GLIDEX_ROOT_URI.'/modules' );
-            define( 'GLIDEX_LANG_DIR', GLIDEX_ROOT_DIR.'/languages' );
+            define( 'TANKLESS_ROOT_DIR', get_template_directory() );
+            define( 'TANKLESS_ROOT_URI', get_template_directory_uri() );
+            define( 'TANKLESS_MODULE_DIR', TANKLESS_ROOT_DIR.'/modules'  );
+            define( 'TANKLESS_MODULE_URI', TANKLESS_ROOT_URI.'/modules' );
+            define( 'TANKLESS_LANG_DIR', TANKLESS_ROOT_DIR.'/languages' );
             $theme = wp_get_theme();
-            define( 'GLIDEX_THEME_NAME', $theme->get('Name'));
-            define( 'GLIDEX_THEME_VERSION', $theme->get('Version'));
+            define( 'TANKLESS_THEME_NAME', $theme->get('Name'));
+            define( 'TANKLESS_THEME_VERSION', $theme->get('Version'));
+
+            // Back-compat aliases for the renamed glidex_* constants - safe to
+            // remove once confirmed nothing external still references them.
+            if ( ! defined( 'GLIDEX_ROOT_URI' ) )      { define( 'GLIDEX_ROOT_URI', TANKLESS_ROOT_URI ); }
+            if ( ! defined( 'GLIDEX_THEME_NAME' ) )    { define( 'GLIDEX_THEME_NAME', TANKLESS_THEME_NAME ); }
+            if ( ! defined( 'GLIDEX_THEME_VERSION' ) ) { define( 'GLIDEX_THEME_VERSION', TANKLESS_THEME_VERSION ); }
         }
 
         function load_helpers() {
-            include_once GLIDEX_ROOT_DIR . '/helpers/helper.php';
+            include_once TANKLESS_ROOT_DIR . '/helpers/helper.php';
         }
 
         function woocommerce_before_content_import()
@@ -80,7 +86,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             }
         }
 
-        function glidex_theme_setup() {
+        function tankless_theme_setup() {
             // Enable support for Block Styles
             add_theme_support('wp-block-styles');
             add_theme_support('responsive-embeds');
@@ -90,10 +96,10 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             return array(
                 array(
                     'import_file_name'           => 'Tankless Demo',
-                    'import_file_url'            => GLIDEX_ROOT_URI.'/ocdi/theme-content.xml',
-                    'import_customizer_file_url' => GLIDEX_ROOT_URI.'/ocdi/theme-customizer.dat',
-                    'import_preview_image_url'   => GLIDEX_ROOT_URI.'/screenshot.png',
-                    'import_notice'              => __( 'This imports the actual thetankless.ca content (pages, Elementor templates, headers/footers, menus, media).', 'glidex' ),
+                    'import_file_url'            => TANKLESS_ROOT_URI.'/ocdi/theme-content.xml',
+                    'import_customizer_file_url' => TANKLESS_ROOT_URI.'/ocdi/theme-customizer.dat',
+                    'import_preview_image_url'   => TANKLESS_ROOT_URI.'/screenshot.png',
+                    'import_notice'              => __( 'This imports the actual thetankless.ca content (pages, Elementor templates, headers/footers, menus, media).', 'tankless' ),
                     'preview_url'                => 'https://thetankless.ca/',
                 ),
             );
@@ -144,7 +150,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
         }
 
         function ocdi_before_widgets_import() {
-            $widget_file_path = GLIDEX_ROOT_DIR . '/ocdi/theme-widgets.wie';
+            $widget_file_path = TANKLESS_ROOT_DIR . '/ocdi/theme-widgets.wie';
             $json_data = file_get_contents($widget_file_path);
             $settings = json_decode($json_data, true);
             $term = 'wdt-cw-';
@@ -164,14 +170,14 @@ if( !class_exists( 'Glidex_Loader' ) ) {
                 }
             }
 
-            $widget_areas_option = get_option('glidex-widget-areas');
+            $widget_areas_option = get_option('tankless-widget-areas');
             if (!empty($widget_areas_option) && is_array($widget_areas_option)) {
                 $widget_areas1['widget-areas'] = array_unique(array_merge($newarr, $widget_areas_option['widget-areas']));
-                update_option('glidex-widget-areas', $widget_areas1);
+                update_option('tankless-widget-areas', $widget_areas1);
             } else {
                 $widget_empty = array('widget-areas' => array());
                 $widget_areas1['widget-areas'] = array_unique(array_merge($newarr, $widget_empty['widget-areas']));
-                update_option('glidex-widget-areas', $widget_areas1);
+                update_option('tankless-widget-areas', $widget_areas1);
             }
             
             
@@ -243,13 +249,13 @@ if( !class_exists( 'Glidex_Loader' ) ) {
         }
 
         function ocdi_after_import_setup(){
-             $product_template_file_path = GLIDEX_ROOT_DIR . '/ocdi/product-template.txt';
+             $product_template_file_path = TANKLESS_ROOT_DIR . '/ocdi/product-template.txt';
             if (is_file($product_template_file_path) && is_readable($product_template_file_path)) {
                 $file_contents = file_get_contents($product_template_file_path);
                 if ($file_contents !== false) {
                     $data = @unserialize($file_contents);
                     if ($data !== false) {
-                        update_option('_glidex_cs_options', $data);
+                        update_option('_tankless_cs_options', $data);
                     } else {
                         error_log("Failed to unserialize data.");
                     }
@@ -262,7 +268,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
         }
         
         function set_theme_support() {
-            load_theme_textdomain( 'glidex', GLIDEX_LANG_DIR );
+            load_theme_textdomain( 'tankless', TANKLESS_LANG_DIR );
             add_theme_support( 'automatic-feed-links' );
             add_theme_support( 'title-tag' );
             add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
@@ -275,42 +281,42 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 			add_theme_support( 'align-wide' ); // Gutenberg wide images.
             add_theme_support( 'editor-color-palette', array(
                 array(
-                    'name'  => esc_html__( 'Primary Color', 'glidex' ),
+                    'name'  => esc_html__( 'Primary Color', 'tankless' ),
                     'slug'  => 'primary',
                     'color'	=> $this->theme_defaults['primary_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Secondary Color', 'glidex' ),
+                    'name'  => esc_html__( 'Secondary Color', 'tankless' ),
                     'slug'  => 'secondary',
                     'color' => $this->theme_defaults['secondary_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Tertiary Color', 'glidex' ),
+                    'name'  => esc_html__( 'Tertiary Color', 'tankless' ),
                     'slug'  => 'tertiary',
                     'color' => $this->theme_defaults['tertiary_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Quaternary Color', 'glidex' ),
+                    'name'  => esc_html__( 'Quaternary Color', 'tankless' ),
                     'slug'  => 'quaternary',
                     'color' => $this->theme_defaults['quaternary_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Body Background Color', 'glidex' ),
+                    'name'  => esc_html__( 'Body Background Color', 'tankless' ),
                     'slug'  => 'body-bg',
                     'color' => $this->theme_defaults['body_bg_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Body Text Color', 'glidex' ),
+                    'name'  => esc_html__( 'Body Text Color', 'tankless' ),
                     'slug'  => 'body-text',
                     'color' => $this->theme_defaults['body_text_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Alternate Color', 'glidex' ),
+                    'name'  => esc_html__( 'Alternate Color', 'tankless' ),
                     'slug'  => 'alternate',
                     'color' => $this->theme_defaults['headalt_color'],
                 ),
                 array(
-                    'name'  => esc_html__( 'Transparent Color', 'glidex' ),
+                    'name'  => esc_html__( 'Transparent Color', 'tankless' ),
                     'slug'  => 'transparent',
                     'color' => 'rgba(0,0,0,0)',
                 )
@@ -319,9 +325,9 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             add_theme_support( 'editor-styles' );
             add_editor_style( './assets/css/style-editor.css' );
 
-            $GLOBALS['content_width'] = apply_filters( 'glidex_set_content_width', 1230 );
+            $GLOBALS['content_width'] = apply_filters( 'tankless_set_content_width', 1230 );
             register_nav_menus( array(
-                'main-menu' => esc_html__('Main Menu', 'glidex'),
+                'main-menu' => esc_html__('Main Menu', 'tankless'),
             ) );
         }
 
@@ -332,9 +338,9 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             /**
              * Before Hook
              */
-            do_action( 'glidex_before_enqueue_js' );
+            do_action( 'tankless_before_enqueue_js' );
 
-                wp_enqueue_script('glidex-jqcustom', get_theme_file_uri('/assets/js/custom.js'), array('jquery'), false, true);
+                wp_enqueue_script('tankless-jqcustom', get_theme_file_uri('/assets/js/custom.js'), array('jquery'), false, true);
 
                 if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				    wp_enqueue_script( 'comment-reply' );
@@ -343,7 +349,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             /**
              * After Hook
              */
-            do_action( 'glidex_after_enqueue_js' );
+            do_action( 'tankless_after_enqueue_js' );
 
         }
 
@@ -351,68 +357,68 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             /**
              * Before Hook
              */
-            do_action( 'glidex_before_main_css' );
+            do_action( 'tankless_before_main_css' );
             wp_enqueue_style('flatpickr');
 
-                wp_enqueue_style( 'glidex', get_stylesheet_uri(), false, GLIDEX_THEME_VERSION, 'all' );
-                wp_enqueue_style( 'glidex-icons', get_theme_file_uri('/assets/css/icons.css'), false, GLIDEX_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless', get_stylesheet_uri(), false, TANKLESS_THEME_VERSION, 'all' );
+                wp_enqueue_style( 'tankless-icons', get_theme_file_uri('/assets/css/icons.css'), false, TANKLESS_THEME_VERSION, 'all');
 
                 $css = $this->generate_theme_default_css();
                 if( !empty( $css ) ) {
-                    wp_add_inline_style( 'glidex', ':root {'.$css.'}' );
+                    wp_add_inline_style( 'tankless', ':root {'.$css.'}' );
                 }
 
-                wp_enqueue_style( 'glidex-base', get_theme_file_uri('/assets/css/base.css'), false, GLIDEX_THEME_VERSION, 'all');
-                wp_enqueue_style( 'glidex-grid', get_theme_file_uri('/assets/css/grid.css'), false, GLIDEX_THEME_VERSION, 'all');
-                wp_enqueue_style( 'glidex-layout', get_theme_file_uri('/assets/css/layout.css'), false, GLIDEX_THEME_VERSION, 'all');
-                wp_enqueue_style( 'glidex-widget', get_theme_file_uri('/assets/css/widget.css'), false, GLIDEX_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless-base', get_theme_file_uri('/assets/css/base.css'), false, TANKLESS_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless-grid', get_theme_file_uri('/assets/css/grid.css'), false, TANKLESS_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless-layout', get_theme_file_uri('/assets/css/layout.css'), false, TANKLESS_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless-widget', get_theme_file_uri('/assets/css/widget.css'), false, TANKLESS_THEME_VERSION, 'all');
 
-                wp_enqueue_style( 'glidex-additional-css', get_theme_file_uri('/assets/css/additional-css.css'), false, GLIDEX_THEME_VERSION, 'all');
+                wp_enqueue_style( 'tankless-additional-css', get_theme_file_uri('/assets/css/additional-css.css'), false, TANKLESS_THEME_VERSION, 'all');
 
                 if( is_rtl() ) {
-                    wp_enqueue_style( 'glidex-rtl', get_theme_file_uri('/assets/css/rtl.css'), false, GLIDEX_THEME_VERSION, 'all');
+                    wp_enqueue_style( 'tankless-rtl', get_theme_file_uri('/assets/css/rtl.css'), false, TANKLESS_THEME_VERSION, 'all');
                 }
 
             /**
              * After Hook
              */
-            do_action( 'glidex_after_main_css' );
+            do_action( 'tankless_after_main_css' );
 
-            wp_enqueue_style( 'jquery-select2', get_theme_file_uri('/assets/lib/select2/select2.css'), false, GLIDEX_THEME_VERSION, 'all');
+            wp_enqueue_style( 'jquery-select2', get_theme_file_uri('/assets/lib/select2/select2.css'), false, TANKLESS_THEME_VERSION, 'all');
 
-            wp_enqueue_style( 'glidex-theme', get_theme_file_uri('/assets/css/theme.css'), false, GLIDEX_THEME_VERSION, 'all');
+            wp_enqueue_style( 'tankless-theme', get_theme_file_uri('/assets/css/theme.css'), false, TANKLESS_THEME_VERSION, 'all');
         }
 
         function generate_theme_default_css() {
 
             $css = '';
 
-            $css .= apply_filters( 'glidex_primary_color_css_var',  '--wdtPrimaryColor: '.$this->theme_defaults['primary_color'].';' );
-            $css .= apply_filters( 'glidex_primary_rgb_color_css_var',  '--wdtPrimaryColorRgb: '.$this->theme_defaults['primary_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_secondary_color_css_var',  '--wdtSecondaryColor: '.$this->theme_defaults['secondary_color'].';' );
-            $css .= apply_filters( 'glidex_secondary_rgb_color_css_var',  '--wdtSecondaryColorRgb: '.$this->theme_defaults['secondary_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_tertiary_color_css_var',  '--wdtTertiaryColor: '.$this->theme_defaults['tertiary_color'].';' );
-            $css .= apply_filters( 'glidex_tertiary_rgb_color_css_var',  '--wdtTertiaryColorRgb: '.$this->theme_defaults['tertiary_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_quaternary_color_css_var',  '--wdtQuaternaryColor: '.$this->theme_defaults['quaternary_color'].';' );
-            $css .= apply_filters( 'glidex_quaternary_rgb_color_css_var',  '--wdtQuaternaryColorRgb: '.$this->theme_defaults['quaternary_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_body_bg_color_css_var',  '--wdtBodyBGColor: '.$this->theme_defaults['body_bg_color'].';' );
-            $css .= apply_filters( 'glidex_body_bg_rgb_color_css_var',  '--wdtBodyBGColorRgb: '.$this->theme_defaults['body_bg_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_body_text_color_css_var',  '--wdtBodyTxtColor:'.$this->theme_defaults['body_text_color'].';' );
-            $css .= apply_filters( 'glidex_body_text_rgb_color_css_var',  '--wdtBodyTxtColorRgb:'.$this->theme_defaults['body_text_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_headalt_color_css_var',  '--wdtHeadAltColor: '.$this->theme_defaults['headalt_color'].';' );
-            $css .= apply_filters( 'glidex_headalt_rgb_color_css_var',  '--wdtHeadAltColorRgb: '.$this->theme_defaults['headalt_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_link_color_css_var',  '--wdtLinkColor: '.$this->theme_defaults['link_color'].';' );
-            $css .= apply_filters( 'glidex_link_rgb_color_css_var',  '--wdtLinkColorRgb: '.$this->theme_defaults['link_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_link_hover_color_css_var',  '--wdtLinkHoverColor: '.$this->theme_defaults['link_hover_color'].';' );
-            $css .= apply_filters( 'glidex_link_hover_rgb_color_css_var',  '--wdtLinkHoverColorRgb: '.$this->theme_defaults['link_hover_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_border_color_css_var',  '--wdtBorderColor: '.$this->theme_defaults['border_color'].';' );
-            $css .= apply_filters( 'glidex_border_rgb_color_css_var',  '--wdtBorderColorRgb: '.$this->theme_defaults['border_color_rgb'].';' );
-            $css .= apply_filters( 'glidex_accent_text_color_css_var',  '--wdtAccentTxtColor: '.$this->theme_defaults['accent_text_color'].';' );
-            $css .= apply_filters( 'glidex_accent_text_rgb_color_css_var',  '--wdtAccentTxtColorRgb: '.$this->theme_defaults['accent_text_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_primary_color_css_var',  '--wdtPrimaryColor: '.$this->theme_defaults['primary_color'].';' );
+            $css .= apply_filters( 'tankless_primary_rgb_color_css_var',  '--wdtPrimaryColorRgb: '.$this->theme_defaults['primary_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_secondary_color_css_var',  '--wdtSecondaryColor: '.$this->theme_defaults['secondary_color'].';' );
+            $css .= apply_filters( 'tankless_secondary_rgb_color_css_var',  '--wdtSecondaryColorRgb: '.$this->theme_defaults['secondary_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_tertiary_color_css_var',  '--wdtTertiaryColor: '.$this->theme_defaults['tertiary_color'].';' );
+            $css .= apply_filters( 'tankless_tertiary_rgb_color_css_var',  '--wdtTertiaryColorRgb: '.$this->theme_defaults['tertiary_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_quaternary_color_css_var',  '--wdtQuaternaryColor: '.$this->theme_defaults['quaternary_color'].';' );
+            $css .= apply_filters( 'tankless_quaternary_rgb_color_css_var',  '--wdtQuaternaryColorRgb: '.$this->theme_defaults['quaternary_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_body_bg_color_css_var',  '--wdtBodyBGColor: '.$this->theme_defaults['body_bg_color'].';' );
+            $css .= apply_filters( 'tankless_body_bg_rgb_color_css_var',  '--wdtBodyBGColorRgb: '.$this->theme_defaults['body_bg_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_body_text_color_css_var',  '--wdtBodyTxtColor:'.$this->theme_defaults['body_text_color'].';' );
+            $css .= apply_filters( 'tankless_body_text_rgb_color_css_var',  '--wdtBodyTxtColorRgb:'.$this->theme_defaults['body_text_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_headalt_color_css_var',  '--wdtHeadAltColor: '.$this->theme_defaults['headalt_color'].';' );
+            $css .= apply_filters( 'tankless_headalt_rgb_color_css_var',  '--wdtHeadAltColorRgb: '.$this->theme_defaults['headalt_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_link_color_css_var',  '--wdtLinkColor: '.$this->theme_defaults['link_color'].';' );
+            $css .= apply_filters( 'tankless_link_rgb_color_css_var',  '--wdtLinkColorRgb: '.$this->theme_defaults['link_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_link_hover_color_css_var',  '--wdtLinkHoverColor: '.$this->theme_defaults['link_hover_color'].';' );
+            $css .= apply_filters( 'tankless_link_hover_rgb_color_css_var',  '--wdtLinkHoverColorRgb: '.$this->theme_defaults['link_hover_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_border_color_css_var',  '--wdtBorderColor: '.$this->theme_defaults['border_color'].';' );
+            $css .= apply_filters( 'tankless_border_rgb_color_css_var',  '--wdtBorderColorRgb: '.$this->theme_defaults['border_color_rgb'].';' );
+            $css .= apply_filters( 'tankless_accent_text_color_css_var',  '--wdtAccentTxtColor: '.$this->theme_defaults['accent_text_color'].';' );
+            $css .= apply_filters( 'tankless_accent_text_rgb_color_css_var',  '--wdtAccentTxtColorRgb: '.$this->theme_defaults['accent_text_color_rgb'].';' );
 
             if(isset($this->theme_defaults['body_typo']) && !empty($this->theme_defaults['body_typo'])) {
 
-                $body_typo_css_var = apply_filters( 'glidex_body_typo_customizer_update',  $this->theme_defaults['body_typo'] );
+                $body_typo_css_var = apply_filters( 'tankless_body_typo_customizer_update',  $this->theme_defaults['body_typo'] );
 
                 $css .=  '--wdtFontTypo_Base: '.$body_typo_css_var['font-fallback'].';';
                 $css .=  '--wdtFontWeight_Base: '.$body_typo_css_var['font-weight'].';';
@@ -422,7 +428,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h1_typo']) && !empty($this->theme_defaults['h1_typo'])) {
 
-                $h1_typo_css_var = apply_filters( 'glidex_h1_typo_customizer_update',  $this->theme_defaults['h1_typo'] );
+                $h1_typo_css_var = apply_filters( 'tankless_h1_typo_customizer_update',  $this->theme_defaults['h1_typo'] );
 
                 $css .= '--wdtFontTypo_Alt: '.$h1_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_Alt: '.$h1_typo_css_var['font-weight'].';';
@@ -438,7 +444,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h2_typo']) && !empty($this->theme_defaults['h2_typo'])) {
 
-                $h2_typo_css_var = apply_filters( 'glidex_h2_typo_customizer_update',  $this->theme_defaults['h2_typo'] );
+                $h2_typo_css_var = apply_filters( 'tankless_h2_typo_customizer_update',  $this->theme_defaults['h2_typo'] );
 
                 $css .= '--wdtFontTypo_H2: '.$h2_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_H2: '.$h2_typo_css_var['font-weight'].';';
@@ -449,7 +455,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h3_typo']) && !empty($this->theme_defaults['h3_typo'])) {
 
-                $h3_typo_css_var = apply_filters( 'glidex_h3_typo_customizer_update',  $this->theme_defaults['h3_typo'] );
+                $h3_typo_css_var = apply_filters( 'tankless_h3_typo_customizer_update',  $this->theme_defaults['h3_typo'] );
 
                 $css .= '--wdtFontTypo_H3: '.$h3_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_H3: '.$h3_typo_css_var['font-weight'].';';
@@ -460,7 +466,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h4_typo']) && !empty($this->theme_defaults['h4_typo'])) {
 
-                $h4_typo_css_var = apply_filters( 'glidex_h4_typo_customizer_update',  $this->theme_defaults['h4_typo'] );
+                $h4_typo_css_var = apply_filters( 'tankless_h4_typo_customizer_update',  $this->theme_defaults['h4_typo'] );
 
                 $css .= '--wdtFontTypo_H4: '.$h4_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_H4: '.$h4_typo_css_var['font-weight'].';';
@@ -471,7 +477,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h5_typo']) && !empty($this->theme_defaults['h5_typo'])) {
 
-                $h5_typo_css_var = apply_filters( 'glidex_h5_typo_customizer_update',  $this->theme_defaults['h5_typo'] );
+                $h5_typo_css_var = apply_filters( 'tankless_h5_typo_customizer_update',  $this->theme_defaults['h5_typo'] );
 
                 $css .= '--wdtFontTypo_H5: '.$h5_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_H5: '.$h5_typo_css_var['font-weight'].';';
@@ -482,7 +488,7 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['h6_typo']) && !empty($this->theme_defaults['h6_typo'])) {
 
-                $h6_typo_css_var = apply_filters( 'glidex_h6_typo_customizer_update',  $this->theme_defaults['h6_typo'] );
+                $h6_typo_css_var = apply_filters( 'tankless_h6_typo_customizer_update',  $this->theme_defaults['h6_typo'] );
 
                 $css .= '--wdtFontTypo_H6: '.$h6_typo_css_var['font-fallback'].';';
                 $css .= '--wdtFontWeight_H6: '.$h6_typo_css_var['font-weight'].';';
@@ -493,10 +499,10 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
             if(isset($this->theme_defaults['extra_typo']) && !empty($this->theme_defaults['extra_typo'])) {
 
-                $css .= apply_filters( 'glidex_typo_font_family_css_var',  '--wdtFontTypo_Ext: '.$this->theme_defaults['extra_typo']['font-fallback'].';' );
-                $css .= apply_filters( 'glidex_typo_font_weight_css_var',  '--wdtFontWeight_Ext: '.$this->theme_defaults['extra_typo']['font-weight'].';' );
-                $css .= apply_filters( 'glidex_typo_fs_desktop_css_var',  '--wdtFontSize_Ext: '.$this->theme_defaults['extra_typo']['fs-desktop'].$this->theme_defaults['extra_typo']['fs-desktop-unit'].';' );
-                $css .= apply_filters( 'glidex_typo_lh_desktop_css_var',  '--wdtLineHeight_Ext: '.$this->theme_defaults['extra_typo']['lh-desktop'].$this->theme_defaults['extra_typo']['lh-desktop-unit'].';' );
+                $css .= apply_filters( 'tankless_typo_font_family_css_var',  '--wdtFontTypo_Ext: '.$this->theme_defaults['extra_typo']['font-fallback'].';' );
+                $css .= apply_filters( 'tankless_typo_font_weight_css_var',  '--wdtFontWeight_Ext: '.$this->theme_defaults['extra_typo']['font-weight'].';' );
+                $css .= apply_filters( 'tankless_typo_fs_desktop_css_var',  '--wdtFontSize_Ext: '.$this->theme_defaults['extra_typo']['fs-desktop'].$this->theme_defaults['extra_typo']['fs-desktop-unit'].';' );
+                $css .= apply_filters( 'tankless_typo_lh_desktop_css_var',  '--wdtLineHeight_Ext: '.$this->theme_defaults['extra_typo']['lh-desktop'].$this->theme_defaults['extra_typo']['lh-desktop-unit'].';' );
 
             }
 
@@ -506,13 +512,13 @@ if( !class_exists( 'Glidex_Loader' ) ) {
 
         function add_inline_style() {
 
-            wp_register_style( 'glidex-admin', '', array(), GLIDEX_THEME_VERSION, 'all' );
-            wp_enqueue_style( 'glidex-admin' );
+            wp_register_style( 'tankless-admin', '', array(), TANKLESS_THEME_VERSION, 'all' );
+            wp_enqueue_style( 'tankless-admin' );
 
-            $css = apply_filters( 'glidex_add_inline_style', $css = '' );
+            $css = apply_filters( 'tankless_add_inline_style', $css = '' );
 
             if( !empty( $css ) ) {
-                wp_add_inline_style( 'glidex-admin', $css );
+                wp_add_inline_style( 'tankless-admin', $css );
             }
 
             /**
@@ -520,31 +526,31 @@ if( !class_exists( 'Glidex_Loader' ) ) {
              */
 
                 # Tablet Landscape
-                    $tablet_landscape = apply_filters( 'glidex_add_tablet_landscape_inline_style', $tablet_landscape = '' );
+                    $tablet_landscape = apply_filters( 'tankless_add_tablet_landscape_inline_style', $tablet_landscape = '' );
                     if( !empty( $tablet_landscape ) ) {
                         $tablet_landscape = '@media only screen and (min-width:1025px) and (max-width:1280px) {'."\n".$tablet_landscape."\n".'}';
-                        wp_add_inline_style( 'glidex-admin', $tablet_landscape );
+                        wp_add_inline_style( 'tankless-admin', $tablet_landscape );
                     }
 
                 # Tablet Portrait
-                    $tablet_portrait = apply_filters( 'glidex_add_tablet_portrait_inline_style', $tablet_portrait = '' );
+                    $tablet_portrait = apply_filters( 'tankless_add_tablet_portrait_inline_style', $tablet_portrait = '' );
                     if( !empty( $tablet_portrait ) ) {
                         $tablet_portrait = '@media only screen and (min-width:768px) and (max-width:1024px) {'."\n".$tablet_portrait."\n".'}';
-                        wp_add_inline_style( 'glidex-admin', $tablet_portrait );
+                        wp_add_inline_style( 'tankless-admin', $tablet_portrait );
                     }
 
                 # Mobile
-                    $mobile_res = apply_filters( 'glidex_add_mobile_res_inline_style', $mobile_res = '' );
+                    $mobile_res = apply_filters( 'tankless_add_mobile_res_inline_style', $mobile_res = '' );
                     if( !empty( $mobile_res ) ) {
                         $mobile_res = '@media (max-width: 767px) {'."\n".$mobile_res."\n".'}';
-                        wp_add_inline_style( 'glidex-admin', $mobile_res );
+                        wp_add_inline_style( 'tankless-admin', $mobile_res );
                     }
 
         }
 
         function add_google_fonts() {
-            $subset = apply_filters( 'glidex_google_font_supsets', 'latin-ext' );
-            $fonts  = apply_filters( 'glidex_google_fonts_list', array(
+            $subset = apply_filters( 'tankless_google_font_supsets', 'latin-ext' );
+            $fonts  = apply_filters( 'tankless_google_fonts_list', array(
                 'Outfit:100,200,300,400,500,600,700,800,900',
                 'Syne:400,500,600,700,800',
                 'Chakra Petch:300,400,500,600,700,300italic,400italic,500italic,600italic,700italic',
@@ -595,23 +601,23 @@ if( !class_exists( 'Glidex_Loader' ) ) {
             /**
              * Before Hook
              */
-            do_action( 'glidex_before_load_module_helpers' );
+            do_action( 'tankless_before_load_module_helpers' );
 
-            foreach( glob( GLIDEX_ROOT_DIR. '/modules/*/helper.php'  ) as $helper ) {
+            foreach( glob( TANKLESS_ROOT_DIR. '/modules/*/helper.php'  ) as $helper ) {
                 include_once $helper;
             }
 
             /**
              * After Hook
              */
-            do_action( 'glidex_after_load_module_helpers' );
+            do_action( 'tankless_after_load_module_helpers' );
         }
 
     }
 
-    Glidex_Loader::instance();
+    Tankless_Loader::instance();
 
-    if ( file_exists( GLIDEX_ROOT_DIR . '/inc/tankless-elementor.php' ) ) {
-        require_once GLIDEX_ROOT_DIR . '/inc/tankless-elementor.php';
+    if ( file_exists( TANKLESS_ROOT_DIR . '/inc/tankless-elementor.php' ) ) {
+        require_once TANKLESS_ROOT_DIR . '/inc/tankless-elementor.php';
     }
 }

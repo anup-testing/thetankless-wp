@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) {
 
-    class Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Hover_Secondary_Image_Effect extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) 
         function __construct() {
 
             $this->option_slug          = 'product-hover-secondary-image-effect';
-            $this->option_name          = esc_html__('Hover Secondary Image Effect', 'glidex');
+            $this->option_name          = esc_html__('Hover Secondary Image Effect', 'tankless');
             $this->option_default_value = 'product-hover-secimage-fade';
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_value_prefix  = 'product-hover-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) 
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 15, 1 );
+            add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 15, 1 );
         }
 
         /**
@@ -75,31 +75,31 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) 
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-hover-secimage-fade'         => esc_html__('Fade', 'glidex'),
-                'product-hover-secimage-zoomin'       => esc_html__('Zoom In', 'glidex'),
-                'product-hover-secimage-zoomout'      => esc_html__('Zoom Out', 'glidex'),
-                'product-hover-secimage-zoomoutup'    => esc_html__('Zoom Out Up', 'glidex'),
-                'product-hover-secimage-zoomoutdown'  => esc_html__('Zoom Out Down', 'glidex'),
-                'product-hover-secimage-zoomoutleft'  => esc_html__('Zoom Out Left', 'glidex'),
-                'product-hover-secimage-zoomoutright' => esc_html__('Zoom Out Right', 'glidex'),
-                'product-hover-secimage-pushup'       => esc_html__('Push Up', 'glidex'),
-                'product-hover-secimage-pushdown'     => esc_html__('Push Down', 'glidex'),
-                'product-hover-secimage-pushleft'     => esc_html__('Push Left', 'glidex'),
-                'product-hover-secimage-pushright'    => esc_html__('Push Right', 'glidex'),
-                'product-hover-secimage-slideup'      => esc_html__('Slide Up', 'glidex'),
-                'product-hover-secimage-slidedown'    => esc_html__('Slide Down', 'glidex'),
-                'product-hover-secimage-slideleft'    => esc_html__('Slide Left', 'glidex'),
-                'product-hover-secimage-slideright'   => esc_html__('Slide Right', 'glidex'),
-                'product-hover-secimage-hingeup'      => esc_html__('Hinge Up', 'glidex'),
-                'product-hover-secimage-hingedown'    => esc_html__('Hinge Down', 'glidex'),
-                'product-hover-secimage-hingeleft'    => esc_html__('Hinge Left', 'glidex'),
-                'product-hover-secimage-hingeright'   => esc_html__('Hinge Right', 'glidex'),
-                'product-hover-secimage-foldup'       => esc_html__('Fold Up', 'glidex'),
-                'product-hover-secimage-folddown'     => esc_html__('Fold Down', 'glidex'),
-                'product-hover-secimage-foldleft'     => esc_html__('Fold Left', 'glidex'),
-                'product-hover-secimage-foldright'    => esc_html__('Fold Right', 'glidex'),
-                'product-hover-secimage-fliphoriz'    => esc_html__('Flip Horizontal', 'glidex'),
-                'product-hover-secimage-flipvert'     => esc_html__('Flip Vertical', 'glidex')
+                'product-hover-secimage-fade'         => esc_html__('Fade', 'tankless'),
+                'product-hover-secimage-zoomin'       => esc_html__('Zoom In', 'tankless'),
+                'product-hover-secimage-zoomout'      => esc_html__('Zoom Out', 'tankless'),
+                'product-hover-secimage-zoomoutup'    => esc_html__('Zoom Out Up', 'tankless'),
+                'product-hover-secimage-zoomoutdown'  => esc_html__('Zoom Out Down', 'tankless'),
+                'product-hover-secimage-zoomoutleft'  => esc_html__('Zoom Out Left', 'tankless'),
+                'product-hover-secimage-zoomoutright' => esc_html__('Zoom Out Right', 'tankless'),
+                'product-hover-secimage-pushup'       => esc_html__('Push Up', 'tankless'),
+                'product-hover-secimage-pushdown'     => esc_html__('Push Down', 'tankless'),
+                'product-hover-secimage-pushleft'     => esc_html__('Push Left', 'tankless'),
+                'product-hover-secimage-pushright'    => esc_html__('Push Right', 'tankless'),
+                'product-hover-secimage-slideup'      => esc_html__('Slide Up', 'tankless'),
+                'product-hover-secimage-slidedown'    => esc_html__('Slide Down', 'tankless'),
+                'product-hover-secimage-slideleft'    => esc_html__('Slide Left', 'tankless'),
+                'product-hover-secimage-slideright'   => esc_html__('Slide Right', 'tankless'),
+                'product-hover-secimage-hingeup'      => esc_html__('Hinge Up', 'tankless'),
+                'product-hover-secimage-hingedown'    => esc_html__('Hinge Down', 'tankless'),
+                'product-hover-secimage-hingeleft'    => esc_html__('Hinge Left', 'tankless'),
+                'product-hover-secimage-hingeright'   => esc_html__('Hinge Right', 'tankless'),
+                'product-hover-secimage-foldup'       => esc_html__('Fold Up', 'tankless'),
+                'product-hover-secimage-folddown'     => esc_html__('Fold Down', 'tankless'),
+                'product-hover-secimage-foldleft'     => esc_html__('Fold Left', 'tankless'),
+                'product-hover-secimage-foldright'    => esc_html__('Fold Right', 'tankless'),
+                'product-hover-secimage-fliphoriz'    => esc_html__('Flip Horizontal', 'tankless'),
+                'product-hover-secimage-flipvert'     => esc_html__('Flip Vertical', 'tankless')
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -109,10 +109,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect' ) ) 
 
 }
 
-if( !function_exists('glidex_woo_listing_option_hover_secondary_image_effect') ) {
-	function glidex_woo_listing_option_hover_secondary_image_effect() {
-		return Glidex_Woo_Listing_Option_Hover_Secondary_Image_Effect::instance();
+if( !function_exists('tankless_woo_listing_option_hover_secondary_image_effect') ) {
+	function tankless_woo_listing_option_hover_secondary_image_effect() {
+		return Tankless_Woo_Listing_Option_Hover_Secondary_Image_Effect::instance();
 	}
 }
 
-glidex_woo_listing_option_hover_secondary_image_effect();
+tankless_woo_listing_option_hover_secondary_image_effect();

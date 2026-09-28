@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
 
-    class Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Thumb_IconsGroup_Style extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-thumb-iconsgroup-style';
-            $this->option_name          = esc_html__('Icons Group - Style', 'glidex');
+            $this->option_name          = esc_html__('Icons Group - Style', 'tankless');
             $this->option_default_value = 'product-thumb-iconsgroup-style-simple';
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_value_prefix  = 'product-thumb-iconsgroup-style-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 30, 1 );
+            add_filter( 'tankless_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 30, 1 );
         }
 
         /**
@@ -75,19 +75,19 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-thumb-iconsgroup-style-simple'                      => esc_html__('Simple', 'glidex'),
-                'product-thumb-iconsgroup-style-bgfill-square'               => esc_html__('Background Fill Square', 'glidex'),
-                'product-thumb-iconsgroup-style-bgfill-rounded-square'       => esc_html__('Background Fill Rounded Square', 'glidex'),
-                'product-thumb-iconsgroup-style-bgfill-rounded'              => esc_html__('Background Fill Rounded', 'glidex'),
-                'product-thumb-iconsgroup-style-brdrfill-square'             => esc_html__('Border Fill Square', 'glidex'),
-                'product-thumb-iconsgroup-style-brdrfill-rounded-square'     => esc_html__('Border Fill Rounded Square', 'glidex'),
-                'product-thumb-iconsgroup-style-brdrfill-rounded'            => esc_html__('Border Fill Rounded', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbgfill-square'           => esc_html__('Skin Background Fill Square', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbgfill-rounded-square'   => esc_html__('Skin Background Fill Rounded Square', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbgfill-rounded'          => esc_html__('Skin Background Fill Rounded', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbrdrfill-square'         => esc_html__('Skin Border Fill Square', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbrdrfill-rounded-square' => esc_html__('Skin Border Fill Rounded Square', 'glidex'),
-                'product-thumb-iconsgroup-style-skinbrdrfill-rounded'        => esc_html__('Skin Border Fill Rounded', 'glidex')
+                'product-thumb-iconsgroup-style-simple'                      => esc_html__('Simple', 'tankless'),
+                'product-thumb-iconsgroup-style-bgfill-square'               => esc_html__('Background Fill Square', 'tankless'),
+                'product-thumb-iconsgroup-style-bgfill-rounded-square'       => esc_html__('Background Fill Rounded Square', 'tankless'),
+                'product-thumb-iconsgroup-style-bgfill-rounded'              => esc_html__('Background Fill Rounded', 'tankless'),
+                'product-thumb-iconsgroup-style-brdrfill-square'             => esc_html__('Border Fill Square', 'tankless'),
+                'product-thumb-iconsgroup-style-brdrfill-rounded-square'     => esc_html__('Border Fill Rounded Square', 'tankless'),
+                'product-thumb-iconsgroup-style-brdrfill-rounded'            => esc_html__('Border Fill Rounded', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbgfill-square'           => esc_html__('Skin Background Fill Square', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbgfill-rounded-square'   => esc_html__('Skin Background Fill Rounded Square', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbgfill-rounded'          => esc_html__('Skin Background Fill Rounded', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbrdrfill-square'         => esc_html__('Skin Border Fill Square', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbrdrfill-rounded-square' => esc_html__('Skin Border Fill Rounded Square', 'tankless'),
+                'product-thumb-iconsgroup-style-skinbrdrfill-rounded'        => esc_html__('Skin Border Fill Rounded', 'tankless')
             );
             $settings['default']    =  $this->option_default_value;
 
@@ -97,10 +97,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_thumb_iconsgroup_style') ) {
-	function glidex_woo_listing_option_thumb_iconsgroup_style() {
-		return Glidex_Woo_Listing_Option_Thumb_IconsGroup_Style::instance();
+if( !function_exists('tankless_woo_listing_option_thumb_iconsgroup_style') ) {
+	function tankless_woo_listing_option_thumb_iconsgroup_style() {
+		return Tankless_Woo_Listing_Option_Thumb_IconsGroup_Style::instance();
 	}
 }
 
-glidex_woo_listing_option_thumb_iconsgroup_style();
+tankless_woo_listing_option_thumb_iconsgroup_style();

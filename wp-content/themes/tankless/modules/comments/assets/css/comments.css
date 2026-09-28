@@ -138,7 +138,7 @@
 	.commententries nav.navigation > div .nav-previous { float: left; }
 	.commententries nav.navigation > div .nav-next { float: right; }
 	.commententries .nav-links > div a { border-bottom: 1px solid; padding-bottom: 5px; font-size: var(--wdtFontSize_Base); }
-	.commententries .nav-previous > a:before, .commententries .nav-next > a:after { font-size: 16px; font-family: "Glidex Icons"; transition: none; -webkit-transition: none;
+	.commententries .nav-previous > a:before, .commententries .nav-next > a:after { font-size: 16px; font-family: "Tankless Icons"; transition: none; -webkit-transition: none;
 	-ms-transition: none; -moz-transition: none; }
 	.commententries .nav-previous > a:before { content: "\f104"; margin-right: 10px; }
 	.commententries .nav-next > a:after { content: "\f105"; margin-left: 10px; }

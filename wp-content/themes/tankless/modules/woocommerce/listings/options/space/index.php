@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Space' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Space' ) ) {
 
-    class Glidex_Woo_Listing_Option_Space extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Space extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Space' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-space';
-            $this->option_name          = esc_html__('Space', 'glidex');
+            $this->option_name          = esc_html__('Space', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = 'product-with-space';
             $this->option_value_prefix  = 'product-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Space' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 15, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 15, 1 );
         }
 
         /**
@@ -75,8 +75,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Space' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-without-space' => esc_html__('False', 'glidex'),
-                'product-with-space'    => esc_html__('True', 'glidex'),
+                'product-without-space' => esc_html__('False', 'tankless'),
+                'product-with-space'    => esc_html__('True', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -86,10 +86,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Space' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_space') ) {
-	function glidex_woo_listing_option_space() {
-		return Glidex_Woo_Listing_Option_Space::instance();
+if( !function_exists('tankless_woo_listing_option_space') ) {
+	function tankless_woo_listing_option_space() {
+		return Tankless_Woo_Listing_Option_Space::instance();
 	}
 }
 
-glidex_woo_listing_option_space();
+tankless_woo_listing_option_space();

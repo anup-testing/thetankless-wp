@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Shop_Others_Checkout' ) ) {
+if( !class_exists( 'Tankless_Shop_Others_Checkout' ) ) {
 
-    class Glidex_Shop_Others_Checkout {
+    class Tankless_Shop_Others_Checkout {
 
         private static $_instance = null;
 
@@ -39,8 +39,8 @@ if( !class_exists( 'Glidex_Shop_Others_Checkout' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/others/checkout/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/others/checkout/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -49,8 +49,8 @@ if( !class_exists( 'Glidex_Shop_Others_Checkout' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/others/checkout/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/others/checkout/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -71,11 +71,11 @@ if( !class_exists( 'Glidex_Shop_Others_Checkout' ) ) {
 
 }
 
-if( !function_exists('glidex_shop_others_checkout') ) {
-	function glidex_shop_others_checkout() {
-        $reflection = new ReflectionClass('Glidex_Shop_Others_Checkout');
+if( !function_exists('tankless_shop_others_checkout') ) {
+	function tankless_shop_others_checkout() {
+        $reflection = new ReflectionClass('Tankless_Shop_Others_Checkout');
         return $reflection->newInstanceWithoutConstructor();
 	}
 }
 
-Glidex_Shop_Others_Checkout::instance();
+Tankless_Shop_Others_Checkout::instance();

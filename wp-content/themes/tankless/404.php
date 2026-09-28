@@ -8,9 +8,9 @@
 </head>
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <?php do_action( 'glidex_hook_top' ); ?>
-    <?php glidex_template_part( 'content', 'content', '404' ); ?>
-    <?php do_action( 'glidex_hook_bottom' ); ?>
+    <?php do_action( 'tankless_hook_top' ); ?>
+    <?php tankless_template_part( 'content', 'content', '404' ); ?>
+    <?php do_action( 'tankless_hook_bottom' ); ?>
     <?php wp_footer(); ?>
 </body>
 </html>

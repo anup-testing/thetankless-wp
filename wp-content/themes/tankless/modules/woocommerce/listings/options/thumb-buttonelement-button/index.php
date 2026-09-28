@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
 
-    class Glidex_Woo_Listing_Option_Thumb_Button_Element_button extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Thumb_Button_Element_button extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-thumb-buttonelement-button';
-            $this->option_name          = esc_html__('Button Element - Button', 'glidex');
+            $this->option_name          = esc_html__('Button Element - Button', 'tankless');
             $this->option_type          = array ( 'html', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = '';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 35, 1 );
+            add_filter( 'tankless_woo_custom_product_template_thumb_options', array( $this, 'woo_custom_product_template_thumb_options'), 35, 1 );
         }
 
         /**
@@ -75,11 +75,11 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''          => esc_html__('None', 'glidex'),
-                'cart'      => esc_html__('Cart', 'glidex'),
-                'wishlist'  => esc_html__('Wishlist', 'glidex'),
-                'compare'   => esc_html__('Compare', 'glidex'),
-                'quickview' => esc_html__('Quick View', 'glidex')
+                ''          => esc_html__('None', 'tankless'),
+                'cart'      => esc_html__('Cart', 'tankless'),
+                'wishlist'  => esc_html__('Wishlist', 'tankless'),
+                'compare'   => esc_html__('Compare', 'tankless'),
+                'quickview' => esc_html__('Quick View', 'tankless')
             );
             $settings['default']    =  $this->option_default_value;
 
@@ -89,10 +89,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Thumb_Button_Element_button' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_thumb_buttonelement_button') ) {
-	function glidex_woo_listing_option_thumb_buttonelement_button() {
-		return Glidex_Woo_Listing_Option_Thumb_Button_Element_button::instance();
+if( !function_exists('tankless_woo_listing_option_thumb_buttonelement_button') ) {
+	function tankless_woo_listing_option_thumb_buttonelement_button() {
+		return Tankless_Woo_Listing_Option_Thumb_Button_Element_button::instance();
 	}
 }
 
-glidex_woo_listing_option_thumb_buttonelement_button();
+tankless_woo_listing_option_thumb_buttonelement_button();

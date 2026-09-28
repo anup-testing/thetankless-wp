@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Label_Design' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Label_Design' ) ) {
 
-    class Glidex_Woo_Listing_Option_Label_Design extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Label_Design extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Label_Design' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-label-design';
-            $this->option_name          = esc_html__('Product Label Design', 'glidex');
+            $this->option_name          = esc_html__('Product Label Design', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = 'product-label-boxed';
             $this->option_value_prefix  = 'product-label-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Label_Design' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 75, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 75, 1 );
         }
 
         /**
@@ -75,11 +75,11 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Label_Design' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                'product-label-boxed'      => esc_html__('Boxed', 'glidex'),
-                'product-label-circle'  => esc_html__('Circle', 'glidex'),
-                'product-label-rounded'   => esc_html__('Rounded', 'glidex'),
-                'product-label-angular'   => esc_html__('Angular', 'glidex'),
-                'product-label-ribbon'   => esc_html__('Ribbon', 'glidex'),
+                'product-label-boxed'      => esc_html__('Boxed', 'tankless'),
+                'product-label-circle'  => esc_html__('Circle', 'tankless'),
+                'product-label-rounded'   => esc_html__('Rounded', 'tankless'),
+                'product-label-angular'   => esc_html__('Angular', 'tankless'),
+                'product-label-ribbon'   => esc_html__('Ribbon', 'tankless'),
             );
             $settings['default'] =  $this->option_default_value;
 
@@ -89,10 +89,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Label_Design' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_label_design') ) {
-	function glidex_woo_listing_option_label_design() {
-		return Glidex_Woo_Listing_Option_Label_Design::instance();
+if( !function_exists('tankless_woo_listing_option_label_design') ) {
+	function tankless_woo_listing_option_label_design() {
+		return Tankless_Woo_Listing_Option_Label_Design::instance();
 	}
 }
 
-glidex_woo_listing_option_label_design();
+tankless_woo_listing_option_label_design();

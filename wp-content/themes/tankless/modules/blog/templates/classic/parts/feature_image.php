@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 
 <?php
-	$post_meta = get_post_meta( $post_ID, '_glidex_post_settings', TRUE );
+	$post_meta = get_post_meta( $post_ID, '_tankless_post_settings', TRUE );
 	$post_meta = is_array( $post_meta ) ? $post_meta  : array();
 
 	$post_format = !empty( $post_meta['post-format-type'] ) ? $post_meta['post-format-type'] : get_post_format();
@@ -13,7 +13,7 @@
 
 	<!-- Featured Image -->
 	<div class="entry-thumb">
-		<?php glidex_template_part( 'blog', 'templates/post-format/post', $post_format, $template_args ); ?>
+		<?php tankless_template_part( 'blog', 'templates/post-format/post', $post_format, $template_args ); ?>
 
         <?php if( $enable_post_format ) : ?>
 	        <!-- Post Format -->

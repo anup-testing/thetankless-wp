@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Effect' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Overlay_Effect' ) ) {
 
-    class Glidex_Woo_Listing_Option_Overlay_Effect extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Overlay_Effect extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -38,7 +38,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Effect' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-overlay-effect';
-            $this->option_name          = esc_html__('Overlay Effect', 'glidex');
+            $this->option_name          = esc_html__('Overlay Effect', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-overlay-';
@@ -54,7 +54,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Effect' ) ) {
             function render_backend() {
 
                 /* Custom Product Templates - Options */
-                    add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 20, 1 );
+                    add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 20, 1 );
 
             }
 
@@ -89,23 +89,23 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Effect' ) ) {
                 $settings['type']                         =  'select';
                 $settings['title']                        =  $this->option_name;
                 $settings['options']                      =  array (
-                    ''                                    => esc_html__('None', 'glidex'),
-                    'product-overlay-fixed'               => esc_html__('Fixed', 'glidex'),
-                    'product-overlay-toptobottom'         => esc_html__('Top to Bottom', 'glidex'),
-                    'product-overlay-bottomtotop'         => esc_html__('Bottom to Top', 'glidex'),
-                    'product-overlay-righttoleft'         => esc_html__('Right to Left', 'glidex'),
-                    'product-overlay-lefttoright'         => esc_html__('Left to Right', 'glidex'),
-                    'product-overlay-middle'              => esc_html__('Middle', 'glidex'),
-                    'product-overlay-middleradial'        => esc_html__('Middle Radial', 'glidex'),
-                    'product-overlay-gradienttoptobottom' => esc_html__('Gradient - Top to Bottom', 'glidex'),
-                    'product-overlay-gradientbottomtotop' => esc_html__('Gradient - Bottom to Top', 'glidex'),
-                    'product-overlay-gradientrighttoleft' => esc_html__('Gradient - Right to Left', 'glidex'),
-                    'product-overlay-gradientlefttoright' => esc_html__('Gradient - Left to Right', 'glidex'),
-                    'product-overlay-gradientradial'      => esc_html__('Gradient - Radial', 'glidex'),
-                    'product-overlay-flash'               => esc_html__('Flash', 'glidex'),
-                    'product-overlay-scale'               => esc_html__('Scale', 'glidex'),
-                    'product-overlay-horizontalelastic'   => esc_html__('Horizontal - Elastic', 'glidex'),
-                    'product-overlay-verticalelastic'     => esc_html__('Vertical - Elastic', 'glidex')
+                    ''                                    => esc_html__('None', 'tankless'),
+                    'product-overlay-fixed'               => esc_html__('Fixed', 'tankless'),
+                    'product-overlay-toptobottom'         => esc_html__('Top to Bottom', 'tankless'),
+                    'product-overlay-bottomtotop'         => esc_html__('Bottom to Top', 'tankless'),
+                    'product-overlay-righttoleft'         => esc_html__('Right to Left', 'tankless'),
+                    'product-overlay-lefttoright'         => esc_html__('Left to Right', 'tankless'),
+                    'product-overlay-middle'              => esc_html__('Middle', 'tankless'),
+                    'product-overlay-middleradial'        => esc_html__('Middle Radial', 'tankless'),
+                    'product-overlay-gradienttoptobottom' => esc_html__('Gradient - Top to Bottom', 'tankless'),
+                    'product-overlay-gradientbottomtotop' => esc_html__('Gradient - Bottom to Top', 'tankless'),
+                    'product-overlay-gradientrighttoleft' => esc_html__('Gradient - Right to Left', 'tankless'),
+                    'product-overlay-gradientlefttoright' => esc_html__('Gradient - Left to Right', 'tankless'),
+                    'product-overlay-gradientradial'      => esc_html__('Gradient - Radial', 'tankless'),
+                    'product-overlay-flash'               => esc_html__('Flash', 'tankless'),
+                    'product-overlay-scale'               => esc_html__('Scale', 'tankless'),
+                    'product-overlay-horizontalelastic'   => esc_html__('Horizontal - Elastic', 'tankless'),
+                    'product-overlay-verticalelastic'     => esc_html__('Vertical - Elastic', 'tankless')
                 );
                 $settings['default']                      =  $this->option_default_value;
 
@@ -117,10 +117,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Overlay_Effect' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_overlay_effect') ) {
-	function glidex_woo_listing_option_overlay_effect() {
-		return Glidex_Woo_Listing_Option_Overlay_Effect::instance();
+if( !function_exists('tankless_woo_listing_option_overlay_effect') ) {
+	function tankless_woo_listing_option_overlay_effect() {
+		return Tankless_Woo_Listing_Option_Overlay_Effect::instance();
 	}
 }
 
-glidex_woo_listing_option_overlay_effect();
+tankless_woo_listing_option_overlay_effect();

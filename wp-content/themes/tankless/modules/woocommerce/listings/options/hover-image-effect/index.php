@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Image_Effect' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Hover_Image_Effect' ) ) {
 
-    class Glidex_Woo_Listing_Option_Hover_Image_Effect extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Hover_Image_Effect extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Image_Effect' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-hover-image-effect';
-            $this->option_name          = esc_html__('Image Effect', 'glidex');
+            $this->option_name          = esc_html__('Image Effect', 'tankless');
             $this->option_type          = array ( 'class', 'value-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-hover-image-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Image_Effect' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 10, 1 );
+            add_filter( 'tankless_woo_custom_product_template_hover_options', array( $this, 'woo_custom_product_template_hover_options'), 10, 1 );
         }
 
         /**
@@ -75,16 +75,16 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Image_Effect' ) ) {
             $settings['type']    =  'select';
             $settings['title']   =  $this->option_name;
             $settings['options'] =  array (
-                ''                                => esc_html__('None', 'glidex'),
-                'product-hover-image-blur'        => esc_html__('Blur', 'glidex'),
-                'product-hover-image-blackwhite'  => esc_html__('Black & White', 'glidex'),
-                'product-hover-image-fadeinleft'  => esc_html__('Fade In Left', 'glidex'),
-                'product-hover-image-fadeinright' => esc_html__('Fade In Right', 'glidex'),
-                'product-hover-image-rotate'      => esc_html__('Rotate', 'glidex'),
-                'product-hover-image-rotatealt'   => esc_html__('Rotate - Alt', 'glidex'),
-                'product-hover-image-scalein'     => esc_html__('Scale In', 'glidex'),
-                'product-hover-image-scaleout'    => esc_html__('Scale Out', 'glidex'),
-                'product-hover-image-floatout'    => esc_html__('Float Up', 'glidex')
+                ''                                => esc_html__('None', 'tankless'),
+                'product-hover-image-blur'        => esc_html__('Blur', 'tankless'),
+                'product-hover-image-blackwhite'  => esc_html__('Black & White', 'tankless'),
+                'product-hover-image-fadeinleft'  => esc_html__('Fade In Left', 'tankless'),
+                'product-hover-image-fadeinright' => esc_html__('Fade In Right', 'tankless'),
+                'product-hover-image-rotate'      => esc_html__('Rotate', 'tankless'),
+                'product-hover-image-rotatealt'   => esc_html__('Rotate - Alt', 'tankless'),
+                'product-hover-image-scalein'     => esc_html__('Scale In', 'tankless'),
+                'product-hover-image-scaleout'    => esc_html__('Scale Out', 'tankless'),
+                'product-hover-image-floatout'    => esc_html__('Float Up', 'tankless')
 
             );
             $settings['default'] =  $this->option_default_value;
@@ -95,10 +95,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Hover_Image_Effect' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_hover_image_effect') ) {
-	function glidex_woo_listing_option_hover_image_effect() {
-		return Glidex_Woo_Listing_Option_Hover_Image_Effect::instance();
+if( !function_exists('tankless_woo_listing_option_hover_image_effect') ) {
+	function tankless_woo_listing_option_hover_image_effect() {
+		return Tankless_Woo_Listing_Option_Hover_Image_Effect::instance();
 	}
 }
 
-glidex_woo_listing_option_hover_image_effect();
+tankless_woo_listing_option_hover_image_effect();

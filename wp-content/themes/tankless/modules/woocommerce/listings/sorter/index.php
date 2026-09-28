@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Sorter' ) ) {
 
-    class Glidex_Woo_Listing_Sorter {
+    class Tankless_Woo_Listing_Sorter {
 
         private static $_instance = null;
 
@@ -37,10 +37,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
                 add_filter( 'woocommerce_pagination_args', array ( $this, 'woocommerce_pagination_args' ) );
 
             /* Sorter CSS */
-                add_filter( 'glidex_woo_archive_css', array( $this, 'woo_sorter_css'), 10, 1 );
+                add_filter( 'tankless_woo_archive_css', array( $this, 'woo_sorter_css'), 10, 1 );
 
             /* Sorter js */
-                add_filter( 'glidex_woo_archive_js', array( $this, 'woo_sorter_js'), 10, 1 );
+                add_filter( 'tankless_woo_archive_js', array( $this, 'woo_sorter_js'), 10, 1 );
 
             /* Widgets Filter */
                 add_filter('woocommerce_layered_nav_term_html', array( $this, 'woo_woocommerce_layered_nav_term_html' ), 10, 4);
@@ -53,8 +53,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
             function module_dir_path() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_DIR . '/woocommerce/listings/sorter/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_DIR . '/woocommerce/listings/sorter/';
                 } else {
                     return trailingslashit( plugin_dir_path( __FILE__ ) );
                 }
@@ -63,8 +63,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
             function module_dir_url() {
 
-                if( glidex_is_file_in_theme( __FILE__ ) ) {
-                    return GLIDEX_MODULE_URI . '/woocommerce/listings/sorter/';
+                if( tankless_is_file_in_theme( __FILE__ ) ) {
+                    return TANKLESS_MODULE_URI . '/woocommerce/listings/sorter/';
                 } else {
                     return trailingslashit( plugin_dir_url( __FILE__ ) );
                 }
@@ -76,7 +76,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
         */
             function woo_sorter_settings() {
 
-                $settings = apply_filters( 'glidex_woo_sorter_settings', array () );
+                $settings = apply_filters( 'tankless_woo_sorter_settings', array () );
 
                 return $settings;
 
@@ -318,10 +318,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
                     echo '<div class="product-layout-controller '.esc_attr($grid_controller_class).'">';
                         echo '<ul class="product-change-layout">';
-                            echo '<li class="hidden"><span data-column="1" class="'.esc_attr($one_column_class).'">'.esc_html__('1', 'glidex').'</span></li>';
-                            echo '<li><span data-column="2" class="'.esc_attr($two_column_class).'">'.esc_html__('2', 'glidex').'</span></li>';
-                            echo '<li><span data-column="3" class="'.esc_attr($three_column_class).'">'.esc_html__('3', 'glidex').'</span></li>';
-                            echo '<li><span data-column="4" class="'.esc_attr($four_column_class).'">'.esc_html__('4', 'glidex').'</span></li>';
+                            echo '<li class="hidden"><span data-column="1" class="'.esc_attr($one_column_class).'">'.esc_html__('1', 'tankless').'</span></li>';
+                            echo '<li><span data-column="2" class="'.esc_attr($two_column_class).'">'.esc_html__('2', 'tankless').'</span></li>';
+                            echo '<li><span data-column="3" class="'.esc_attr($three_column_class).'">'.esc_html__('3', 'tankless').'</span></li>';
+                            echo '<li><span data-column="4" class="'.esc_attr($four_column_class).'">'.esc_html__('4', 'tankless').'</span></li>';
                         echo '</ul>';
                     echo '</div>';
 
@@ -338,8 +338,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
                     echo '<div class="product-list-options-controller '.esc_attr($list_controller_class).'">';
                         echo '<ul class="product-list-options">';
-                            echo '<li><span data-list-option="left-thumb" class="'.esc_attr($left_thumb_class).'">'.esc_html__('Left Thumb', 'glidex').'</span></li>';
-                            echo '<li><span data-list-option="right-thumb" class="'.esc_attr($right_thumb_class).'">'.esc_html__('Right Thumb', 'glidex').'</span></li>';
+                            echo '<li><span data-list-option="left-thumb" class="'.esc_attr($left_thumb_class).'">'.esc_html__('Left Thumb', 'tankless').'</span></li>';
+                            echo '<li><span data-list-option="right-thumb" class="'.esc_attr($right_thumb_class).'">'.esc_html__('Right Thumb', 'tankless').'</span></li>';
                         echo '</ul>';
                     echo '</div>';
 
@@ -370,8 +370,8 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
                     echo '<div class="product-display-controller">';
                         echo '<ul class="product-change-display">';
-                            echo '<li><span data-display="grid" class="'.esc_attr($grid_display_mode_class).'">'.esc_html__('Grid', 'glidex').'</span></li>';
-                            echo '<li><span data-display="list" class="'.esc_attr($list_display_mode_class).'">'.esc_html__('List', 'glidex').'</span></li>';
+                            echo '<li><span data-display="grid" class="'.esc_attr($grid_display_mode_class).'">'.esc_html__('Grid', 'tankless').'</span></li>';
+                            echo '<li><span data-display="list" class="'.esc_attr($list_display_mode_class).'">'.esc_html__('List', 'tankless').'</span></li>';
                         echo '</ul>';
                     echo '</div>';
 
@@ -392,14 +392,14 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 
             function woo_filters_widget_area() {
                 echo '<div class="product-loop-filters-area-group">';
-                    echo '<div class="product-loop-filters-area-title">'.esc_html__('Filters', 'glidex').'</div>';
+                    echo '<div class="product-loop-filters-area-title">'.esc_html__('Filters', 'tankless').'</div>';
                 echo '</div>';
             }
 
             function woo_sorting_custom_extension() {
                 echo '<div class="product-loop-filters-area-content hide">';
                     echo '<div class="product-loop-filters-area-content-inner">';
-                        dynamic_sidebar( 'glidex-shop-filters' );
+                        dynamic_sidebar( 'tankless-shop-filters' );
                     echo '</div>';
                 echo '</div>';
             }
@@ -476,10 +476,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Sorter' ) ) {
 }
 
 
-if( !function_exists('glidex_woo_listing_sorter') ) {
-	function glidex_woo_listing_sorter() {
-		return Glidex_Woo_Listing_Sorter::instance();
+if( !function_exists('tankless_woo_listing_sorter') ) {
+	function tankless_woo_listing_sorter() {
+		return Tankless_Woo_Listing_Sorter::instance();
 	}
 }
 
-glidex_woo_listing_sorter();
+tankless_woo_listing_sorter();

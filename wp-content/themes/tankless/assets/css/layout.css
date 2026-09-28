@@ -11,17 +11,17 @@
    backdrop-filter: blur(12px);
 }
 
-.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.glidex-side-popup-icon-class-1,
-.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.glidex-side-popup-icon-class-2,
-.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.glidex-side-popup-icon-class-3 {
+.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.tankless-side-popup-icon-class-1,
+.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.tankless-side-popup-icon-class-2,
+.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon svg path.tankless-side-popup-icon-class-3 {
    transition: var(--wdt-Ad-Transition);
    transform-origin: center center;
    transform: scaleX(1);
    -webkit-transform: scaleX(1);
 }
 
-.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon:hover svg path.glidex-side-popup-icon-class-1,
-.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon:hover svg path.glidex-side-popup-icon-class-3 {
+.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon:hover svg path.tankless-side-popup-icon-class-1,
+.wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon:hover svg path.tankless-side-popup-icon-class-3 {
    transform: scaleX(2);
    -webkit-transform: scaleX(2);
 }

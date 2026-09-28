@@ -6,9 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !class_exists( 'Glidex_Woo_Listing_Option_Custom_Class' ) ) {
+if( !class_exists( 'Tankless_Woo_Listing_Option_Custom_Class' ) ) {
 
-    class Glidex_Woo_Listing_Option_Custom_Class extends Glidex_Woo_Listing_Option_Core {
+    class Tankless_Woo_Listing_Option_Custom_Class extends Tankless_Woo_Listing_Option_Core {
 
         private static $_instance = null;
 
@@ -34,7 +34,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Custom_Class' ) ) {
         function __construct() {
 
             $this->option_slug          = 'product-custom-class';
-            $this->option_name          = esc_html__('Custom Class', 'glidex');
+            $this->option_name          = esc_html__('Custom Class', 'tankless');
             $this->option_type          = array ( 'class', 'key-css' );
             $this->option_default_value = '';
             $this->option_value_prefix  = 'product-';
@@ -46,7 +46,7 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Custom_Class' ) ) {
          * Backend Render
          */
         function render_backend() {
-            add_filter( 'glidex_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 65, 1 );
+            add_filter( 'tankless_woo_custom_product_template_common_options', array( $this, 'woo_custom_product_template_common_options'), 65, 1 );
         }
 
         /**
@@ -82,10 +82,10 @@ if( !class_exists( 'Glidex_Woo_Listing_Option_Custom_Class' ) ) {
 
 }
 
-if( !function_exists('glidex_woo_listing_option_custom_class') ) {
-	function glidex_woo_listing_option_custom_class() {
-		return Glidex_Woo_Listing_Option_Custom_Class::instance();
+if( !function_exists('tankless_woo_listing_option_custom_class') ) {
+	function tankless_woo_listing_option_custom_class() {
+		return Tankless_Woo_Listing_Option_Custom_Class::instance();
 	}
 }
 
-glidex_woo_listing_option_custom_class();
+tankless_woo_listing_option_custom_class();

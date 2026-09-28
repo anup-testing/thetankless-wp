@@ -799,7 +799,7 @@
     /* .select2-container--default .select2-selection--single .select2-selection__arrow b { border-top-color: currentColor !important; } */
     /* .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b { border-bottom-color: currentColor !important; } */
 
-    .select2-container .select2-choice .select2-arrow b:after { border: none; content: '\f107'; font-family: "Glidex Icons"; margin-left: -15px; margin-top: 0; transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); -webkit-transform: translateY(-50%); }
+    .select2-container .select2-choice .select2-arrow b:after { border: none; content: '\f107'; font-family: "Tankless Icons"; margin-left: -15px; margin-top: 0; transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); -webkit-transform: translateY(-50%); }
 
     .select2-container.select2-container--default .select2-selection--multiple .select2-selection__rendered { display: block; float: none; line-height: 1.8em; margin: 0; padding: 0 15px; width: auto; white-space: normal; }
 
@@ -1056,7 +1056,7 @@
         /* transform: translateY(-50%);
         -webkit-transform: translateY(-50%); */
         left: 18px;
-        font-family: "Glidex Icons";
+        font-family: "Tankless Icons";
         font-style: normal;
         font-weight: bold;
         text-decoration: inherit;
